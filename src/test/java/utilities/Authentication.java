@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class Authentication {
 
-
+    private static RequestSpecification spec;
 
     public static String generateToken(String page){
 

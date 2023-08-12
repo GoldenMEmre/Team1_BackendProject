@@ -19,7 +19,19 @@ public class ApiUtils {
   
     public static HashMap<String,Object> respHP;
 
+    public static void getRequestMethod(){
 
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .get(fullPath);
+
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+    }
 
     public static void emrePostMethod(String visitors_purpose,String description){
 
@@ -41,8 +53,38 @@ public class ApiUtils {
         response.prettyPrint();
         respHP=response.as(HashMap.class);
     }
+    public static void petParametreSet(String rawPaths){
+
+        // api/visitorsList
+
+        String [] paths = rawPaths.split("/"); // ["api","visitorsList"]
+
+        System.out.println(Arrays.toString(paths));
+
+       /*
+        spec.pathParam("pp1","api");
+        spec.pathParam("pp2","visitorsList");
+        */
+
+        StringBuilder tempPath = new StringBuilder("/{");
 
 
+        for (int i = 0; i < paths.length; i++) {
+
+            String key = "pp" + i;
+            String value = paths[i].trim();
+
+            HooksAPI.spec.pathParam(key,value);
+
+            tempPath.append(key + "}/{");
+        }
+        tempPath.deleteCharAt(tempPath.lastIndexOf("{"));
+        tempPath.deleteCharAt(tempPath.lastIndexOf("/"));
+
+        fullPath = tempPath.toString();
+        System.out.println("fullPath = " + fullPath);
+
+    }
 
 
     public static Response deleteRequest(){
