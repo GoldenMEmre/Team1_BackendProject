@@ -6,11 +6,10 @@ import io.restassured.specification.RequestSpecification;
 import utilities.Authentication;
 import utilities.ConfigReader;
 
-
 public class HooksAPI {
 
     public static RequestSpecification spec;
-    public static String token;
+    public static String token;    
 
     @Before (order=0)
     public void setUp(){
@@ -18,6 +17,7 @@ public class HooksAPI {
         spec = new RequestSpecBuilder().setBaseUri(ConfigReader.getProperty("base_url")).build();
 
     }
+
 
 
 }
