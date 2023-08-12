@@ -2,22 +2,8 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="false" />
+    <value-preview-text-wrapping value="true" />
     <value-preview-pinned value="false" />
-  </component>
-  <component name="DBNavigator.Project.DatabaseBrowserManager">
-    <autoscroll-to-editor value="false" />
-    <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
-    <loaded-nodes />
-  </component>
-  <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="39685d3a-0cf1-4e5f-9137-abd5e0410c52">
-      <console name="heallife" type="STANDARD" schema="heallife_hospitaltraining" session="Main" />
-    </connection>
-    <connection id="e87b2e6b-ee9a-45ee-90f5-070b13163177">
-      <console name="wonderworld_qa" type="STANDARD" schema="wonderworld_qa" session="Main" />
-    </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
@@ -25,200 +11,8 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="e87b2e6b-ee9a-45ee-90f5-070b13163177" dataset="wonderworld_qa.books" active-filter-id="" />
-    <filter-actions connection-id="e87b2e6b-ee9a-45ee-90f5-070b13163177" dataset="wonderworld_qa.content_types" active-filter-id="" />
-  </component>
-  <component name="DBNavigator.Project.ExecutionManager">
-    <retain-sticky-names value="false" />
-  </component>
-  <component name="DBNavigator.Project.MethodExecutionManager">
-    <method-browser />
-    <execution-history>
-      <group-entries value="true" />
-      <execution-inputs />
-    </execution-history>
-    <argument-values-cache />
-  </component>
-  <component name="DBNavigator.Project.ObjectQuickFilterManager">
-    <last-used-operator value="EQUAL" />
-    <filters />
-  </component>
   <component name="DBNavigator.Project.Settings">
-    <connections>
-      <connection id="39685d3a-0cf1-4e5f-9137-abd5e0410c52" active="true" signed="true">
-        <database>
-          <name value="heallife" />
-          <description value="" />
-          <database-type value="MYSQL" />
-          <config-type value="BASIC" />
-          <database-version value="5.5" />
-          <driver-source value="BUNDLED" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="194.140.198.209" />
-          <port value="3306" />
-          <database value="heallife_hospitaltraining" />
-          <tns-folder value="" />
-          <tns-profile value="" />
-          <type value="USER_PASSWORD" />
-          <user value="heallife_hospitaltraininguser" />
-          <deprecated-pwd value="UEkyWkp4QDltXikz" />
-        </database>
-        <properties>
-          <auto-commit value="false" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="" />
-          <proxy-port value="22" />
-          <proxy-user value="" />
-          <deprecated-proxy-pwd value="" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-          <key-passphrase value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="true" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="false" />
-          <environment-type value="default" />
-          <connectivity-timeout value="30" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
-          <object-type-filter>
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-          </object-type-filter>
-          <object-name-filters />
-        </object-filters>
-      </connection>
-      <connection id="e87b2e6b-ee9a-45ee-90f5-070b13163177" active="true" signed="true">
-        <database>
-          <name value="wonderworld_qa" />
-          <description value="" />
-          <database-type value="MYSQL" />
-          <config-type value="BASIC" />
-          <database-version value="5.5" />
-          <driver-source value="BUNDLED" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="194.140.198.209" />
-          <port value="3306" />
-          <database value="wonderworld_qa" />
-          <tns-folder value="" />
-          <tns-profile value="" />
-          <type value="USER_PASSWORD" />
-          <user value="wonderworld_qawcollegeuser" />
-          <deprecated-pwd value="MWd2eWZ4NiNR" />
-        </database>
-        <properties>
-          <auto-commit value="false" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="" />
-          <proxy-port value="22" />
-          <proxy-user value="" />
-          <deprecated-proxy-pwd value="" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-          <key-passphrase value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="true" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="false" />
-          <environment-type value="default" />
-          <connectivity-timeout value="30" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
-          <object-type-filter>
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-          </object-type-filter>
-          <object-name-filters />
-        </object-filters>
-      </connection>
-    </connections>
+    <connections />
     <browser-settings>
       <general>
         <display-mode value="TABBED" />
@@ -256,13 +50,13 @@
       </filters>
       <sorting>
         <object-type name="COLUMN" sorting-type="NAME" />
-        <object-type name="FUNCTİON" sorting-type="NAME" />
+        <object-type name="FUNCTION" sorting-type="NAME" />
         <object-type name="PROCEDURE" sorting-type="NAME" />
         <object-type name="ARGUMENT" sorting-type="POSITION" />
-        <object-type name="TYPE ATTRİBUTE" sorting-type="POSITION" />
+        <object-type name="TYPE ATTRIBUTE" sorting-type="POSITION" />
       </sorting>
       <default-editors>
-        <object-type name="VİEW" editor-type="SELECTION" />
+        <object-type name="VIEW" editor-type="SELECTION" />
         <object-type name="PACKAGE" editor-type="SELECTION" />
         <object-type name="TYPE" editor-type="SELECTION" />
       </default-editors>
@@ -273,24 +67,24 @@
           <object-type name="SCHEMA" enabled="true" />
           <object-type name="USER" enabled="false" />
           <object-type name="ROLE" enabled="false" />
-          <object-type name="PRİVİLEGE" enabled="false" />
+          <object-type name="PRIVILEGE" enabled="false" />
           <object-type name="CHARSET" enabled="false" />
           <object-type name="TABLE" enabled="true" />
-          <object-type name="VİEW" enabled="true" />
-          <object-type name="MATERİALİZED VİEW" enabled="true" />
-          <object-type name="İNDEX" enabled="true" />
-          <object-type name="CONSTRAİNT" enabled="true" />
-          <object-type name="DATASET TRİGGER" enabled="true" />
-          <object-type name="DATABASE TRİGGER" enabled="true" />
+          <object-type name="VIEW" enabled="true" />
+          <object-type name="MATERIALIZED VIEW" enabled="true" />
+          <object-type name="INDEX" enabled="true" />
+          <object-type name="CONSTRAINT" enabled="true" />
+          <object-type name="DATASET TRIGGER" enabled="true" />
+          <object-type name="DATABASE TRIGGER" enabled="true" />
           <object-type name="SYNONYM" enabled="false" />
           <object-type name="SEQUENCE" enabled="true" />
           <object-type name="PROCEDURE" enabled="true" />
-          <object-type name="FUNCTİON" enabled="true" />
+          <object-type name="FUNCTION" enabled="true" />
           <object-type name="PACKAGE" enabled="true" />
           <object-type name="TYPE" enabled="true" />
-          <object-type name="DİMENSİON" enabled="false" />
+          <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
-          <object-type name="DBLİNK" enabled="true" />
+          <object-type name="DBLINK" enabled="true" />
         </lookup-objects>
         <force-database-load value="false" />
         <prompt-connection-selection value="true" />
@@ -367,7 +161,7 @@
         <enable-reference-spellchecking value="false" />
       </general>
       <confirmations>
-        <save-changes value="true" />
+        <save-changes value="false" />
         <revert-changes value="true" />
       </confirmations>
     </code-editor-settings>
