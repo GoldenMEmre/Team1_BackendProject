@@ -1,0 +1,16 @@
+Index: Configuration.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#API DATA\r\nemail=sumeyra.gunel@admin.wonderworldcollege.com\r\npassword=wonderworld123\r\n\r\ninvalidEmail=sumeyra.gunel@wonderworldcollege.com\r\ninvalidPassword=world123\r\n\r\nSGteacheremail=sumeyra.gunel@teacher.wonderworldcollege.com\r\nGHteacheremail=gulten.harrelson@teacher.wonderworldcollege.com\r\nDGteacheremail=demet.gundogdu@teacher.wonderworldcollege.com\r\nOEteacheremail=ogun.erdogan@teacher.wonderworldcollege.com\r\nTSteacheremail=tuba.sanal@teacher.wonderworldcollege.com\r\nGYteacheremail=gaye.yilmaz@teacher.wonderworldcollege.com\r\n\r\n\r\nDGadminemail=demet.gundogdu@admin.wonderworldcollege.com\r\nOEadminemail=ogun.erdogan@admin.wonderworldcollege.com\r\nTSadminemail=tuba.sanal@admin.wonderworldcollege.com\r\nGYadminemail=gaye.yilmaz@admin.wonderworldcollege.com\r\nGHadminemail=gulten.harrelson@admin.wonderworldcollege.com\r\nMEadminemail=mustafa.emre@admin.wonderworldcollege.com\r\n\r\nSGstudentusername=std171\r\nGHstudentusername=std149\r\nDGstudentusername=std94\r\nOEstudentusername=std79\r\nTSstudentusername=std107\r\nGYstudentusername=std93\r\nMEstudentusername=std81\r\n#API ENDPOINT\r\n\r\nbase_url=https://qa.wonderworldcollege.com\r\n//\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/Configuration.properties b/Configuration.properties
+--- a/Configuration.properties	(revision f2793ec947c0eb4077533e93f88f61db619f5e5b)
++++ b/Configuration.properties	(date 1691843888807)
+@@ -30,4 +30,4 @@
+ #API ENDPOINT
+ 
+ base_url=https://qa.wonderworldcollege.com
+-//
++
