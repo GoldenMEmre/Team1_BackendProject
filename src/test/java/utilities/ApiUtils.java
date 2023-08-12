@@ -7,17 +7,30 @@ import org.json.JSONObject;
 import stepDefinitions.APIStepDefinition;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-
 
 public class ApiUtils {
 
     static Response response;
 
-    public static String fullPath;
+    public static HashMap<String,Object> respHP;
 
+    public static void getRequestMethod(){
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .get(fullPath);
+
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+    }
 
     public static void postMethod(String visitors_purpose,String description){
 
