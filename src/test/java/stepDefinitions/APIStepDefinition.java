@@ -14,9 +14,7 @@ import org.junit.Assert;
 import utilities.ApiUtils;
 import utilities.Authentication;
 import utilities.ConfigReader;
-
 import java.util.HashMap;
-
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 
@@ -76,6 +74,7 @@ public class APIStepDefinition {
         expectedData.put("status",200);
         expectedData.put("message","Success");
 
+
         Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
     }
@@ -86,7 +85,9 @@ public class APIStepDefinition {
         expectedData.put("status",403);
         expectedData.put("message","failed");
 
+
         Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
     }
+
 }
