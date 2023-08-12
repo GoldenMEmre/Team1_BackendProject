@@ -19,15 +19,44 @@ import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertEquals;
-import static utilities.ApiUtils.fullPath;
 
 public class APIStepDefinition {
 
     JSONObject reqBody;
-
     Response response;
+    public static String fullPath;
+
+    @Then("VisitorsPurpose icin Post request gonderilir.")
+    public void visitorspurposeIcinPostRequestGonderilir() {
+
+        /*
+        {
+            "visitors_purpose":"Veli Ziyareti",
+            "description":"Veli Ziyareti İçin Gelindi"
+        }
+         */
+
+        reqBody = new JSONObject();
+
+        reqBody.put("visitors_purpose","Veli Ziyareti");
+        reqBody.put("description","Veli Ziyareti İçin Gelindi");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization","Bearer "+ HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+    }
+
+    @Then("{string}, {string} icin Post request gonderilir.")
+    public void icinPostRequestGonderilir(String VisitorPurpose, String Description) {
+
+        ApiUtils.emrePostMethod(VisitorPurpose,Description);
+    }
 
     //************************** Ogün ****************************************
     @Given("{string} Page User sets {string} parameters")
