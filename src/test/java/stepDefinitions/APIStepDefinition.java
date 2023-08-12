@@ -7,9 +7,12 @@ import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.Assert;
 import utilities.ApiUtils;
 import utilities.Authentication;
 import utilities.ConfigReader;
+
+import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
@@ -169,8 +172,18 @@ public class APIStepDefinition {
         ApiUtils.petParametreSet(path);
     }
 
-    @Then("User sends a get request and verify status code and message")
-    public void user_sends_a_get_request_and_verify_status_code_and_message() {
+    @Then("User sends a get request")
+    public void user_sends_a_get_request() {
         ApiUtils.getRequestMethod();
+    }
+
+    @Then("Execute a verification for a valid authorization")
+    public void executeAVerificationForAValidAuthorization() {
+        HashMap<String,Object> expectedData = new HashMap<>();
+        expectedData.put("status",200);
+        expectedData.put("message","Success");
+
+        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
     }
 }

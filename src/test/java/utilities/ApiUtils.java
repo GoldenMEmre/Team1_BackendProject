@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
@@ -14,7 +15,7 @@ import static stepDefinitions.APIStepDefinition.fullPath;
 public class ApiUtils {
 
     static Response response;
-
+    public static HashMap<String,Object> respHP;
 
     public static void getRequestMethod(){
 
@@ -27,6 +28,7 @@ public class ApiUtils {
                 .get(fullPath);
 
         response.prettyPrint();
+        respHP = response.as(HashMap.class);
     }
 
     public static void postMethod(String visitors_purpose,String description){

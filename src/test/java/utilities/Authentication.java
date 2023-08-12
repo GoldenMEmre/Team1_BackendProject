@@ -51,7 +51,9 @@ public class Authentication {
         JsonPath resJP = response.jsonPath();
 
         String token=resJP.getString("token");
+        System.out.println(token);
         HooksAPI.token = token;
+        System.out.println(HooksAPI.token);
         return token;
     }
 
