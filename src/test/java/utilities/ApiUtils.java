@@ -4,6 +4,9 @@ import hooks.api.HooksAPI;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import stepDefinitions.APIStepDefinition;
+import java.util.Arrays;
+import java.util.HashMap;
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 
@@ -13,10 +16,12 @@ public class ApiUtils {
     static Response response;
 
     public static String fullPath;
+  
+    public static HashMap<String,Object> respHP;
 
 
 
-    public static void postMethod(String visitors_purpose,String description){
+    public static void emrePostMethod(String visitors_purpose,String description){
 
         JSONObject reqBody = new JSONObject();
 
@@ -34,12 +39,8 @@ public class ApiUtils {
                 .post(fullPath);
 
         response.prettyPrint();
-
-    
-
-
+        respHP=response.as(HashMap.class);
     }
-
 
 
 
