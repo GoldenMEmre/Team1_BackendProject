@@ -186,4 +186,14 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
     }
+
+    @Then("Execute a verification for an invalid authorization")
+    public void executeAVerificationForAnInvalidAuthorization() {
+        HashMap<String,Object> expectedData = new HashMap<>();
+        expectedData.put("status",403);
+        expectedData.put("message","failed");
+
+        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+    }
 }
