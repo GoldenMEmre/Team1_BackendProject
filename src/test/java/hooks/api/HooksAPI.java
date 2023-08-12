@@ -19,13 +19,6 @@ public class HooksAPI {
 
     }
 
-    @Before (order=1)
-    public void beforeGenerateToken(){
-
-        token = Authentication.generateToken();
-
-    }
-
 
 
 }
