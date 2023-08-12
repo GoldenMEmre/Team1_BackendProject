@@ -16,15 +16,18 @@ import utilities.Authentication;
 import utilities.ConfigReader;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class APIStepDefinition {
 
     JSONObject reqBody;
     Response response;
     public static String fullPath;
+
 
     @Then("VisitorsPurpose icin Post request gonderilir.")
     public void visitorspurposeIcinPostRequestGonderilir() {
@@ -89,4 +92,67 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
     }
-}
+    // *********************** GUlten ***********************//
+    @Given("User sends a Patch request to end point")
+    public void user_sends_a_patch_request_to_end_point() {
+      ApiUtils.patchRequestGulten();
+
+    }
+
+    @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
+    public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
+
+        JSONObject  reqBody =new JSONObject();
+        reqBody.put("id", 5);
+        reqBody.put("title","Sports Activite 2");
+        reqBody.put("event_for","all");
+        reqBody.put("session_id", "null");
+        reqBody.put("section","null");
+        reqBody.put("from_date","2023-02-14 00:00:00");
+        reqBody.put("to_date","2023-02-15 23:59:00");
+        reqBody.put("note","Sports");
+        reqBody.put("event_notification_message","Sports");
+        reqBody.put("show_onwebsite","0");
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization","Bearer "+ HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+
+    JSONObject jsonResponseBody =new JSONObject();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
