@@ -8,6 +8,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import utilities.ApiUtils;
+import utilities.Authentication;
 import utilities.ConfigReader;
 
 import static hooks.api.HooksAPI.spec;
@@ -160,5 +161,16 @@ public class APIStepDefinition {
 
 
 
+    }
+    //************************** Ogün ****************************************
+    @Given("{string} Page User sets {string} parameters")
+    public void page_user_sets_parameters(String page, String path) {
+        Authentication.generateToken(page);
+        ApiUtils.petParametreSet(path);
+    }
+
+    @Then("User sends a get request and verify status code and message")
+    public void user_sends_a_get_request_and_verify_status_code_and_message() {
+        ApiUtils.getRequestMethod();
     }
 }
