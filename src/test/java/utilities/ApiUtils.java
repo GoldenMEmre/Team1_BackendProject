@@ -4,17 +4,18 @@ import hooks.api.HooksAPI;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import stepDefinitions.APIStepDefinition;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static stepDefinitions.APIStepDefinition.fullPath;
 
 public class ApiUtils {
 
     static Response response;
+
     public static HashMap<String,Object> respHP;
 
     public static void getRequestMethod(){
@@ -49,13 +50,7 @@ public class ApiUtils {
                 .post(fullPath);
 
         response.prettyPrint();
-
-    
-
-
     }
-
-
     public static void petParametreSet(String rawPaths){
 
         // api/visitorsList
@@ -88,7 +83,18 @@ public class ApiUtils {
         System.out.println("fullPath = " + fullPath);
 
     }
+    public static void getRequestMethod(){
 
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                //.header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .get(fullPath);
+
+        response.prettyPrint();
+    }
     public static Response deleteRequest(){
         Response response = given().headers(
                 "Authorization",
