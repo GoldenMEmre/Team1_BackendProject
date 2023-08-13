@@ -5,6 +5,7 @@ import hooks.api.HooksAPI;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Assert;
@@ -88,8 +89,8 @@ public class APIStepDefinition {
         expectedData.put("status",403);
         expectedData.put("message","failed");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+      Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
+       Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
 
 
 
@@ -102,6 +103,48 @@ public class APIStepDefinition {
       ApiUtils.patchRequestGulten();
 
     }
+
+    @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
+    public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 5);
+        reqBody.put("title", "Sports Activite 2");
+        reqBody.put("event_for", "all");
+        reqBody.put("session_id", "null");
+        reqBody.put("section", "null");
+        reqBody.put("from_date", "2023-02-14 00:00:00");
+        reqBody.put("to_date", "2023-02-15 23:59:00");
+        reqBody.put("note", "Sports");
+        reqBody.put("event_notification_message", "Sports");
+        reqBody.put("show_onwebsite", "0");
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+
+        JsonPath resJP=response.jsonPath();
+        Assert.assertEquals(reqBody.get("id"),resJP.get("updateId"));
+        /*{
+            "status": 200,
+                "message": "Success",
+                "Token_remaining_time": 813,
+                "updateId": 5
+        }
+
+         */
+
+
+
+
+
+    }
+    // *********************** GUlten ***********************//
+
 
 
     @Then("Execute verification for given informations")
@@ -126,47 +169,6 @@ public class APIStepDefinition {
         ApiUtils.postMethodEventsByDateRange(start,end);
     }
 
-    @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
-    public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
-
-        JSONObject  reqBody =new JSONObject();
-        reqBody.put("id", 5);
-        reqBody.put("title","Sports Activite 2");
-        reqBody.put("event_for","all");
-        reqBody.put("session_id", "null");
-        reqBody.put("section","null");
-        reqBody.put("from_date","2023-02-14 00:00:00");
-        reqBody.put("to_date","2023-02-15 23:59:00");
-        reqBody.put("note","Sports");
-        reqBody.put("event_notification_message","Sports");
-        reqBody.put("show_onwebsite","0");
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .headers("Authorization","Bearer "+ HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .patch(fullPath);
-        response.prettyPrint();
-
-    JSONObject jsonResponseBody =new JSONObject();
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -185,6 +187,6 @@ public class APIStepDefinition {
 
 
 
-}
+
 
 
