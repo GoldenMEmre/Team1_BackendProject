@@ -1,12 +1,18 @@
 package stepDefinitions;
 
 
+import emreTestData.TestData;
 import hooks.api.HooksAPI;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+
+import org.hamcrest.Matchers;
+import org.json.JSONArray;
+
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestData_US_033;
@@ -27,20 +33,62 @@ import static org.junit.Assert.assertEquals;
 public class APIStepDefinition {
 
     JSONObject reqBody;
+
     Response response1;
     public static String fullPath;
 
-
+    //************************** Emre ****************************************
     @Then("VisitorsPurpose icin Post request gonderilir.")
     public void visitorspurposeIcinPostRequestGonderilir() {
 
+
+        /*
+        {
+            "visitors_purpose":"Veli Ziyareti",
+            "description":"Veli Ziyareti İçin Gelindi"
+        }
+         */
+
+
         ApiUtils.emrePostMethod("Veli Ziyareti","Veli Ziyareti İçin Gelindi");
+
+        reqBody = new JSONObject();
+
+        reqBody.put("visitors_purpose","Veli Ziyareti");
+        reqBody.put("description","Veli Ziyareti İçin Gelindi");
+
+        response1 = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization","Bearer "+ HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response1.prettyPrint();
+
+
+
+        ApiUtils.emrePostMethod("Veli Ziyareti","Veli Ziyareti İçin Gelindi");
+
     }
 
     @Then("{string}, {string} icin Post request gonderilir.")
     public void icinPostRequestGonderilir(String VisitorPurpose, String Description) {
 
         ApiUtils.emrePostMethod(VisitorPurpose,Description);
+    }
+    @And("Validate the First Item of the Visitor Purpose List")
+    public void validateTheFirstItemOfTheVisitorPurposeList() {
+
+        TestData testData=new TestData();
+
+        HashMap<String,Object> reqBody = testData.dataBodyOlusturMap();
+
+        Assert.assertEquals(reqBody.get("id"),ApiUtils.respHP.get("lists"));
+        Assert.assertEquals(reqBody.get("visitors_purpose"),ApiUtils.respHP.get("visitors_purpose"));
+        Assert.assertEquals(reqBody.get("created_at"),ApiUtils.respHP.get("created_at"));
+
     }
 
     //************************** Ogün ****************************************
@@ -192,25 +240,21 @@ public class APIStepDefinition {
 
     }
 
+
+
     @Then("User sends a PATCH request to visitorsUpdate endpoint")
     public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
 
 
 

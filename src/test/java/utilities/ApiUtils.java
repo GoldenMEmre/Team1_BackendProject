@@ -101,7 +101,11 @@ public class ApiUtils {
 
 
     // alumni Events By Date Range Post Request Method
+
+
+
     public static void postMethodEventsByDateRange(String start, String end) {
+
 
         JSONObject reqBody = new JSONObject();
 
@@ -120,9 +124,13 @@ public class ApiUtils {
 
         response.prettyPrint();
         respHP = response.as(HashMap.class);
+
+
     }
 
+
         public static void patchRequestGulten(){
+
          /* {
             "id": 3,
                 "title": "Sports Activite 2",
