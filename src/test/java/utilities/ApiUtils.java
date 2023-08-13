@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiUtils {
 
-    static Response response;
+    public static Response response;
 
     public static String fullPath;
   
@@ -99,6 +99,28 @@ public class ApiUtils {
     }
 
 
+    // alumni Events By Date Range Post Request Method
+    public static void postMethodEventsByDateRange(String start,String end) {
+
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("start", start);
+        reqBody.put("end", end);
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+    }
     public static  void  patchRequestGulten(){
          /* {
             "id": 3,
@@ -136,6 +158,7 @@ public class ApiUtils {
                 .patch(fullPath);
         response.prettyPrint();
       respHP=response.as(HashMap.class);
+
 
     }
 }
