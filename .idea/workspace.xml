@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2609ec23-8b80-44d1-8d74-596bff5829d0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2023_7_38_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2023_7_38_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2023_7_39_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2023_7_39_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ApiUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ApiUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/API_US011.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/API_US011.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -36,6 +44,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2TstZcaAiagulNON49QKX9sozlE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,76 +57,16 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/gulte/Downloads/Team1_BackendProject/Team1_BackendProject&quot;
   }
 }</component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: TC03 The updateId information in the response body should be validated to be the same as">
-    <configuration name="Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section, from_date, to_date, note, event_notification_message, show_onwebsite) are sent in the PATCH body to the api/alumniEventsUpdate endpoint, the expected status" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber Java.Scenario: [TC_001] POST Request Success Response for the Visitor Purpose Add">
+    <configuration name="Scenario: [TC_001] GET Request Success Response for the Visitor Purpose List" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/API_US011.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" />
       <option name="GLUE" value="stepDefinitions hooks.api" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="com.projectPreparation" />
-      <option name="NAME_FILTER" value="^TC01 When valid authorization information and correct data \(id\, title\, event_for\, session_id\, section\, from_date\, to_date\, note\, event_notification_message\, show_onwebsite\) are sent in the PATCH body to the api\/alumniEventsUpdate endpoint\, the expected status$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC01 When valid authorization information and correct data \(id\, title\, event_for\, session_id\, section\, from_date\, to_date\, note\, event_notification_message\, show_onwebsite\) are sent in the PATCH body to the api\/alumniEventsUpdate endpoint\, the expected status$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section, from_date, to_date, note, event_notification_message, show_onwebsite) are sent in the PATCH body to the api/alumniEventsUpdate endpoint, the expected status" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/API_US011.feature" />
-      <option name="GLUE" value="stepDefinitions hooks.api" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="com.projectPreparation" />
-      <option name="NAME_FILTER" value="^TC01 When valid authorization information and correct data \(id\, title\, event_for\, session_id\, section\,$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC01 When valid authorization information and correct data \(id\, title\, event_for\, session_id\, section\,$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section," />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: TC02 When invalid authorization information or missing/wrong data (id) are sent in the PATCH body (with title, event_for," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/API_US011.feature" />
-      <option name="GLUE" value="stepDefinitions hooks.api" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="com.projectPreparation" />
-      <option name="NAME_FILTER" value="^TC02 When invalid authorization information or missing\/wrong data \(id\) are sent in the PATCH body \(with title\, event_for\,$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC02 When invalid authorization information or missing\/wrong data \(id\) are sent in the PATCH body \(with title\, event_for\,$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: TC02 When invalid authorization information or missing/wrong data (id) are sent in the PATCH body (with title, event_for," />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: TC03 The updateId information in the response body should be validated to be the same as" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/API_US011.feature" />
-      <option name="GLUE" value="stepDefinitions hooks.api" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="com.projectPreparation" />
-      <option name="NAME_FILTER" value="^TC03 The updateId information in the response body should be validated to be the same as$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC03 The updateId information in the response body should be validated to be the same as$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: TC03 The updateId information in the response body should be validated to be the same as" />
+      <module name="Team1_BackendProject" />
+      <option name="NAME_FILTER" value="^\[TC_001\] GET Request Success Response for the Visitor Purpose List$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC_001\] GET Request Success Response for the Visitor Purpose List$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: [TC_001] GET Request Success Response for the Visitor Purpose List" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +83,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US003].feature" />
       <option name="GLUE" value="stepDefinitions hooks.api" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="com.projectPreparation" />
+      <module name="Team1_BackendProject" />
       <option name="NAME_FILTER" value="^\[TC_001\] POST Request Success Response for the Visitor Purpose Add$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC_001\] POST Request Success Response for the Visitor Purpose Add$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: [TC_001] POST Request Success Response for the Visitor Purpose Add" />
@@ -147,26 +98,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration name="Scenario: [TC_003] The Content of the Visitor Purpose List is validated" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" />
+      <option name="GLUE" value="stepDefinitions hooks.api" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="Team1_BackendProject" />
+      <option name="NAME_FILTER" value="^\[TC_003\] The Content of the Visitor Purpose List is validated$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC_003\] The Content of the Visitor Purpose List is validated$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: [TC_003] The Content of the Visitor Purpose List is validated" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+    <configuration name="Scenario: [TC_003] The First Item of the Visitor Purpose List is validated" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" />
+      <option name="GLUE" value="stepDefinitions hooks.api" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="Team1_BackendProject" />
-      <option name="filePath" />
+      <option name="NAME_FILTER" value="^\[TC_003\] The First Item of the Visitor Purpose List is validated$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC_003\] The First Item of the Visitor Purpose List is validated$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: [TC_003] The First Item of the Visitor Purpose List is validated" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunnerAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Team1_BackendProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.RunnerAPI" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: TC03 The updateId information in the response body should be validated to be the same as" />
-        <item itemvalue="Cucumber Java.Scenario: TC02 When invalid authorization information or missing/wrong data (id) are sent in the PATCH body (with title, event_for," />
-        <item itemvalue="Cucumber Java.Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section," />
         <item itemvalue="Cucumber Java.Scenario: [TC_001] POST Request Success Response for the Visitor Purpose Add" />
-        <item itemvalue="Cucumber Java.Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section, from_date, to_date, note, event_notification_message, show_onwebsite) are sent in the PATCH body to the api/alumniEventsUpdate endpoint, the expected status" />
+        <item itemvalue="JUnit.RunnerAPI" />
+        <item itemvalue="Cucumber Java.Scenario: [TC_003] The First Item of the Visitor Purpose List is validated" />
+        <item itemvalue="Cucumber Java.Scenario: [TC_003] The Content of the Visitor Purpose List is validated" />
+        <item itemvalue="Cucumber Java.Scenario: [TC_001] GET Request Success Response for the Visitor Purpose List" />
       </list>
     </recent_temporary>
   </component>
