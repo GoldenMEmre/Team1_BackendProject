@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml",
                 "rerun:target/failedRerun.txt"
         },
+
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "hooks"},
         tags = "@API",
