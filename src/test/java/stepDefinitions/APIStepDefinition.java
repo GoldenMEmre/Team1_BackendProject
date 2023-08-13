@@ -242,10 +242,33 @@ public class APIStepDefinition {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Then("User sends a PATCH request to visitorsUpdate endpoint")
     public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
+
 }
 
 
