@@ -6,4 +6,37 @@ public class Manage {
     public String getQuery16(){
         return query16;
     }
+
+    private String query17="SELECT AVG(passing_percentage) FROM wonderworld_qa.onlineexam";
+
+    public String getQuery17(){
+        return query17;
+    }
+
+
+
+    private String query18="SELECT COUNT(DISTINCT student_session_id) FROM wonderworld_qa.onlineexam_students;";
+
+    public String getQuery18(){
+        return query18;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
