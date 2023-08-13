@@ -50,17 +50,17 @@ public class APIStepDefinition {
          */
 
 
-        ApiUtils.emrePostMethod("Veli Ziyareti","Veli Ziyareti İçin Gelindi");
+        ApiUtils.emrePostMethod("Veli Ziyareti", "Veli Ziyareti İçin Gelindi");
 
         reqBody = new JSONObject();
 
-        reqBody.put("visitors_purpose","Veli Ziyareti");
-        reqBody.put("description","Veli Ziyareti İçin Gelindi");
+        reqBody.put("visitors_purpose", "Veli Ziyareti");
+        reqBody.put("description", "Veli Ziyareti İçin Gelindi");
 
         response1 = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
-                .headers("Authorization","Bearer "+ HooksAPI.token)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
                 .when()
                 .body(reqBody.toString())
                 .post(fullPath);
@@ -68,26 +68,26 @@ public class APIStepDefinition {
         response1.prettyPrint();
 
 
-
-        ApiUtils.emrePostMethod("Veli Ziyareti","Veli Ziyareti İçin Gelindi");
+        ApiUtils.emrePostMethod("Veli Ziyareti", "Veli Ziyareti İçin Gelindi");
 
     }
 
     @Then("{string}, {string} icin Post request gonderilir.")
     public void icinPostRequestGonderilir(String VisitorPurpose, String Description) {
 
-        ApiUtils.emrePostMethod(VisitorPurpose,Description);
+        ApiUtils.emrePostMethod(VisitorPurpose, Description);
     }
+
     @And("Validate the First Item of the Visitor Purpose List")
     public void validateTheFirstItemOfTheVisitorPurposeList() {
 
-        TestData testData=new TestData();
+        TestData testData = new TestData();
 
-        HashMap<String,Object> reqBody = testData.dataBodyOlusturMap();
+        HashMap<String, Object> reqBody = testData.dataBodyOlusturMap();
 
-        Assert.assertEquals(reqBody.get("id"),ApiUtils.respHP.get("lists"));
-        Assert.assertEquals(reqBody.get("visitors_purpose"),ApiUtils.respHP.get("visitors_purpose"));
-        Assert.assertEquals(reqBody.get("created_at"),ApiUtils.respHP.get("created_at"));
+        Assert.assertEquals(reqBody.get("id"), ApiUtils.respHP.get("lists"));
+        Assert.assertEquals(reqBody.get("visitors_purpose"), ApiUtils.respHP.get("visitors_purpose"));
+        Assert.assertEquals(reqBody.get("created_at"), ApiUtils.respHP.get("created_at"));
 
     }
 
@@ -105,25 +105,24 @@ public class APIStepDefinition {
 
     @Then("Execute a verification for a valid authorization")
     public void executeAVerificationForAValidAuthorization() {
-        HashMap<String,Object> expectedData = new HashMap<>();
-        expectedData.put("status",200);
-        expectedData.put("message","Success");
+        HashMap<String, Object> expectedData = new HashMap<>();
+        expectedData.put("status", 200);
+        expectedData.put("message", "Success");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+        Assert.assertEquals(expectedData.get("status"), ApiUtils.respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
     }
 
     @Then("Execute a verification for an invalid authorization")
     public void executeAVerificationForAnInvalidAuthorization() {
-        HashMap<String,Object> expectedData = new HashMap<>();
-        expectedData.put("status",403);
-        expectedData.put("message","failed");
+        HashMap<String, Object> expectedData = new HashMap<>();
+        expectedData.put("status", 403);
+        expectedData.put("message", "failed");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+        Assert.assertEquals(expectedData.get("status"), ApiUtils.respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
 
     }
-
 
 
     @Given("Response body content test for visitor list")
@@ -135,36 +134,36 @@ public class APIStepDefinition {
 
         JsonPath resJP = response1.jsonPath();
 
-        Assert.assertEquals(expData.getJSONObject("data").get("id"),resJP.getJsonObject("lists.id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("staff_id"),resJP.getJsonObject("lists.staff_id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("student_session_id"),resJP.getJsonObject("lists.student_session_id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("source"),resJP.getJsonObject("lists.source"));
-        Assert.assertEquals(expData.getJSONObject("data").get("purpose"),resJP.getJsonObject("lists.purpose"));
-        Assert.assertEquals(expData.getJSONObject("data").get("name"),resJP.getJsonObject("lists.name"));
-        Assert.assertEquals(expData.getJSONObject("data").get("email"),resJP.getJsonObject("lists.email"));
-        Assert.assertEquals(expData.getJSONObject("data").get("contact"),resJP.getJsonObject("lists.contact"));
-        Assert.assertEquals(expData.getJSONObject("data").get("id_proof"),resJP.getJsonObject("lists.id_proof"));
-        Assert.assertEquals(expData.getJSONObject("data").get("no_of_people"),resJP.getJsonObject("lists.no_of_people"));
-        Assert.assertEquals(expData.getJSONObject("data").get("date"),resJP.getJsonObject("lists.date"));
-        Assert.assertEquals(expData.getJSONObject("data").get("in_time"),resJP.getJsonObject("lists.in_time"));
-        Assert.assertEquals(expData.getJSONObject("data").get("out_time"),resJP.getJsonObject("lists.out_time"));
-        Assert.assertEquals(expData.getJSONObject("data").get("note"),resJP.getJsonObject("lists.note"));
-        Assert.assertEquals(expData.getJSONObject("data").get("image"),resJP.getJsonObject("lists.image"));
-        Assert.assertEquals(expData.getJSONObject("data").get("meeting_with"),resJP.getJsonObject("lists.meeting_with"));
-        Assert.assertEquals(expData.getJSONObject("data").get("created_at"),resJP.getJsonObject("lists.created_at"));
-        Assert.assertEquals(expData.getJSONObject("data").get("class"),resJP.getJsonObject("lists.class"));
-        Assert.assertEquals(expData.getJSONObject("data").get("section"),resJP.getJsonObject("lists.section"));
-        Assert.assertEquals(expData.getJSONObject("data").get("staff_name"),resJP.getJsonObject("lists.staff_name"));
-        Assert.assertEquals(expData.getJSONObject("data").get("staff_surname"),resJP.getJsonObject("lists.staff_surname"));
-        Assert.assertEquals(expData.getJSONObject("data").get("staff_employee_id"),resJP.getJsonObject("lists.staff_employee_id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("class_id"),resJP.getJsonObject("lists.class_id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("section_id"),resJP.getJsonObject("lists.section_id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("students_id"),resJP.getJsonObject("lists.students_id"));
-        Assert.assertEquals(expData.getJSONObject("data").get("admission_no"),resJP.getJsonObject("lists.admission_no"));
-        Assert.assertEquals(expData.getJSONObject("data").get("student_firstname"),resJP.getJsonObject("lists.student_firstname"));
-        Assert.assertEquals(expData.getJSONObject("data").get("student_middlename"),resJP.getJsonObject("lists.student_middlename"));
-        Assert.assertEquals(expData.getJSONObject("data").get("student_lastname"),resJP.getJsonObject("lists.student_lastname"));
-        Assert.assertEquals(expData.getJSONObject("data").get("role_id"),resJP.getJsonObject("lists.role_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("id"), resJP.getJsonObject("lists.id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_id"), resJP.getJsonObject("lists.staff_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_session_id"), resJP.getJsonObject("lists.student_session_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("source"), resJP.getJsonObject("lists.source"));
+        Assert.assertEquals(expData.getJSONObject("data").get("purpose"), resJP.getJsonObject("lists.purpose"));
+        Assert.assertEquals(expData.getJSONObject("data").get("name"), resJP.getJsonObject("lists.name"));
+        Assert.assertEquals(expData.getJSONObject("data").get("email"), resJP.getJsonObject("lists.email"));
+        Assert.assertEquals(expData.getJSONObject("data").get("contact"), resJP.getJsonObject("lists.contact"));
+        Assert.assertEquals(expData.getJSONObject("data").get("id_proof"), resJP.getJsonObject("lists.id_proof"));
+        Assert.assertEquals(expData.getJSONObject("data").get("no_of_people"), resJP.getJsonObject("lists.no_of_people"));
+        Assert.assertEquals(expData.getJSONObject("data").get("date"), resJP.getJsonObject("lists.date"));
+        Assert.assertEquals(expData.getJSONObject("data").get("in_time"), resJP.getJsonObject("lists.in_time"));
+        Assert.assertEquals(expData.getJSONObject("data").get("out_time"), resJP.getJsonObject("lists.out_time"));
+        Assert.assertEquals(expData.getJSONObject("data").get("note"), resJP.getJsonObject("lists.note"));
+        Assert.assertEquals(expData.getJSONObject("data").get("image"), resJP.getJsonObject("lists.image"));
+        Assert.assertEquals(expData.getJSONObject("data").get("meeting_with"), resJP.getJsonObject("lists.meeting_with"));
+        Assert.assertEquals(expData.getJSONObject("data").get("created_at"), resJP.getJsonObject("lists.created_at"));
+        Assert.assertEquals(expData.getJSONObject("data").get("class"), resJP.getJsonObject("lists.class"));
+        Assert.assertEquals(expData.getJSONObject("data").get("section"), resJP.getJsonObject("lists.section"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_name"), resJP.getJsonObject("lists.staff_name"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_surname"), resJP.getJsonObject("lists.staff_surname"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_employee_id"), resJP.getJsonObject("lists.staff_employee_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("class_id"), resJP.getJsonObject("lists.class_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("section_id"), resJP.getJsonObject("lists.section_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("students_id"), resJP.getJsonObject("lists.students_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("admission_no"), resJP.getJsonObject("lists.admission_no"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_firstname"), resJP.getJsonObject("lists.student_firstname"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_middlename"), resJP.getJsonObject("lists.student_middlename"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_lastname"), resJP.getJsonObject("lists.student_lastname"));
+        Assert.assertEquals(expData.getJSONObject("data").get("role_id"), resJP.getJsonObject("lists.role_id"));
 
     }
 
@@ -182,86 +181,72 @@ public class APIStepDefinition {
     }
 
 
-
     // *********************** GUlten ***********************//
     @Given("User sends a Patch request to end point")
     public void user_sends_a_patch_request_to_end_point() {
-     // ApiUtils.patchRequestGulten();
+        // ApiUtils.patchRequestGulten();
 
     }
+
+    @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
+    public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 5);
+        reqBody.put("title", "Sports Activite 2");
+        reqBody.put("event_for", "all");
+        reqBody.put("session_id", "null");
+        reqBody.put("section", "null");
+        reqBody.put("from_date", "2023-02-14 00:00:00");
+        reqBody.put("to_date", "2023-02-15 23:59:00");
+        reqBody.put("note", "Sports");
+        reqBody.put("event_notification_message", "Sports");
+        reqBody.put("show_onwebsite", "0");
+        response1 = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response1.prettyPrint();
+
+        JsonPath resJP = response1.jsonPath();
+        Assert.assertEquals(reqBody.get("id"), resJP.get("updateId"));
+        /*{
+            "status": 200,
+                "message": "Success",
+                "Token_remaining_time": 813,
+                "updateId": 5
+        }
+
+         */
+    }
+
+    // *********************** GUlten ***********************//
 
 
     @Then("Execute verification for given informations")
     public void executeVerificationForGivenInformations() {
 
-        HashMap<String,Object> expectedData = new HashMap<>();
-        expectedData.put("status",200);
-        expectedData.put("message","Success");
-        expectedData.put("id",11);
-        expectedData.put("session","2017-18");
-        expectedData.put("is_active","no");
-        expectedData.put("created_at","2017-04-20 02:41:37");
+        HashMap<String, Object> expectedData = new HashMap<>();
+        expectedData.put("status", 200);
+        expectedData.put("message", "Success");
+        expectedData.put("id", 11);
+        expectedData.put("session", "2017-18");
+        expectedData.put("is_active", "no");
+        expectedData.put("created_at", "2017-04-20 02:41:37");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+        Assert.assertEquals(expectedData.get("status"), ApiUtils.respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
 
 
     }
 
     @Then("User sends a POST request for start date {string} and end date {string}")
     public void userSendsAPOSTRequestForStartDateAndEndDate(String start, String end) {
-        ApiUtils.postMethodEventsByDateRange(start,end);
+        ApiUtils.postMethodEventsByDateRange(start, end);
     }
-
-    @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
-    public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
-
-        JSONObject  reqBody =new JSONObject();
-        reqBody.put("id", 5);
-        reqBody.put("title","Sports Activite 2");
-        reqBody.put("event_for","all");
-        reqBody.put("session_id", "null");
-        reqBody.put("section","null");
-        reqBody.put("from_date","2023-02-14 00:00:00");
-        reqBody.put("to_date","2023-02-15 23:59:00");
-        reqBody.put("note","Sports");
-        reqBody.put("event_notification_message","Sports");
-        reqBody.put("show_onwebsite","0");
-        response1 = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .headers("Authorization","Bearer "+ HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .patch(fullPath);
-        response1.prettyPrint();
-
-    JSONObject jsonResponseBody =new JSONObject();
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Then("User sends a PATCH request to visitorsUpdate endpoint")
@@ -269,7 +254,9 @@ public class APIStepDefinition {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
 
+
 }
+
 
 
 

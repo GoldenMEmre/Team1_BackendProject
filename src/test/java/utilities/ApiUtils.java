@@ -5,8 +5,10 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import stepDefinitions.APIStepDefinition;
+
 import java.util.Arrays;
 import java.util.HashMap;
+
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 
@@ -104,32 +106,34 @@ public class ApiUtils {
 
 
 
-    public static void postMethodEventsByDateRange(String start, String end) {
+
+        public static void postMethodEventsByDateRange (String start, String end){
 
 
-        JSONObject reqBody = new JSONObject();
+            JSONObject reqBody = new JSONObject();
 
-        reqBody.put("start", start);
-        reqBody.put("end", end);
-
-
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .header("Accept", "application/json")
-                .headers("Authorization", "Bearer " + HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .post(fullPath);
-
-        response.prettyPrint();
-        respHP = response.as(HashMap.class);
+            reqBody.put("start", start);
+            reqBody.put("end", end);
 
 
-    }
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .header("Accept", "application/json")
+                    .headers("Authorization", "Bearer " + HooksAPI.token)
+                    .when()
+                    .body(reqBody.toString())
+                    .post(fullPath);
+
+            response.prettyPrint();
+            respHP = response.as(HashMap.class);
+
+
+        }
 
 
         public static void patchRequestGulten(){
+
 
          /* {
             "id": 3,
@@ -142,7 +146,7 @@ public class ApiUtils {
                 "note": "Sports",
                 "event_notification_message": "Sports",
                 "show_onwebsite": "0"
-        }
+
 
         */
 
@@ -210,58 +214,53 @@ public class ApiUtils {
         }
 
 
+        public static void postRequestVisitorId () {
 
-    public static void postRequestVisitorId(){
+            JSONObject reqBody = new JSONObject();
 
-        JSONObject reqBody=new JSONObject();
+            reqBody.put("id", 250);
 
-        reqBody.put("id",250);
+
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .header("Accept", "application/json")
+                    .headers("Authorization", "Bearer " + HooksAPI.token)
+                    .when()
+                    .body(reqBody.toString())
+                    .post(fullPath);
+
+            response.prettyPrint();
+            respHP = response.as(HashMap.class);
+
+
+        }
+
+
+
+
+    public static void invalidPostRequestVisitorId() {
+
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("id", 3250);
 
         response = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
-                .header("Accept","application/json")
-                .headers("Authorization","Bearer " + HooksAPI.token)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
                 .when()
                 .body(reqBody.toString())
                 .post(fullPath);
 
         response.prettyPrint();
-        respHP=response.as(HashMap.class);
+        respHP = response.as(HashMap.class);
 
 
     }
-
-    public static void invalidPostRequestVisitorId(){
-
-        JSONObject reqBody=new JSONObject();
-
-        reqBody.put("id",3250);
-
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .header("Accept","application/json")
-                .headers("Authorization","Bearer " + HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .post(fullPath);
-
-        response.prettyPrint();
-        respHP=response.as(HashMap.class);
-
-
-    }
-
-
-
-
-
-
-
-
-
 
 
 }
+
 
