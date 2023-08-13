@@ -1,0 +1,1 @@
+Feature: As a user (student), I want to access my Student Class information through API connection.
