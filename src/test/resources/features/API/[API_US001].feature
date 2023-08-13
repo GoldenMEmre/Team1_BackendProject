@@ -13,4 +13,6 @@ Feature: [API_US001] As an administrator, I want to access the Purpose List thro
     Then User sends a get request
     Then Execute a verification for an invalid authorization
 
+    Scenario:
+
 
