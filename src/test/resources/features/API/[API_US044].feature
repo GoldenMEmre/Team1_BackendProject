@@ -1,0 +1,1 @@
+Feature: As an administrator (teacher), I want to access the Homework information of a homework with a given ID through API connection.
