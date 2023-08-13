@@ -4,16 +4,12 @@ package stepDefinitions;
 import hooks.api.HooksAPI;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.Assert;
 import utilities.ApiUtils;
 import utilities.Authentication;
-import utilities.ConfigReader;
 
 import java.util.HashMap;
 
@@ -50,6 +46,8 @@ public class APIStepDefinition {
                 .post(fullPath);
 
         response.prettyPrint();
+
+
     }
 
     @Then("{string}, {string} icin Post request gonderilir.")
@@ -88,5 +86,27 @@ public class APIStepDefinition {
 
         Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+    }
+
+    @Then("Execute verification for given informations")
+    public void executeVerificationForGivenInformations() {
+
+        HashMap<String,Object> expectedData = new HashMap<>();
+        expectedData.put("status",200);
+        expectedData.put("message","Success");
+        expectedData.put("id",11);
+        expectedData.put("session","2017-18");
+        expectedData.put("is_active","no");
+        expectedData.put("created_at","2017-04-20 02:41:37");
+
+        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+
+
+    }
+
+    @Then("User sends a POST request for start date {string} and end date {string}")
+    public void userSendsAPOSTRequestForStartDateAndEndDate(String start, String end) {
+        ApiUtils.postMethodEventsByDateRange(start,end);
     }
 }
