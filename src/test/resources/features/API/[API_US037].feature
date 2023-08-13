@@ -1,0 +1,1 @@
+Feature: As an administrator, I want to be able to delete a Visitors' record from the system through API connection.
