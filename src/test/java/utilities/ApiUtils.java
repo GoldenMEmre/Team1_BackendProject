@@ -200,5 +200,49 @@ public class ApiUtils {
             response.prettyPrint();
             respHP = response.as(HashMap.class);
         }
+
+
+
+    public static void postRequestVisitorId(){
+
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("id",250);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+
+
     }
+
+    public static void invalidPostRequestVisitorId(){
+
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("id",3250);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+
+
+    }
+}
 

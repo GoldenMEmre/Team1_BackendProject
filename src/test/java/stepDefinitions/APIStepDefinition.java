@@ -5,9 +5,11 @@ import hooks.api.HooksAPI;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Assert;
+import testData.TestData_US_033;
 import utilities.ApiUtils;
 import utilities.Authentication;
 
@@ -17,7 +19,10 @@ import java.util.Map;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.hasItem;
+
 import static org.junit.Assert.assertEquals;
+
 
 public class APIStepDefinition {
 
@@ -70,6 +75,64 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
 
     }
+
+
+
+    @Given("Response body content test for visitor list")
+    public void response_body_content_test_for_visitor_list() {
+
+        TestData_US_033 testDataUs033 = new TestData_US_033();
+
+        JSONObject expData = testDataUs033.expDataUS_033();
+
+        JsonPath resJP = response1.jsonPath();
+
+        Assert.assertEquals(expData.getJSONObject("data").get("id"),resJP.getJsonObject("lists.id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_id"),resJP.getJsonObject("lists.staff_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_session_id"),resJP.getJsonObject("lists.student_session_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("source"),resJP.getJsonObject("lists.source"));
+        Assert.assertEquals(expData.getJSONObject("data").get("purpose"),resJP.getJsonObject("lists.purpose"));
+        Assert.assertEquals(expData.getJSONObject("data").get("name"),resJP.getJsonObject("lists.name"));
+        Assert.assertEquals(expData.getJSONObject("data").get("email"),resJP.getJsonObject("lists.email"));
+        Assert.assertEquals(expData.getJSONObject("data").get("contact"),resJP.getJsonObject("lists.contact"));
+        Assert.assertEquals(expData.getJSONObject("data").get("id_proof"),resJP.getJsonObject("lists.id_proof"));
+        Assert.assertEquals(expData.getJSONObject("data").get("no_of_people"),resJP.getJsonObject("lists.no_of_people"));
+        Assert.assertEquals(expData.getJSONObject("data").get("date"),resJP.getJsonObject("lists.date"));
+        Assert.assertEquals(expData.getJSONObject("data").get("in_time"),resJP.getJsonObject("lists.in_time"));
+        Assert.assertEquals(expData.getJSONObject("data").get("out_time"),resJP.getJsonObject("lists.out_time"));
+        Assert.assertEquals(expData.getJSONObject("data").get("note"),resJP.getJsonObject("lists.note"));
+        Assert.assertEquals(expData.getJSONObject("data").get("image"),resJP.getJsonObject("lists.image"));
+        Assert.assertEquals(expData.getJSONObject("data").get("meeting_with"),resJP.getJsonObject("lists.meeting_with"));
+        Assert.assertEquals(expData.getJSONObject("data").get("created_at"),resJP.getJsonObject("lists.created_at"));
+        Assert.assertEquals(expData.getJSONObject("data").get("class"),resJP.getJsonObject("lists.class"));
+        Assert.assertEquals(expData.getJSONObject("data").get("section"),resJP.getJsonObject("lists.section"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_name"),resJP.getJsonObject("lists.staff_name"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_surname"),resJP.getJsonObject("lists.staff_surname"));
+        Assert.assertEquals(expData.getJSONObject("data").get("staff_employee_id"),resJP.getJsonObject("lists.staff_employee_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("class_id"),resJP.getJsonObject("lists.class_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("section_id"),resJP.getJsonObject("lists.section_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("students_id"),resJP.getJsonObject("lists.students_id"));
+        Assert.assertEquals(expData.getJSONObject("data").get("admission_no"),resJP.getJsonObject("lists.admission_no"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_firstname"),resJP.getJsonObject("lists.student_firstname"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_middlename"),resJP.getJsonObject("lists.student_middlename"));
+        Assert.assertEquals(expData.getJSONObject("data").get("student_lastname"),resJP.getJsonObject("lists.student_lastname"));
+        Assert.assertEquals(expData.getJSONObject("data").get("role_id"),resJP.getJsonObject("lists.role_id"));
+
+    }
+
+    @Given("POST request is sent for visitorId")
+    public void post_request_is_sent_for_visitor_ıd() {
+
+        ApiUtils.postRequestVisitorId();
+
+
+    }
+
+    @Given("Response body content test for visitor Id")
+    public void response_body_content_test_for_visitor_ıd() {
+
+    }
+
 
 
     // *********************** GUlten ***********************//
@@ -133,7 +196,22 @@ public class APIStepDefinition {
     public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
 
 
 
