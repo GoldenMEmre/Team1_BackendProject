@@ -22,36 +22,14 @@ import static org.junit.Assert.assertEquals;
 public class APIStepDefinition {
 
     JSONObject reqBody;
-    Response response;
+    Response response1;
     public static String fullPath;
 
 
     @Then("VisitorsPurpose icin Post request gonderilir.")
     public void visitorspurposeIcinPostRequestGonderilir() {
 
-        /*
-        {
-            "visitors_purpose":"Veli Ziyareti",
-            "description":"Veli Ziyareti İçin Gelindi"
-        }
-         */
-
-        reqBody = new JSONObject();
-
-        reqBody.put("visitors_purpose","Veli Ziyareti");
-        reqBody.put("description","Veli Ziyareti İçin Gelindi");
-
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .headers("Authorization","Bearer "+ HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .post(fullPath);
-
-        response.prettyPrint();
-
-
+        ApiUtils.emrePostMethod("Veli Ziyareti","Veli Ziyareti İçin Gelindi");
     }
 
     @Then("{string}, {string} icin Post request gonderilir.")
@@ -91,15 +69,13 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
 
-
-
     }
 
 
     // *********************** GUlten ***********************//
     @Given("User sends a Patch request to end point")
     public void user_sends_a_patch_request_to_end_point() {
-      ApiUtils.patchRequestGulten();
+     // ApiUtils.patchRequestGulten();
 
     }
 
@@ -140,51 +116,24 @@ public class APIStepDefinition {
         reqBody.put("note","Sports");
         reqBody.put("event_notification_message","Sports");
         reqBody.put("show_onwebsite","0");
-        response = given()
+        response1 = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
                 .headers("Authorization","Bearer "+ HooksAPI.token)
                 .when()
                 .body(reqBody.toString())
                 .patch(fullPath);
-        response.prettyPrint();
+        response1.prettyPrint();
 
     JSONObject jsonResponseBody =new JSONObject();
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Then("User sends a PATCH request to visitorsUpdate endpoint")
+    public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
+        ApiUtils.patchRequestVisitorsUpdateOgun();
     }
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
 
