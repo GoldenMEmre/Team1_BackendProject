@@ -1,12 +1,10 @@
 package testData;
 
-import org.json.JSONObject;
-
 import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
-public class TestData_US_033 {
+public class TestDataUS_033 {
 
     public HashMap dataUS_033(){
 
