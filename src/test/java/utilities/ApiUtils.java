@@ -261,6 +261,68 @@ public class ApiUtils {
     }
 
 
+    public static void postRequestVisitorAdd(){
+        /*
+         "purpose": "Principal Meeting",
+        "name": "Sumeyra",
+        "contact": "1237894560",
+        "id_proof": "312121",
+        "no_of_people": "40",
+        "date": "2023-03-30",
+        "in_time": "06:00 PM",
+        "out_time": "06:30 PM",
+        "note": "DBM meeting"
+         */
+
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("purpose","Principal Meeting");
+        reqBody.put("name","Sumeyra");
+        reqBody.put("contact","1237894560");
+        reqBody.put("id_proof","312121");
+        reqBody.put("no_of_people","40");
+        reqBody.put("date","2023-03-30");
+        reqBody.put("in_time","06:00 PM");
+        reqBody.put("out_time","06:30 PM");
+        reqBody.put("note","DBM meeting");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+
+    }
+
+    public static void postRequestQuestionDetailsById(){
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id","3");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+
+
+    }
+
+
+
+
 }
 
 
