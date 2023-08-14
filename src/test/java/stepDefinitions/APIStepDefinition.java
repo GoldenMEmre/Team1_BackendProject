@@ -363,6 +363,11 @@ public class APIStepDefinition {
         Assert.assertEquals(listsJA.getJSONObject(1).get("updated_at"),"0000-00-00");
 
     }
+    @Then("Validate the First Item of the Book Issue  List")
+    public void validate_the_first_ıtem_of_the_book_ıssue_list() {
+
+    }
+
 
 
 
