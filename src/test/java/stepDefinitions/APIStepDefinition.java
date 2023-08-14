@@ -2,8 +2,12 @@ package stepDefinitions;
 
 
 
+import emreTestData.TestData_US001;
+
+
 import com.beust.ah.A;
-import emreTestData.TestData;
+import emreTestData.TestData_US001;
+
 import hooks.api.HooksAPI;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,7 +17,10 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+
 import org.json.JSONArray;
+
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestDataUS_033;
@@ -26,8 +33,11 @@ import utilities.Authentication;
 import java.util.HashMap;
 
 
+
+
 import java.util.Map;
 import java.util.ArrayList;
+
 
 
 import static hooks.api.HooksAPI.spec;
@@ -35,6 +45,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 import static org.junit.Assert.assertEquals;
+import static utilities.ApiUtils.fullPath;
+import static utilities.ApiUtils.response;
 
 
 import static utilities.ApiUtils.fullPath;
@@ -48,8 +60,12 @@ public class APIStepDefinition {
 
     Response response1;
 
+    //public static String fullPath;
+
+
 
     public static String fullPath;
+
 
     //public static String fullPath;
 
@@ -98,9 +114,36 @@ public class APIStepDefinition {
     @And("Validate the First Item of the Visitor Purpose List")
     public void validateTheFirstItemOfTheVisitorPurposeList() {
 
-        TestData testData = new TestData();
 
-        HashMap<String, Object> reqBody = testData.dataBodyOlusturMap();
+        TestData_US001 testDataUs001=new TestData_US001();
+
+        JSONObject expData = testDataUs001.expData_US001();
+
+        JSONObject reqBody1 = new JSONObject();
+
+        reqBody1.put("id","1");
+
+        response1 = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody1.toString())
+                .get(fullPath);
+
+        response1.prettyPrint();
+        JsonPath resJP = response1.jsonPath();
+
+        Assert.assertEquals(expData.getJSONObject("lists").get("id"),resJP.getJsonObject("lists.id"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("visitors_purpose"),resJP.getJsonObject("lists.visitors_purpose"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("description"),resJP.getJsonObject("lists.description"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("created_at"),resJP.getJsonObject("lists.created_at"));
+
+
+        TestData_US001 testData = new TestData_US001();
+
+        HashMap<String, Object> reqBody = testData.data_US001();
 
 
         Assert.assertEquals(reqBody.get("id"), respHP.get("lists"));
@@ -110,6 +153,7 @@ public class APIStepDefinition {
         Assert.assertEquals(reqBody.get("id"), ApiUtils.respHP.get("lists"));
         Assert.assertEquals(reqBody.get("visitors_purpose"), ApiUtils.respHP.get("visitors_purpose"));
         Assert.assertEquals(reqBody.get("created_at"), ApiUtils.respHP.get("created_at"));
+
 
 
     }
@@ -396,6 +440,7 @@ public class APIStepDefinition {
 
 
 
+
     @Then("User sends a PATCH request to  alumniUpdate endpoint")
     public void user_sends_a_patch_request_to_alumni_update_endpoint() {
 
@@ -432,6 +477,7 @@ public class APIStepDefinition {
 
 
     }
+
 
 
 
