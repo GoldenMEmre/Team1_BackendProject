@@ -10,24 +10,20 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-import org.hamcrest.Matchers;
-import org.json.JSONArray;
-
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestData_US_033;
 import utilities.ApiUtils;
 import utilities.Authentication;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 import static org.junit.Assert.assertEquals;
+import static utilities.ApiUtils.respHP;
 
 
 public class APIStepDefinition {
@@ -35,6 +31,7 @@ public class APIStepDefinition {
     JSONObject reqBody;
 
     Response response1;
+
     public static String fullPath;
 
     //************************** Emre ****************************************
@@ -85,9 +82,9 @@ public class APIStepDefinition {
 
         HashMap<String,Object> reqBody = testData.dataBodyOlusturMap();
 
-        Assert.assertEquals(reqBody.get("id"),ApiUtils.respHP.get("lists"));
-        Assert.assertEquals(reqBody.get("visitors_purpose"),ApiUtils.respHP.get("visitors_purpose"));
-        Assert.assertEquals(reqBody.get("created_at"),ApiUtils.respHP.get("created_at"));
+        Assert.assertEquals(reqBody.get("id"), respHP.get("lists"));
+        Assert.assertEquals(reqBody.get("visitors_purpose"), respHP.get("visitors_purpose"));
+        Assert.assertEquals(reqBody.get("created_at"), respHP.get("created_at"));
 
     }
 
@@ -109,8 +106,8 @@ public class APIStepDefinition {
         expectedData.put("status",200);
         expectedData.put("message","Success");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
     }
 
     @Then("Execute a verification for an invalid authorization")
@@ -119,8 +116,8 @@ public class APIStepDefinition {
         expectedData.put("status",403);
         expectedData.put("message","failed");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
 
     }
 
@@ -202,8 +199,8 @@ public class APIStepDefinition {
         expectedData.put("is_active","no");
         expectedData.put("created_at","2017-04-20 02:41:37");
 
-        Assert.assertEquals(expectedData.get("status"),ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"),ApiUtils.respHP.get("message"));
+        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
 
 
     }
@@ -227,6 +224,7 @@ public class APIStepDefinition {
         reqBody.put("note","Sports");
         reqBody.put("event_notification_message","Sports");
         reqBody.put("show_onwebsite","0");
+
         response1 = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
@@ -251,23 +249,60 @@ public class APIStepDefinition {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Then("User sends a PATCH request to visitorsUpdate endpoint")
     public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
+
+
+
+
+    @Then("User sends a PATCH request to  alumniUpdate endpoint")
+    public void user_sends_a_patch_request_to_alumni_update_endpoint() {
+
+       ApiUtils.reqbodyUS_026();
+
+
+    }
+
+
+    @Then("Expected data is created, and the equality of the ID information is verified.")
+    public void expected_data_is_created_and_the_equality_of_the_id_information_is_verified() {
+       ApiUtils.responseUS_026();
+    }
+
+
+
+
+
+    @Then("To create a new body that contains the valid authorization information and correct data")
+    public void to_create_a_new_body_that_contains_the_valid_authorization_information_and_correct_data() {
+        ApiUtils.postRequestUS_27();
+       ApiUtils.deleteMethod1();
+
+
+
+
+
+    }
+
+    @Given("verification of id in delete request body")
+    public void verification_of_ıd_ın_delete_request_body() {
+
+        Assert.assertTrue(respHP.containsKey("DeletedId"));
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
 
