@@ -27,7 +27,7 @@ public class ApiUtils {
                 .header("Accept", "application/json")
                 .headers("Authorization", "Bearer " + HooksAPI.token)
                 .when()
-                .get(fullPath);
+                 .get(fullPath);
 
         response.prettyPrint();
         respHP = response.as(HashMap.class);

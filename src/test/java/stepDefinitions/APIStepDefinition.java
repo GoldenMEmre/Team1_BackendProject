@@ -239,6 +239,11 @@ public class APIStepDefinition {
     JSONObject jsonResponseBody =new JSONObject();
 
     }
+    @Then("Validate the First Item of the Book Issue  List")
+    public void validate_the_first_ıtem_of_the_book_ıssue_list() {
+
+    }
+
 
 
 
