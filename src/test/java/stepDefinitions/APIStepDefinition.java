@@ -13,9 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import org.hamcrest.Matchers;
 import org.json.JSONArray;
-
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestDataUS_033;
@@ -26,15 +24,21 @@ import utilities.ApiUtils;
 import utilities.Authentication;
 
 import java.util.HashMap;
+
+
 import java.util.Map;
 import java.util.ArrayList;
+
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 import static org.junit.Assert.assertEquals;
+
+
 import static utilities.ApiUtils.fullPath;
+
 import static utilities.ApiUtils.respHP;
 
 
@@ -43,7 +47,12 @@ public class APIStepDefinition {
     JSONObject reqBody;
 
     Response response1;
+
+
+    public static String fullPath;
+
     //public static String fullPath;
+
 
     //************************** Emre ****************************************
     @Then("VisitorsPurpose icin Post request gonderilir.")
@@ -93,9 +102,15 @@ public class APIStepDefinition {
 
         HashMap<String, Object> reqBody = testData.dataBodyOlusturMap();
 
+
+        Assert.assertEquals(reqBody.get("id"), respHP.get("lists"));
+        Assert.assertEquals(reqBody.get("visitors_purpose"), respHP.get("visitors_purpose"));
+        Assert.assertEquals(reqBody.get("created_at"), respHP.get("created_at"));
+
         Assert.assertEquals(reqBody.get("id"), ApiUtils.respHP.get("lists"));
         Assert.assertEquals(reqBody.get("visitors_purpose"), ApiUtils.respHP.get("visitors_purpose"));
         Assert.assertEquals(reqBody.get("created_at"), ApiUtils.respHP.get("created_at"));
+
 
     }
 
@@ -120,6 +135,11 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("status"), ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
 
+
+        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
+
+
     }
 
     @Then("Execute a verification for an invalid authorization")
@@ -130,6 +150,11 @@ public class APIStepDefinition {
 
         Assert.assertEquals(expectedData.get("status"), ApiUtils.respHP.get("status"));
         Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
+
+
+        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
+        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
+
 
 
     }
@@ -275,7 +300,6 @@ public class APIStepDefinition {
 
 
 
-
     @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
     public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
 
@@ -284,12 +308,22 @@ public class APIStepDefinition {
         reqBody.put("title", "Sports Activite 2");
         reqBody.put("event_for", "all");
         reqBody.put("session_id", "null");
+
+        reqBody.put("section","null");
+        reqBody.put("from_date","2023-02-14 00:00:00");
+        reqBody.put("to_date","2023-02-15 23:59:00");
+        reqBody.put("note","Sports");
+        reqBody.put("event_notification_message","Sports");
+        reqBody.put("show_onwebsite","0");
+
+
         reqBody.put("section", "null");
         reqBody.put("from_date", "2023-02-14 00:00:00");
         reqBody.put("to_date", "2023-02-15 23:59:00");
         reqBody.put("note", "Sports");
         reqBody.put("event_notification_message", "Sports");
         reqBody.put("show_onwebsite", "0");
+
         response1 = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
@@ -330,16 +364,80 @@ public class APIStepDefinition {
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
     @Then("User sends a POST request for start date {string} and end date {string}")
     public void userSendsAPOSTRequestForStartDateAndEndDate(String start, String end) {
         ApiUtils.postMethodEventsByDateRange(start, end);
     }
 
 
+
     @Then("User sends a PATCH request to visitorsUpdate endpoint")
     public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
+
+
+
+
+
+    @Then("User sends a PATCH request to  alumniUpdate endpoint")
+    public void user_sends_a_patch_request_to_alumni_update_endpoint() {
+
+       ApiUtils.reqbodyUS_026();
+
+
+    }
+
+
+    @Then("Expected data is created, and the equality of the ID information is verified.")
+    public void expected_data_is_created_and_the_equality_of_the_id_information_is_verified() {
+       ApiUtils.responseUS_026();
+    }
+
+
+
+
+
+    @Then("To create a new body that contains the valid authorization information and correct data")
+    public void to_create_a_new_body_that_contains_the_valid_authorization_information_and_correct_data() {
+        ApiUtils.postRequestUS_27();
+       ApiUtils.deleteMethod1();
+
+
+
+
+
+    }
+
+    @Given("verification of id in delete request body")
+    public void verification_of_ıd_ın_delete_request_body() {
+
+        Assert.assertTrue(respHP.containsKey("DeletedId"));
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

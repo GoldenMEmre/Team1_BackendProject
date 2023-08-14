@@ -2,8 +2,11 @@ package utilities;
 
 import hooks.api.HooksAPI;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.json.JSONObject;
+import org.junit.Assert;
 import stepDefinitions.APIStepDefinition;
 
 import java.util.Arrays;
@@ -11,6 +14,8 @@ import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertEquals;
 
 
 public class ApiUtils {
@@ -20,7 +25,7 @@ public class ApiUtils {
     public static String fullPath;
 
     public static HashMap<String, Object> respHP;
-
+     static int  addId;
     public static void getRequestMethod() {
 
         response = given()
@@ -239,26 +244,6 @@ public class ApiUtils {
 
 
 
-    public static void invalidPostRequestVisitorId() {
-
-        JSONObject reqBody = new JSONObject();
-
-        reqBody.put("id", 3250);
-
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .header("Accept", "application/json")
-                .headers("Authorization", "Bearer " + HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .post(fullPath);
-
-        response.prettyPrint();
-        respHP = response.as(HashMap.class);
-
-
-    }
 
 
     public static void postRequestVisitorAdd(){
@@ -321,8 +306,167 @@ public class ApiUtils {
     }
 
 
+    public static void invalidPostRequestVisitorId(){
 
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("id",3250);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+
+
+    }
+
+
+
+    public static void reqbodyUS_026(){
+
+        JSONObject reqBody = new JSONObject();
+
+             /*
+             {
+        "id": 3,
+        "student_id": "29",
+        "current_email": "cuntahsin.com",
+        "current_phone": "123456",
+        "occupation": "police"
+=======
+
+
+>>>>>>> main
 
 }
+              */
+
+        reqBody.put("id",3);
+        reqBody.put("current_email","cuntahsin.com");
+        reqBody.put("current_phone","123456");
+        reqBody.put("current_phone","123456");
+        reqBody.put("occupation","police");
+
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .put(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+
+    }
+
+
+
+    public static void responseUS_026(){
+
+
+
+             /*
+             {
+        "id": 3,
+        "student_id": "29",
+        "current_email": "cuntahsin.com",
+        "current_phone": "123456",
+        "occupation": "police"
+
+}
+              */
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id",3);
+        JSONObject responseBody = new JSONObject();
+        responseBody.put("updateId",3);
+
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .put(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+
+
+    }
+
+    public static void postRequestUS_27(){
+        JSONObject  reqBody =new JSONObject();
+
+        reqBody.put("student_id","34");
+        reqBody.put("current_email", "yildiz@abc");
+        reqBody.put("current_phone","123456");
+        reqBody.put("occupation", "");
+        reqBody.put("address","");
+        reqBody.put("photo", "");
+
+
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+
+
+        JsonPath respJp = response.jsonPath();
+           addId = respJp.getInt("addId");
+
+    }
+     public static void deleteMethod1(){
+
+      JSONObject requestBody = new JSONObject();
+      requestBody.put("id", addId);
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(requestBody.toString())
+                .delete(fullPath);
+        response.prettyPrint();
+         respHP = response.as(HashMap.class);
+
+
+     }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 
 
