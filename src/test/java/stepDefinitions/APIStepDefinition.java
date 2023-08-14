@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 
-import emreTestData.TestData;
+import emreTestData.TestData_US001;
 import hooks.api.HooksAPI;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,24 +10,21 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-import org.hamcrest.Matchers;
-import org.json.JSONArray;
-
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestData_US_033;
 import utilities.ApiUtils;
 import utilities.Authentication;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 import static org.junit.Assert.assertEquals;
+import static utilities.ApiUtils.fullPath;
+import static utilities.ApiUtils.response;
 
 
 public class APIStepDefinition {
@@ -35,7 +32,7 @@ public class APIStepDefinition {
     JSONObject reqBody;
 
     Response response1;
-    public static String fullPath;
+    //public static String fullPath;
 
     //************************** Emre ****************************************
     @Then("VisitorsPurpose icin Post request gonderilir.")
@@ -81,13 +78,32 @@ public class APIStepDefinition {
     @And("Validate the First Item of the Visitor Purpose List")
     public void validateTheFirstItemOfTheVisitorPurposeList() {
 
-        TestData testData=new TestData();
+        TestData_US001 testDataUs001=new TestData_US001();
 
-        HashMap<String,Object> reqBody = testData.dataBodyOlusturMap();
+        JSONObject expData = testDataUs001.expData_US001();
 
-        Assert.assertEquals(reqBody.get("id"),ApiUtils.respHP.get("lists"));
-        Assert.assertEquals(reqBody.get("visitors_purpose"),ApiUtils.respHP.get("visitors_purpose"));
-        Assert.assertEquals(reqBody.get("created_at"),ApiUtils.respHP.get("created_at"));
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("id","1");
+
+        response1 = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .get(fullPath);
+
+        response1.prettyPrint();
+        JsonPath resJP = response1.jsonPath();
+
+        Assert.assertEquals(expData.getJSONObject("lists").get("id"),resJP.getJsonObject("lists.id"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("visitors_purpose"),resJP.getJsonObject("lists.visitors_purpose"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("description"),resJP.getJsonObject("lists.description"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("created_at"),resJP.getJsonObject("lists.created_at"));
+
+
 
     }
 
@@ -246,6 +262,8 @@ public class APIStepDefinition {
     public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
         ApiUtils.patchRequestVisitorsUpdateOgun();
     }
+
+
 }
 
 
