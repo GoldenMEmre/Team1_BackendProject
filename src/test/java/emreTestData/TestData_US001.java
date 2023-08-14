@@ -2,13 +2,15 @@ package emreTestData;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class TestData_US001 {
 
-    public JSONObject data_US001(){
+    public HashMap data_US001(){
 
-        JSONObject data = new JSONObject();
+        HashMap<String,Object> data = new HashMap<>();
         data.put("id","1");
         data.put("visitors_purpose", "Marketing ");
         data.put("description", "");

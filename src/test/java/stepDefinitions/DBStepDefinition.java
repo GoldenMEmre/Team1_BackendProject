@@ -23,8 +23,8 @@ public class DBStepDefinition {
     ResultSet rs16;
     ResultSet rs17;
     ResultSet rs18;
-
     Statement st;
+
     List<Object> UserEmailList= new ArrayList<>();
     Manage manage=new Manage();
 
