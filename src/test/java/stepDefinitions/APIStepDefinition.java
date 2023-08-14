@@ -9,12 +9,15 @@ import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.hamcrest.Matchers;
 import org.json.JSONArray;
 
 import org.json.JSONObject;
 import org.junit.Assert;
+import pojos.SessionListListsPOJO;
+import pojos.SessionListPOJO;
 import testData.TestData_US_033;
 import utilities.ApiUtils;
 import utilities.Authentication;
@@ -229,17 +232,16 @@ public class APIStepDefinition {
     @Then("Execute verification for given informations")
     public void executeVerificationForGivenInformations() {
 
-        HashMap<String, Object> expectedData = new HashMap<>();
-        expectedData.put("status", 200);
-        expectedData.put("message", "Success");
-        expectedData.put("id", 11);
-        expectedData.put("session", "2017-18");
-        expectedData.put("is_active", "no");
-        expectedData.put("created_at", "2017-04-20 02:41:37");
+        JsonPath resJP = ApiUtils.response.jsonPath();
+        ArrayList listsArr = resJP.getJsonObject("lists");
+        JSONArray listsJA = new JSONArray(listsArr);
+        System.out.println(listsJA.get(0));
 
-        Assert.assertEquals(expectedData.get("status"), ApiUtils.respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
-
+        Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"11");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("session"),"2017-18");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"),"no");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"),"2017-04-20 02:41:37");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("updated_at"),"0000-00-00");
 
     }
 
