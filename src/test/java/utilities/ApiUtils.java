@@ -345,10 +345,7 @@ public class ApiUtils {
         "current_email": "cuntahsin.com",
         "current_phone": "123456",
         "occupation": "police"
-=======
 
-
->>>>>>> main
 
 }
               */
@@ -460,27 +457,30 @@ public class ApiUtils {
 
      }
 
-     public static void validateTheListOfTheContentUS007(){
-         JsonPath resJP = ApiUtils.response.jsonPath();
-         ArrayList listsArr = resJP.getJsonObject("lists");
-         JSONArray listsJA = new JSONArray(listsArr);
-         System.out.println(listsJA.get(0));
 
-         Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"1070");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("title"),"Reunion For 2020-21 Batch");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"),"class");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"),"15");
-         Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
-         Assert.assertEquals(listsJA.getJSONObject(1).get("section"),"[\"1\",\"2\",\"3\"]");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"),"2021-03-07 00:00:00");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"),"2021-03-10 00:00:00");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("note"),"");
-         Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
-         Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"),"0");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"),"");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("show_onwebsite"),"0");
-         Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"),"2023-08-14 09:48:43");
-     }
+
+         public static void validateTheListOfTheContentUS007 () {
+             JsonPath resJP = ApiUtils.response.jsonPath();
+             ArrayList listsArr = resJP.getJsonObject("lists");
+             JSONArray listsJA = new JSONArray(listsArr);
+             System.out.println(listsJA.get(0));
+
+             Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "1070");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("title"), "Reunion For 2020-21 Batch");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"), "class");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"), "15");
+             Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
+             Assert.assertEquals(listsJA.getJSONObject(1).get("section"), "[\"1\",\"2\",\"3\"]");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"), "2021-03-07 00:00:00");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"), "2021-03-10 00:00:00");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("note"), "");
+             Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
+             Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"), "0");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"), "");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("show_onwebsite"), "0");
+             Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2023-08-14 09:48:43");
+         }
+
 
      public static void validateTheContentOfTheListUS008(){
          JsonPath resJP = ApiUtils.response.jsonPath();
@@ -587,19 +587,73 @@ public class ApiUtils {
             reqBody.put("note","OERD was here");
 
 
-            response = given()
-                    .spec(spec)
-                    .contentType(ContentType.JSON)
-                    .header("Accept","application/json")
-                    .headers("Authorization","Bearer " + HooksAPI.token)
-                    .when()
-                    .body(reqBody.toString())
-                    .post(fullPath);
 
-            response.prettyPrint();
-            respHP=response.as(HashMap.class);
-            //addId = respHP.get("addId");
-        }
+         response = given()
+                 .spec(spec)
+                 .contentType(ContentType.JSON)
+                 .header("Accept", "application/json")
+                 .headers("Authorization", "Bearer " + HooksAPI.token)
+                 .when()
+                 .body(reqBody.toString())
+                 .post(fullPath);
+
+         response.prettyPrint();
+         respHP = response.as(HashMap.class);
+    }
+
+    public static void pageRequestus046(int id_number){
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", id_number);
+        reqBody.put("class_id", "1");
+        reqBody.put("section_id", "1");
+        reqBody.put("session_id", "18");
+        reqBody.put("subject_group_subject_id", "21");
+        reqBody.put("subject_id", "1");
+        reqBody.put("homework_date", "2022-07-05");
+        reqBody.put("submit_date", "2022-07-08");
+        reqBody.put("marks", 1.00);
+        reqBody.put("description", "<p>\r\n\r\nRead carefully\r\n\r\n<br></p>");
+        reqBody.put("create_date", "2022-07-01");
+        reqBody.put("evaluation_date", "0000-00-00");
+        reqBody.put("document", "");
+        reqBody.put("created_by", "5");
+        reqBody.put("evaluated_by", "5");
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+    }
+
+
+    public static void postRequestus46(){
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("id" ,423);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+             response.prettyPrint();
+             respHP=response.as(HashMap.class);
+             //addId = respHP.get("addId");
+
+         }
+
+
+
 
     public static void deleteVisitorUS0037() {
         JSONObject reqBody = new JSONObject();
@@ -639,6 +693,7 @@ public class ApiUtils {
     }
 
 }
+
 
 
 

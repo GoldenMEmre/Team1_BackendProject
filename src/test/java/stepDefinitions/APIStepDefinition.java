@@ -410,6 +410,21 @@ public class APIStepDefinition {
     @Then("Validate the First Item of the Book Issue  List")
     public void validate_the_first_ıtem_of_the_book_ıssue_list() {
 
+        JsonPath resJP = ApiUtils.response.jsonPath();
+        ArrayList listsArr = resJP.getJsonObject("lists");
+        JSONArray listsJA = new JSONArray(listsArr);
+        System.out.println(listsJA.get(1));
+
+        Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"7");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("book_id"),"3");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("member_id"),"9");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("duereturn_date"),"2021-05-06");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("issue_date"),"2021-05-04");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("is_returned"),"0");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"),"no");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"),"2021-05-04 02:56:46");
+
+
     }
 
 
@@ -522,12 +537,52 @@ public class APIStepDefinition {
     }
 
     @Then("User sends a POST request to check the latest created visitor")
-    public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {
+    public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {}
 
+    @Then("User sends a get POST request to bookIssueId")
+    public void userSendsAGetPOSTRequestToBookIssueId() {
 
     }
 
-}
+    @And("Validate the First Item of the Book Issue Id")
+    public void validateTheFirstItemOfTheBookIssueId() {
+        Assert.assertTrue(respHP.get("lists").toString().contains("id"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("book_id"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("member_id"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("duereturn_date"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("return_date"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("issue_date"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("is_active"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("created_at"));
+    }
+
+    @And("Validate the First Item of the Book Issue Post")
+    public void validateTheFirstItemOfTheBookIssuePost() {
+
+    }
+
+
+
+
+    @Then("User send a patch request to homework update  with id {int}")
+    public void userSendAPatchRequestToHomeworkUpdateWithId(int id_number) {
+        ApiUtils.pageRequestus046(id_number);
+    }
+
+    @Then("User send a patch request to homework update  with id {int} and compare id with response id")
+    public void userSendAPatchRequestToHomeworkUpdateWithIdAndCompareIdWithResponseId(int id_number) {
+        ApiUtils.pageRequestus046(id_number);
+        Assert.assertEquals(id_number,respHP.get("updatedId"));
+    }
+
+    @Then("User send a post request to homeworkbyId")
+    public void userSendAPostRequestToHomeworkbyId() {
+        ApiUtils.postRequestus46();
+    }
+    }
+
+
+
 
 
 
