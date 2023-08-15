@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 public class ApiUtils {
 
     public static Response response;
-
+    public  static JSONObject  reqBody;
     public static String fullPath;
 
     public static HashMap<String, Object> respHP;
@@ -141,7 +141,7 @@ public class ApiUtils {
 
 
          /* {
-            "id": 3,
+            "id": 5,
                 "title": "Sports Activite 2",
                 "event_for": "all",
                 "session_id": null,
