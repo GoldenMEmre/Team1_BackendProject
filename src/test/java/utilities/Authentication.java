@@ -31,6 +31,7 @@ public class Authentication {
                 reqBody.put("email",enumToken.TOKEN.getTeacherEmail());
                 break;
             case "STUDENT" :
+                spec.pathParams("pp1","apistudent","pp2","getToken");
                 reqBody.put("email",enumToken.TOKEN.getStudentUserName());
                 break;
             default:
