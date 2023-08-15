@@ -2,8 +2,12 @@ package stepDefinitions;
 
 
 
+import emreTestData.TestData_US001;
+
+
 import com.beust.ah.A;
-import emreTestData.TestData;
+import emreTestData.TestData_US001;
+
 import hooks.api.HooksAPI;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,7 +17,10 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+
 import org.json.JSONArray;
+
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestDataUS_033;
@@ -26,8 +33,11 @@ import utilities.Authentication;
 import java.util.HashMap;
 
 
+
+
 import java.util.Map;
 import java.util.ArrayList;
+
 
 
 import static hooks.api.HooksAPI.spec;
@@ -35,6 +45,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 import static org.junit.Assert.assertEquals;
+import static utilities.ApiUtils.fullPath;
+import static utilities.ApiUtils.response;
 
 
 import static utilities.ApiUtils.fullPath;
@@ -48,8 +60,12 @@ public class APIStepDefinition {
 
     Response response1;
 
+    //public static String fullPath;
+
+
 
     public static String fullPath;
+
 
     //public static String fullPath;
 
@@ -98,9 +114,36 @@ public class APIStepDefinition {
     @And("Validate the First Item of the Visitor Purpose List")
     public void validateTheFirstItemOfTheVisitorPurposeList() {
 
-        TestData testData = new TestData();
 
-        HashMap<String, Object> reqBody = testData.dataBodyOlusturMap();
+        TestData_US001 testDataUs001=new TestData_US001();
+
+        JSONObject expData = testDataUs001.expData_US001();
+
+        JSONObject reqBody1 = new JSONObject();
+
+        reqBody1.put("id","1");
+
+        response1 = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody1.toString())
+                .get(fullPath);
+
+        response1.prettyPrint();
+        JsonPath resJP = response1.jsonPath();
+
+        Assert.assertEquals(expData.getJSONObject("lists").get("id"),resJP.getJsonObject("lists.id"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("visitors_purpose"),resJP.getJsonObject("lists.visitors_purpose"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("description"),resJP.getJsonObject("lists.description"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("created_at"),resJP.getJsonObject("lists.created_at"));
+
+
+        TestData_US001 testData = new TestData_US001();
+
+        HashMap<String, Object> reqBody = testData.data_US001();
 
 
         Assert.assertEquals(reqBody.get("id"), respHP.get("lists"));
@@ -110,6 +153,7 @@ public class APIStepDefinition {
         Assert.assertEquals(reqBody.get("id"), ApiUtils.respHP.get("lists"));
         Assert.assertEquals(reqBody.get("visitors_purpose"), ApiUtils.respHP.get("visitors_purpose"));
         Assert.assertEquals(reqBody.get("created_at"), ApiUtils.respHP.get("created_at"));
+
 
 
     }
@@ -342,7 +386,7 @@ public class APIStepDefinition {
                 "updateId": 5
         }
 
-         */
+         */ //
     }
 
     // *********************** GUlten ***********************//
@@ -354,7 +398,7 @@ public class APIStepDefinition {
         JsonPath resJP = ApiUtils.response.jsonPath();
         ArrayList listsArr = resJP.getJsonObject("lists");
         JSONArray listsJA = new JSONArray(listsArr);
-        System.out.println(listsJA.get(0));
+        System.out.println(listsJA.get(1));
 
         Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"11");
         Assert.assertEquals(listsJA.getJSONObject(1).get("session"),"2017-18");
@@ -402,15 +446,6 @@ public class APIStepDefinition {
 
 
 
-    @Then("User sends a PATCH request to visitorsUpdate endpoint")
-    public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
-        ApiUtils.patchRequestVisitorsUpdateOgun();
-    }
-
-
-
-
-
     @Then("User sends a PATCH request to  alumniUpdate endpoint")
     public void user_sends_a_patch_request_to_alumni_update_endpoint() {
 
@@ -448,10 +483,64 @@ public class APIStepDefinition {
 
     }
 
+    @Then("Validate the content of the lists in the response")
+    public void validateTheContentOfTheListsInTheResponse() {
+       ApiUtils.validateTheListOfTheContentUS007();
+
+    }
+
+    @Then("Validate the content of the data in the response body")
+    public void validateTheContentOfTheDataInTheResponseBody() {
+        ApiUtils.validateTheContentOfTheListUS008();
+    }
+
+    @Then("User sends a POST request for id {int}")
+    public void userSendsAPOSTRequestForId(int ident) {
+        ApiUtils.postRequestAlumniEventsIDUS009(ident);
+    }
+
+    @Then("Validate content of the response body")
+    public void validateContentOfTheResponseBody() {
+        ApiUtils.validateContentOfTheResponseUS009();
+    }
+
+    @Then("User sends a POST request to visitorsId endpoint")
+    public void userSendsAPOSTRequestToVisitorsIdEndpoint() {
+        ApiUtils.postVisitorsIdUS036();
+    }
+
+    @Then("User sends a PATCH request to visitorsUpdate endpoint with id {int}")
+    public void userSendsAPATCHRequestToVisitorsUpdateEndpointWithId(int ident) {
+        ApiUtils.patchRequestVisitorsUpdateOgun(ident);
+    }
+
+    @Then("User sends a PATCH request to visitorsUpdate endpoint with id {int} and compare id with response id")
+    public void userSendsAPATCHRequestToVisitorsUpdateEndpointWithIdAndCompareIdWithResponseId(int ident) {
+        ApiUtils.patchRequestVisitorsUpdateOgun(ident);
+        Assert.assertEquals(respHP.get("updatedId"),ident);
+    }
+
+    @Then("User sends a POST request to create a visitor")
+    public void userSendsAPOSTRequestToCreateAVisitor() {
+        ApiUtils.createVisitorUS0037();
+    }
+
+    @Then("User sends a DELETE request")
+    public void userSendsADELETERequest() {
+        ApiUtils.deleteVisitorUS0037();
+    }
+
+    @Then("User sends a DELETE request and compare the ids in request and response body")
+    public void userSendsADELETERequestAndCompareTheIdsInRequestAndResponseBody() {
+        ApiUtils.deleteVisitorUS0037();
+        Assert.assertEquals(ApiUtils.addId,respHP.get("deletedId"));
+    }
+
+    @Then("User sends a POST request to check the latest created visitor")
+    public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {}
 
     @Then("User sends a get POST request to bookIssueId")
     public void userSendsAGetPOSTRequestToBookIssueId() {
-        ApiUtils.postRequestUS19();
 
     }
 
@@ -474,6 +563,7 @@ public class APIStepDefinition {
 
 
 
+
     @Then("User send a patch request to homework update  with id {int}")
     public void userSendAPatchRequestToHomeworkUpdateWithId(int id_number) {
         ApiUtils.pageRequestus046(id_number);
@@ -487,9 +577,12 @@ public class APIStepDefinition {
 
     @Then("User send a post request to homeworkbyId")
     public void userSendAPostRequestToHomeworkbyId() {
-ApiUtils.postRequestus46();
+        ApiUtils.postRequestus46();
     }
-}
+    }
+
+
+
 
 
 
