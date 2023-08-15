@@ -455,9 +455,78 @@ public class ApiUtils {
 
      }
 
+     public static void postRequestUS19(){
+         JSONObject reqBody = new JSONObject();
+
+         reqBody.put("book_id", "11");
+         reqBody.put("member_id", "72");
+         reqBody.put("duereturn_date", "2021-08-04");
+         reqBody.put("return_date", "2021-09-06");
+         reqBody.put("issue_date", "2021-08-04");
 
 
 
+         response = given()
+                 .spec(spec)
+                 .contentType(ContentType.JSON)
+                 .header("Accept", "application/json")
+                 .headers("Authorization", "Bearer " + HooksAPI.token)
+                 .when()
+                 .body(reqBody.toString())
+                 .post(fullPath);
+
+         response.prettyPrint();
+         respHP = response.as(HashMap.class);
+    }
+
+    public static void pageRequestus046(int id_number){
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", id_number);
+        reqBody.put("class_id", "1");
+        reqBody.put("section_id", "1");
+        reqBody.put("session_id", "18");
+        reqBody.put("subject_group_subject_id", "21");
+        reqBody.put("subject_id", "1");
+        reqBody.put("homework_date", "2022-07-05");
+        reqBody.put("submit_date", "2022-07-08");
+        reqBody.put("marks", 1.00);
+        reqBody.put("description", "<p>\r\n\r\nRead carefully\r\n\r\n<br></p>");
+        reqBody.put("create_date", "2022-07-01");
+        reqBody.put("evaluation_date", "0000-00-00");
+        reqBody.put("document", "");
+        reqBody.put("created_by", "5");
+        reqBody.put("evaluated_by", "5");
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+    }
+
+
+    public static void postRequestus46(){
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("id" ,423);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+    }
 
     }
 
