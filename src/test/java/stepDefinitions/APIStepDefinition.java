@@ -398,7 +398,7 @@ public class APIStepDefinition {
         JsonPath resJP = ApiUtils.response.jsonPath();
         ArrayList listsArr = resJP.getJsonObject("lists");
         JSONArray listsJA = new JSONArray(listsArr);
-        System.out.println(listsJA.get(0));
+        System.out.println(listsJA.get(1));
 
         Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"11");
         Assert.assertEquals(listsJA.getJSONObject(1).get("session"),"2017-18");
@@ -428,16 +428,6 @@ public class APIStepDefinition {
     public void userSendsAPOSTRequestForStartDateAndEndDate(String start, String end) {
         ApiUtils.postMethodEventsByDateRange(start, end);
     }
-
-
-
-    @Then("User sends a PATCH request to visitorsUpdate endpoint")
-    public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
-        ApiUtils.patchRequestVisitorsUpdateOgun();
-    }
-
-
-
 
 
 
@@ -478,18 +468,64 @@ public class APIStepDefinition {
 
     }
 
+    @Then("Validate the content of the lists in the response")
+    public void validateTheContentOfTheListsInTheResponse() {
+       ApiUtils.validateTheListOfTheContentUS007();
+
+    }
+
+    @Then("Validate the content of the data in the response body")
+    public void validateTheContentOfTheDataInTheResponseBody() {
+        ApiUtils.validateTheContentOfTheListUS008();
+    }
+
+    @Then("User sends a POST request for id {int}")
+    public void userSendsAPOSTRequestForId(int ident) {
+        ApiUtils.postRequestAlumniEventsIDUS009(ident);
+    }
+
+    @Then("Validate content of the response body")
+    public void validateContentOfTheResponseBody() {
+        ApiUtils.validateContentOfTheResponseUS009();
+    }
+
+    @Then("User sends a POST request to visitorsId endpoint")
+    public void userSendsAPOSTRequestToVisitorsIdEndpoint() {
+        ApiUtils.postVisitorsIdUS036();
+    }
+
+    @Then("User sends a PATCH request to visitorsUpdate endpoint with id {int}")
+    public void userSendsAPATCHRequestToVisitorsUpdateEndpointWithId(int ident) {
+        ApiUtils.patchRequestVisitorsUpdateOgun(ident);
+    }
+
+    @Then("User sends a PATCH request to visitorsUpdate endpoint with id {int} and compare id with response id")
+    public void userSendsAPATCHRequestToVisitorsUpdateEndpointWithIdAndCompareIdWithResponseId(int ident) {
+        ApiUtils.patchRequestVisitorsUpdateOgun(ident);
+        Assert.assertEquals(respHP.get("updatedId"),ident);
+    }
+
+    @Then("User sends a POST request to create a visitor")
+    public void userSendsAPOSTRequestToCreateAVisitor() {
+        ApiUtils.createVisitorUS0037();
+    }
+
+    @Then("User sends a DELETE request")
+    public void userSendsADELETERequest() {
+        ApiUtils.deleteVisitorUS0037();
+    }
+
+    @Then("User sends a DELETE request and compare the ids in request and response body")
+    public void userSendsADELETERequestAndCompareTheIdsInRequestAndResponseBody() {
+        ApiUtils.deleteVisitorUS0037();
+        Assert.assertEquals(ApiUtils.addId,respHP.get("deletedId"));
+    }
+
+    @Then("User sends a POST request to check the latest created visitor")
+    public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {
 
 
-
-
-
-
-
-
-
-
-
-
+    }
 
 }
 

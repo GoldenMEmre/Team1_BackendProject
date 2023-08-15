@@ -5,10 +5,12 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 import stepDefinitions.APIStepDefinition;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -25,7 +27,7 @@ public class ApiUtils {
     public static String fullPath;
 
     public static HashMap<String, Object> respHP;
-     static int  addId;
+    public static int  addId;
     public static void getRequestMethod() {
 
         response = given()
@@ -179,10 +181,10 @@ public class ApiUtils {
 
         }
 
-        public static void patchRequestVisitorsUpdateOgun(){
+        public static void patchRequestVisitorsUpdateOgun(int id){
 
             JSONObject reqBody = new JSONObject();
-            reqBody.put("id", 232);
+            reqBody.put("id", id);
             reqBody.put("purpose", "Principal Meeting");
             reqBody.put("name", "Kenan1");
             reqBody.put("contact", "9808678686112");
@@ -458,11 +460,185 @@ public class ApiUtils {
 
      }
 
+     public static void validateTheListOfTheContentUS007(){
+         JsonPath resJP = ApiUtils.response.jsonPath();
+         ArrayList listsArr = resJP.getJsonObject("lists");
+         JSONArray listsJA = new JSONArray(listsArr);
+         System.out.println(listsJA.get(0));
+
+         Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"1070");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("title"),"Reunion For 2020-21 Batch");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"),"class");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"),"15");
+         Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
+         Assert.assertEquals(listsJA.getJSONObject(1).get("section"),"[\"1\",\"2\",\"3\"]");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"),"2021-03-07 00:00:00");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"),"2021-03-10 00:00:00");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("note"),"");
+         Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
+         Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"),"0");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"),"");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("show_onwebsite"),"0");
+         Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"),"2023-08-14 09:48:43");
+     }
+
+     public static void validateTheContentOfTheListUS008(){
+         JsonPath resJP = ApiUtils.response.jsonPath();
+         ArrayList listsArr = resJP.getJsonObject("lists");
+         JSONArray listsJA = new JSONArray(listsArr);
+         System.out.println(listsJA.get(0));
+         String event_notification_message = "GAVI'S RESPONSE\r\nRespond and protect:" +
+                 " With COVID-19 now reported in almost all Gavi-eligible countries," +
+                 " the Vaccine Alliance is providing immediate funding to health systems," +
+                 " enabling countries to protect health care workers, perform vital surveillance and training," +
+                 " and purchase diagnostic tests.\r\n\r\nMaintain, restore and strengthen: Gavi will support" +
+                 " countries to adapt and restart immunisation services, rebuild community trust and catch up" +
+                 " those who have been missed both before and during the pandemic, while also investing in" +
+                 " strengthening immunisation systems to be more resilient and responsive to the communities" +
+                 " they serve.\r\n\r\nEnsure global equitable access: Gavi is co-leading COVAX, the global effort" +
+                 " to securing a global response to COVID-19 that is effective and fair, using its unique expertise" +
+                 " to help identify and rapidly accelerate development, production and delivery of COVID-19 vaccines" +
+                 " so that anyone that needs them, gets them.";
+
+         String note = "COVID-19 is the disease caused by a new coronavirus called SARS-CoV-2." +
+                 "  WHO first learned of this new virus on 31 December 2019, following a report of a cluster" +
+                 " of cases of â€˜viral pneumoniaâ€™ in Wuhan, Peopleâ€™s Republic of China.";
+
+         Assert.assertEquals(listsJA.getJSONObject(0).get("id"),"1");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("title"),"Covid-19 Seminar");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("event_for"),"class");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("session_id"),"16");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("class_id"),"1");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("section"),"[\"1\"]");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("from_date"),"2021-03-01 00:00:00");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("to_date"),"2021-03-16 00:00:00");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("note"),note);
+         Assert.assertEquals(listsJA.getJSONObject(0).get("photo"),"");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("is_active"),"0");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("event_notification_message"),event_notification_message);
+         Assert.assertEquals(listsJA.getJSONObject(0).get("show_onwebsite"),"0");
+         Assert.assertEquals(listsJA.getJSONObject(0).get("created_at"),"2021-03-23 02:54:29");
+     }
+
+        public static void postRequestAlumniEventsIDUS009(int id){
+
+            JSONObject reqBody=new JSONObject();
+
+            reqBody.put("id",id);
+
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .header("Accept","application/json")
+                    .headers("Authorization","Bearer " + HooksAPI.token)
+                    .when()
+                    .body(reqBody.toString())
+                    .post(fullPath);
+
+            response.prettyPrint();
+            respHP=response.as(HashMap.class);
+        }
+        public static void validateContentOfTheResponseUS009(){
+            Assert.assertTrue(respHP.get("lists").toString().contains("id"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("title"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("event_for"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("session_id"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("class_id"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("section"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("from_date"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("to_date"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("note"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("photo"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("is_active"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("event_notification_message"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("show_onwebsite"));
+            Assert.assertTrue(respHP.get("lists").toString().contains("created_at"));
+        }
+
+        public static void postVisitorsIdUS036(){
+            JSONObject reqBody=new JSONObject();
+
+            reqBody.put("id",232);
+
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .header("Accept","application/json")
+                    .headers("Authorization","Bearer " + HooksAPI.token)
+                    .when()
+                    .body(reqBody.toString())
+                    .post(fullPath);
+
+            response.prettyPrint();
+            respHP=response.as(HashMap.class);
+        }
+
+        public static void createVisitorUS0037(){
+            JSONObject reqBody=new JSONObject();
+
+            reqBody.put("purpose","Principal Meeting");
+            reqBody.put("name","Timur");
+            reqBody.put("contact","02323 23 23");
+            reqBody.put("id_proof","447932367");
+            reqBody.put("no_of_people","23");
+            reqBody.put("date","2023-10-26");
+            reqBody.put("in_time","06:00 AM");
+            reqBody.put("out_time","06:45 AM");
+            reqBody.put("note","OERD was here");
 
 
+            response = given()
+                    .spec(spec)
+                    .contentType(ContentType.JSON)
+                    .header("Accept","application/json")
+                    .headers("Authorization","Bearer " + HooksAPI.token)
+                    .when()
+                    .body(reqBody.toString())
+                    .post(fullPath);
 
+            response.prettyPrint();
+            respHP=response.as(HashMap.class);
+            //addId = respHP.get("addId");
+        }
 
+    public static void deleteVisitorUS0037() {
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("id", respHP.get("addId"));
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .delete(fullPath);
+
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
     }
+
+    public static void postVisitorIDUS0037(){
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("id",addId);
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+    }
+
+}
 
 
 

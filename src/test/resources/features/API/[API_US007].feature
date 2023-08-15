@@ -18,5 +18,7 @@ Feature: As an administrator, I want to access the Alumni Events List through AP
      photo is empty, is_active is "0," event_notification_message is empty, show_onwebsite is "0," and
      created_at is "2021-03-23 02:53:47."
 
-
+       Given "ADMIN" Page User sets "api/alumniEventsList" parameters
+       Then User sends a get request
+       Then Validate the content of the lists in the response
 
