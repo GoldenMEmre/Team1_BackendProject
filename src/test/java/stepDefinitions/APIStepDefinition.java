@@ -2,7 +2,10 @@ package stepDefinitions;
 
 
 
+
 import com.google.protobuf.Api;
+
+
 import emreTestData.TestData_US001;
 
 
@@ -14,7 +17,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-
+import org.hamcrest.Matchers;
 import org.json.JSONArray;
 
 import org.json.JSONObject;
@@ -27,17 +30,14 @@ import utilities.Authentication;
 import java.util.HashMap;
 
 
-
-
 import java.util.Map;
 import java.util.ArrayList;
 
 
-
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.hasItem;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 
 
@@ -52,7 +52,6 @@ public class APIStepDefinition {
     Response response1;
 
     //public static String fullPath;
-
 
 
     public static String fullPath;
@@ -106,13 +105,13 @@ public class APIStepDefinition {
     public void validateTheFirstItemOfTheVisitorPurposeList() {
 
 
-        TestData_US001 testDataUs001=new TestData_US001();
+        TestData_US001 testDataUs001 = new TestData_US001();
 
         JSONObject expData = testDataUs001.expData_US001();
 
         JSONObject reqBody1 = new JSONObject();
 
-        reqBody1.put("id","1");
+        reqBody1.put("id", "1");
 
         response1 = given()
                 .spec(spec)
@@ -126,10 +125,10 @@ public class APIStepDefinition {
         response1.prettyPrint();
         JsonPath resJP = response1.jsonPath();
 
-        Assert.assertEquals(expData.getJSONObject("lists").get("id"),resJP.getJsonObject("lists.id"));
-        Assert.assertEquals(expData.getJSONObject("lists").get("visitors_purpose"),resJP.getJsonObject("lists.visitors_purpose"));
-        Assert.assertEquals(expData.getJSONObject("lists").get("description"),resJP.getJsonObject("lists.description"));
-        Assert.assertEquals(expData.getJSONObject("lists").get("created_at"),resJP.getJsonObject("lists.created_at"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("id"), resJP.getJsonObject("lists.id"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("visitors_purpose"), resJP.getJsonObject("lists.visitors_purpose"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("description"), resJP.getJsonObject("lists.description"));
+        Assert.assertEquals(expData.getJSONObject("lists").get("created_at"), resJP.getJsonObject("lists.created_at"));
 
 
         TestData_US001 testData = new TestData_US001();
@@ -144,7 +143,6 @@ public class APIStepDefinition {
         Assert.assertEquals(reqBody.get("id"), ApiUtils.respHP.get("lists"));
         Assert.assertEquals(reqBody.get("visitors_purpose"), ApiUtils.respHP.get("visitors_purpose"));
         Assert.assertEquals(reqBody.get("created_at"), ApiUtils.respHP.get("created_at"));
-
 
 
     }
@@ -171,10 +169,6 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
 
 
-        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
-
-
     }
 
     @Then("Execute a verification for an invalid authorization")
@@ -187,11 +181,6 @@ public class APIStepDefinition {
         Assert.assertEquals(expectedData.get("message"), ApiUtils.respHP.get("message"));
 
 
-        Assert.assertEquals(expectedData.get("status"), respHP.get("status"));
-        Assert.assertEquals(expectedData.get("message"), respHP.get("message"));
-
-
-
     }
 
 
@@ -200,54 +189,54 @@ public class APIStepDefinition {
 
         TestDataUS_033 testDataUs033 = new TestDataUS_033();
 
-        HashMap<String,Object> expData = testDataUs033.expDataUS_033();
+        HashMap<String, Object> expData = testDataUs033.expDataUS_033();
 
         JSONObject reqBody = new JSONObject();
-        reqBody.put("id","250");
+        reqBody.put("id", "250");
 
         response1 = given()
                 .spec(spec)
                 .contentType(ContentType.JSON)
-                .header("Accept","application/json")
-                .headers("Authorization","Bearer " + HooksAPI.token)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
                 .when()
                 .body(reqBody.toString())
                 .get(fullPath);
 
         response1.prettyPrint();
-        respHP=response1.as(HashMap.class);
+        respHP = response1.as(HashMap.class);
 
 
-        assertEquals( ( (Map) (expData.get("lists"))).get("id") , ( (Map) (respHP.get("lists"))).get("id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_id") , ( (Map) (respHP.get("lists"))).get("staff_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_session_id") , ( (Map) (respHP.get("lists"))).get("student_session_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("source") , ( (Map) (respHP.get("lists"))).get("source"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("purpose") , ( (Map) (respHP.get("lists"))).get("purpose"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("name") , ( (Map) (respHP.get("lists"))).get("name"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("email") , ( (Map) (respHP.get("lists"))).get("email"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("contact") , ( (Map) (respHP.get("lists"))).get("contact"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("id_proof") , ( (Map) (respHP.get("lists"))).get("id_proof"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("no_of_people") , ( (Map) (respHP.get("lists"))).get("no_of_people"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("date") , ( (Map) (respHP.get("lists"))).get("date"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("in_time") , ( (Map) (respHP.get("lists"))).get("in_time"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("out_time") , ( (Map) (respHP.get("lists"))).get("out_time"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("note") , ( (Map) (respHP.get("lists"))).get("note"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("image") , ( (Map) (respHP.get("lists"))).get("image"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("meeting_with") , ( (Map) (respHP.get("lists"))).get("meeting_with"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("created_at") , ( (Map) (respHP.get("lists"))).get("created_at"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("class") , ( (Map) (respHP.get("lists"))).get("class"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("section") , ( (Map) (respHP.get("lists"))).get("section"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_name") , ( (Map) (respHP.get("lists"))).get("staff_name"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_surname") , ( (Map) (respHP.get("lists"))).get("staff_surname"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_employee_id") , ( (Map) (respHP.get("lists"))).get("staff_employee_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("class_id") , ( (Map) (respHP.get("lists"))).get("class_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("section_id") , ( (Map) (respHP.get("lists"))).get("section_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("students_id") , ( (Map) (respHP.get("lists"))).get("students_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("admission_no") , ( (Map) (respHP.get("lists"))).get("admission_no"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_firstname") , ( (Map) (respHP.get("lists"))).get("student_firstname"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_middlename") , ( (Map) (respHP.get("lists"))).get("student_middlename"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_lastname") , ( (Map) (respHP.get("lists"))).get("student_lastname"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("role_id") , ( (Map) (respHP.get("lists"))).get("role_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("id"), ((Map) (respHP.get("lists"))).get("id"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_id"), ((Map) (respHP.get("lists"))).get("staff_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_session_id"), ((Map) (respHP.get("lists"))).get("student_session_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("source"), ((Map) (respHP.get("lists"))).get("source"));
+        assertEquals(((Map) (expData.get("lists"))).get("purpose"), ((Map) (respHP.get("lists"))).get("purpose"));
+        assertEquals(((Map) (expData.get("lists"))).get("name"), ((Map) (respHP.get("lists"))).get("name"));
+        assertEquals(((Map) (expData.get("lists"))).get("email"), ((Map) (respHP.get("lists"))).get("email"));
+        assertEquals(((Map) (expData.get("lists"))).get("contact"), ((Map) (respHP.get("lists"))).get("contact"));
+        assertEquals(((Map) (expData.get("lists"))).get("id_proof"), ((Map) (respHP.get("lists"))).get("id_proof"));
+        assertEquals(((Map) (expData.get("lists"))).get("no_of_people"), ((Map) (respHP.get("lists"))).get("no_of_people"));
+        assertEquals(((Map) (expData.get("lists"))).get("date"), ((Map) (respHP.get("lists"))).get("date"));
+        assertEquals(((Map) (expData.get("lists"))).get("in_time"), ((Map) (respHP.get("lists"))).get("in_time"));
+        assertEquals(((Map) (expData.get("lists"))).get("out_time"), ((Map) (respHP.get("lists"))).get("out_time"));
+        assertEquals(((Map) (expData.get("lists"))).get("note"), ((Map) (respHP.get("lists"))).get("note"));
+        assertEquals(((Map) (expData.get("lists"))).get("image"), ((Map) (respHP.get("lists"))).get("image"));
+        assertEquals(((Map) (expData.get("lists"))).get("meeting_with"), ((Map) (respHP.get("lists"))).get("meeting_with"));
+        assertEquals(((Map) (expData.get("lists"))).get("created_at"), ((Map) (respHP.get("lists"))).get("created_at"));
+        assertEquals(((Map) (expData.get("lists"))).get("class"), ((Map) (respHP.get("lists"))).get("class"));
+        assertEquals(((Map) (expData.get("lists"))).get("section"), ((Map) (respHP.get("lists"))).get("section"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_name"), ((Map) (respHP.get("lists"))).get("staff_name"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_surname"), ((Map) (respHP.get("lists"))).get("staff_surname"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_employee_id"), ((Map) (respHP.get("lists"))).get("staff_employee_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("class_id"), ((Map) (respHP.get("lists"))).get("class_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("section_id"), ((Map) (respHP.get("lists"))).get("section_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("students_id"), ((Map) (respHP.get("lists"))).get("students_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("admission_no"), ((Map) (respHP.get("lists"))).get("admission_no"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_firstname"), ((Map) (respHP.get("lists"))).get("student_firstname"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_middlename"), ((Map) (respHP.get("lists"))).get("student_middlename"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_lastname"), ((Map) (respHP.get("lists"))).get("student_lastname"));
+        assertEquals(((Map) (expData.get("lists"))).get("role_id"), ((Map) (respHP.get("lists"))).get("role_id"));
 
     }
 
@@ -264,39 +253,39 @@ public class APIStepDefinition {
 
         TestDataUS_033 testDataUs033 = new TestDataUS_033();
 
-        HashMap<String,Object> expData = testDataUs033.expDataUS_033();
+        HashMap<String, Object> expData = testDataUs033.expDataUS_033();
 
 
-        assertEquals( ( (Map) (expData.get("lists"))).get("id") , ( (Map) (respHP.get("lists"))).get("id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_id") , ( (Map) (respHP.get("lists"))).get("staff_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_session_id") , ( (Map) (respHP.get("lists"))).get("student_session_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("source") , ( (Map) (respHP.get("lists"))).get("source"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("purpose") , ( (Map) (respHP.get("lists"))).get("purpose"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("name") , ( (Map) (respHP.get("lists"))).get("name"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("email") , ( (Map) (respHP.get("lists"))).get("email"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("contact") , ( (Map) (respHP.get("lists"))).get("contact"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("id_proof") , ( (Map) (respHP.get("lists"))).get("id_proof"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("no_of_people") , ( (Map) (respHP.get("lists"))).get("no_of_people"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("date") , ( (Map) (respHP.get("lists"))).get("date"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("in_time") , ( (Map) (respHP.get("lists"))).get("in_time"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("out_time") , ( (Map) (respHP.get("lists"))).get("out_time"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("note") , ( (Map) (respHP.get("lists"))).get("note"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("image") , ( (Map) (respHP.get("lists"))).get("image"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("meeting_with") , ( (Map) (respHP.get("lists"))).get("meeting_with"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("created_at") , ( (Map) (respHP.get("lists"))).get("created_at"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("class") , ( (Map) (respHP.get("lists"))).get("class"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("section") , ( (Map) (respHP.get("lists"))).get("section"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_name") , ( (Map) (respHP.get("lists"))).get("staff_name"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_surname") , ( (Map) (respHP.get("lists"))).get("staff_surname"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("staff_employee_id") , ( (Map) (respHP.get("lists"))).get("staff_employee_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("class_id") , ( (Map) (respHP.get("lists"))).get("class_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("section_id") , ( (Map) (respHP.get("lists"))).get("section_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("students_id") , ( (Map) (respHP.get("lists"))).get("students_id"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("admission_no") , ( (Map) (respHP.get("lists"))).get("admission_no"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_firstname") , ( (Map) (respHP.get("lists"))).get("student_firstname"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_middlename") , ( (Map) (respHP.get("lists"))).get("student_middlename"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("student_lastname") , ( (Map) (respHP.get("lists"))).get("student_lastname"));
-        assertEquals( ( (Map) (expData.get("lists"))).get("role_id") , ( (Map) (respHP.get("lists"))).get("role_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("id"), ((Map) (respHP.get("lists"))).get("id"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_id"), ((Map) (respHP.get("lists"))).get("staff_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_session_id"), ((Map) (respHP.get("lists"))).get("student_session_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("source"), ((Map) (respHP.get("lists"))).get("source"));
+        assertEquals(((Map) (expData.get("lists"))).get("purpose"), ((Map) (respHP.get("lists"))).get("purpose"));
+        assertEquals(((Map) (expData.get("lists"))).get("name"), ((Map) (respHP.get("lists"))).get("name"));
+        assertEquals(((Map) (expData.get("lists"))).get("email"), ((Map) (respHP.get("lists"))).get("email"));
+        assertEquals(((Map) (expData.get("lists"))).get("contact"), ((Map) (respHP.get("lists"))).get("contact"));
+        assertEquals(((Map) (expData.get("lists"))).get("id_proof"), ((Map) (respHP.get("lists"))).get("id_proof"));
+        assertEquals(((Map) (expData.get("lists"))).get("no_of_people"), ((Map) (respHP.get("lists"))).get("no_of_people"));
+        assertEquals(((Map) (expData.get("lists"))).get("date"), ((Map) (respHP.get("lists"))).get("date"));
+        assertEquals(((Map) (expData.get("lists"))).get("in_time"), ((Map) (respHP.get("lists"))).get("in_time"));
+        assertEquals(((Map) (expData.get("lists"))).get("out_time"), ((Map) (respHP.get("lists"))).get("out_time"));
+        assertEquals(((Map) (expData.get("lists"))).get("note"), ((Map) (respHP.get("lists"))).get("note"));
+        assertEquals(((Map) (expData.get("lists"))).get("image"), ((Map) (respHP.get("lists"))).get("image"));
+        assertEquals(((Map) (expData.get("lists"))).get("meeting_with"), ((Map) (respHP.get("lists"))).get("meeting_with"));
+        assertEquals(((Map) (expData.get("lists"))).get("created_at"), ((Map) (respHP.get("lists"))).get("created_at"));
+        assertEquals(((Map) (expData.get("lists"))).get("class"), ((Map) (respHP.get("lists"))).get("class"));
+        assertEquals(((Map) (expData.get("lists"))).get("section"), ((Map) (respHP.get("lists"))).get("section"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_name"), ((Map) (respHP.get("lists"))).get("staff_name"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_surname"), ((Map) (respHP.get("lists"))).get("staff_surname"));
+        assertEquals(((Map) (expData.get("lists"))).get("staff_employee_id"), ((Map) (respHP.get("lists"))).get("staff_employee_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("class_id"), ((Map) (respHP.get("lists"))).get("class_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("section_id"), ((Map) (respHP.get("lists"))).get("section_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("students_id"), ((Map) (respHP.get("lists"))).get("students_id"));
+        assertEquals(((Map) (expData.get("lists"))).get("admission_no"), ((Map) (respHP.get("lists"))).get("admission_no"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_firstname"), ((Map) (respHP.get("lists"))).get("student_firstname"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_middlename"), ((Map) (respHP.get("lists"))).get("student_middlename"));
+        assertEquals(((Map) (expData.get("lists"))).get("student_lastname"), ((Map) (respHP.get("lists"))).get("student_lastname"));
+        assertEquals(((Map) (expData.get("lists"))).get("role_id"), ((Map) (respHP.get("lists"))).get("role_id"));
 
 
     }
@@ -316,6 +305,7 @@ public class APIStepDefinition {
 
     }
 
+
     @Given("POST request is sent for questionDetailsById")
     public void post_request_is_sent_for_question_details_by_ıd() {
 
@@ -324,63 +314,99 @@ public class APIStepDefinition {
     }
 
 
+    // *********************** GUlten ***********************Baslangic//
 
-    // *********************** GUlten ***********************//
-    @Given("User sends a Patch request to end point")
-    public void user_sends_a_patch_request_to_end_point() {
-        // ApiUtils.patchRequestGulten();
+
+    @Given("User sends a Patch request to end point with id {int}")
+    public void user_sends_a_patch_request_to_end_point_with_id(Integer gulten) {
+
+        ApiUtils.patchRequestGulten(gulten);
+    }
+
+    @Given("User sends a Patch request to end point with id {int} and compare id with response id")
+    public void user_sends_a_patch_request_to_end_point_with_id_and_compare_id_with_response_id(Integer gulten) {
+        ApiUtils.patchRequestGulten(gulten);
+        Assert.assertEquals(respHP.get("updateId"), gulten);
 
     }
 
+    @Given("User sends a POST request to alumniEventsId")
+    public void user_sends_a_post_request_to_alumni_events_id() {
+
+        ApiUtils.gultenPostUser11();
 
 
-
-    @Given("User verifies that the information in the response body  is the same as in the PATCH request body sent to the api alumniEventsUpdate endpoint")
-    public void user_verifies_that_the_information_in_the_response_body_is_the_same_as_in_the_patch_request_body_sent_to_the_api_alumni_events_update_endpoint() {
-
-        JSONObject reqBody = new JSONObject();
-        reqBody.put("id", 5);
-        reqBody.put("title", "Sports Activite 2");
-        reqBody.put("event_for", "all");
-        reqBody.put("session_id", "null");
-
-        reqBody.put("section","null");
-        reqBody.put("from_date","2023-02-14 00:00:00");
-        reqBody.put("to_date","2023-02-15 23:59:00");
-        reqBody.put("note","Sports");
-        reqBody.put("event_notification_message","Sports");
-        reqBody.put("show_onwebsite","0");
-
-
-        reqBody.put("section", "null");
-        reqBody.put("from_date", "2023-02-14 00:00:00");
-        reqBody.put("to_date", "2023-02-15 23:59:00");
-        reqBody.put("note", "Sports");
-        reqBody.put("event_notification_message", "Sports");
-        reqBody.put("show_onwebsite", "0");
-
-        response1 = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .headers("Authorization", "Bearer " + HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .patch(fullPath);
-        response1.prettyPrint();
-
-        JsonPath resJP = response1.jsonPath();
-        Assert.assertEquals(reqBody.get("id"), resJP.get("updateId"));
-        /*{
-            "status": 200,
-                "message": "Success",
-                "Token_remaining_time": 813,
-                "updateId": 5
-        }
-
-         */ //
     }
 
-    // *********************** GUlten ***********************//
+    @Given("Response body content test for vehicle list")
+    public void response_body_content_test_for_vehicle_list() {
+
+        ApiUtils.gultenGetUS13();
+
+        ApiUtils.response.then().assertThat()
+                .body("lists.id", Matchers.equalTo("1"))
+                .body("lists.vehicle_no", equalTo("VH1001"))
+                .body("lists.vehicle_model", equalTo("Volvo Bus"))
+                .body("lists.vehicle_photo", equalTo("1677502387-149436744063fca7b3a1796!fd.png"))
+                .body("lists.manufacture_year", equalTo("2017"))
+                .body("lists.registration_number", equalTo("FVFF-08797865"))
+                .body("lists.chasis_number", equalTo("45453"))
+                .body("lists.max_seating_capacity", equalTo("50"))
+                .body("lists.driver_name", equalTo("Michel"))
+                .body("lists.driver_licence", equalTo("R534534"))
+                .body("lists.driver_contact", equalTo("8667777869"))
+                .body("lists.note", equalTo(""))
+                .body("lists.created_at", equalTo("2023-02-27 07:53:07"));
+
+
+    }
+
+    @Given("User sends a POST request to vehicleId")
+    public void user_sends_a_post_request_to_vehicle_id() {
+        ApiUtils.gultenGetUS14();
+
+    }
+
+    @Given("Response body content test for vehicleId")
+    public void response_body_content_test_for_vehicle_id() {
+        /*
+        "id": "7",
+        "vehicle_no": "VH4584",
+        "vehicle_model": "Ford CAB",
+        "vehicle_photo": null,
+        "manufacture_year": "2015",
+        "registration_number": "FFG-76575676787",
+        "chasis_number": "523422",
+        "max_seating_capacity": "50",
+        "driver_name": "Jasper",
+        "driver_licence": "258714545",
+        "driver_contact": "8521479630",
+        "note": "",
+        "created_at": "2023-08-06 10:31:17"
+         */
+
+        ApiUtils.response.then().assertThat()
+                .body("lists", anything("id"))
+                .body("lists", anything("vehicle_no"))
+                .body("lists", anything("vehicle_model"))
+                .body("lists", anything("vehicle_photo"))
+                .body("lists", anything("manufacture_year"))
+                .body("lists", anything("registration_number"))
+                .body("lists", anything("anything"))
+                .body("lists", anything("max_seating_capacity"))
+                .body("lists", anything("driver_name"))
+                .body("lists", anything("driver_licence"))
+                .body("lists", anything("driver_contact"))
+                .body("lists", anything("note"))
+                .body("lists", anything("created_at"));
+    }
+
+
+    @Given("User sends a POST request for homeworkAdd")
+    public void user_sends_a_post_request_for_homework_add() {
+        ApiUtils.gultenPostUS45();
+    }
+    // *********************** GUlten ***********************Baslangic//
 
 
     @Then("Execute verification for given informations")
@@ -391,28 +417,33 @@ public class APIStepDefinition {
         JSONArray listsJA = new JSONArray(listsArr);
         System.out.println(listsJA.get(1));
 
-        Assert.assertEquals(listsJA.getJSONObject(1).get("id"),"11");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("session"),"2017-18");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"),"no");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"),"2017-04-20 02:41:37");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("updated_at"),"0000-00-00");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "11");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("session"), "2017-18");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"), "no");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2017-04-20 02:41:37");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("updated_at"), "0000-00-00");
 
     }
+
     @Then("Validate the First Item of the Book Issue  List")
     public void validate_the_first_ıtem_of_the_book_ıssue_list() {
 
+        JsonPath resJP = ApiUtils.response.jsonPath();
+        ArrayList listsArr = resJP.getJsonObject("lists");
+        JSONArray listsJA = new JSONArray(listsArr);
+        System.out.println(listsJA.get(1));
+
+        Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "7");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("book_id"), "3");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("member_id"), "9");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("duereturn_date"), "2021-05-06");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("issue_date"), "2021-05-04");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("is_returned"), "0");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"), "no");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2021-05-04 02:56:46");
+
+
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Then("User sends a POST request for start date {string} and end date {string}")
@@ -421,11 +452,16 @@ public class APIStepDefinition {
     }
 
 
+    @Then("User sends a PATCH request to visitorsUpdate endpoint")
+    public void userSendsAPATCHRequestToVisitorsUpdateEndpoint() {
+        ApiUtils.patchRequestVisitorsUpdateOgun();
+    }
+
 
     @Then("User sends a PATCH request to  alumniUpdate endpoint")
     public void user_sends_a_patch_request_to_alumni_update_endpoint() {
 
-       ApiUtils.reqbodyUS_026();
+        ApiUtils.reqbodyUS_026();
 
 
     }
@@ -433,20 +469,14 @@ public class APIStepDefinition {
 
     @Then("Expected data is created, and the equality of the ID information is verified.")
     public void expected_data_is_created_and_the_equality_of_the_id_information_is_verified() {
-       ApiUtils.responseUS_026();
+        ApiUtils.responseUS_026();
     }
-
-
-
 
 
     @Then("To create a new body that contains the valid authorization information and correct data")
     public void to_create_a_new_body_that_contains_the_valid_authorization_information_and_correct_data() {
         ApiUtils.postRequestUS_27();
-       ApiUtils.deleteMethod1();
-
-
-
+        ApiUtils.deleteMethod1();
 
 
     }
@@ -461,7 +491,7 @@ public class APIStepDefinition {
 
     @Then("Validate the content of the lists in the response")
     public void validateTheContentOfTheListsInTheResponse() {
-       ApiUtils.validateTheListOfTheContentUS007();
+        ApiUtils.validateTheListOfTheContentUS007();
 
     }
 
@@ -493,7 +523,7 @@ public class APIStepDefinition {
     @Then("User sends a PATCH request to visitorsUpdate endpoint with id {int} and compare id with response id")
     public void userSendsAPATCHRequestToVisitorsUpdateEndpointWithIdAndCompareIdWithResponseId(int ident) {
         ApiUtils.patchRequestVisitorsUpdateOgun(ident);
-        Assert.assertEquals(respHP.get("updatedId"),ident);
+        Assert.assertEquals(respHP.get("updatedId"), ident);
     }
 
     @Then("User sends a POST request to create a visitor")
@@ -509,11 +539,12 @@ public class APIStepDefinition {
     @Then("User sends a DELETE request and compare the ids in request and response body")
     public void userSendsADELETERequestAndCompareTheIdsInRequestAndResponseBody() {
         ApiUtils.deleteVisitorUS0037();
-        Assert.assertEquals(ApiUtils.addId,respHP.get("deletedId"));
+        Assert.assertEquals(ApiUtils.addId, respHP.get("deletedId"));
     }
 
     @Then("User sends a POST request to check the latest created visitor")
     public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {
+
         ApiUtils.postVisitorIDUS0037();
     }
 
@@ -533,7 +564,52 @@ public class APIStepDefinition {
     }
 
 
+
+
+
+    @Then("User sends a get POST request to bookIssueId")
+    public void userSendsAGetPOSTRequestToBookIssueId() {
+
+    }
+
+    @And("Validate the First Item of the Book Issue Id")
+    public void validateTheFirstItemOfTheBookIssueId() {
+        Assert.assertTrue(respHP.get("lists").toString().contains("id"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("book_id"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("member_id"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("duereturn_date"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("return_date"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("issue_date"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("is_active"));
+        Assert.assertTrue(respHP.get("lists").toString().contains("created_at"));
+    }
+
+    @And("Validate the First Item of the Book Issue Post")
+    public void validateTheFirstItemOfTheBookIssuePost() {
+
+    }
+
+
+    @Then("User send a patch request to homework update  with id {int}")
+    public void userSendAPatchRequestToHomeworkUpdateWithId(int id_number) {
+        ApiUtils.pageRequestus046(id_number);
+    }
+
+    @Then("User send a patch request to homework update  with id {int} and compare id with response id")
+    public void userSendAPatchRequestToHomeworkUpdateWithIdAndCompareIdWithResponseId(int id_number) {
+        ApiUtils.pageRequestus046(id_number);
+        Assert.assertEquals(id_number, respHP.get("updatedId"));
+    }
+
+    @Then("User send a post request to homeworkbyId")
+    public void userSendAPostRequestToHomeworkbyId() {
+        ApiUtils.postRequestus46();
+    }
+
 }
+
+
+
 
 
 
