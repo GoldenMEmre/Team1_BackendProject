@@ -4,11 +4,13 @@ import hooks.api.HooksAPI;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
-import stepDefinitions.APIStepDefinition;
+import pojos.GetStudentClassListsPOJO;
+import pojos.GetStudentClassPOJO;
+import pojos.HomeworkByIdListsPOJ;
+import pojos.HomeworkByIdPOJ;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +18,6 @@ import java.util.HashMap;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 
@@ -637,6 +638,83 @@ public class ApiUtils {
         response.prettyPrint();
         respHP=response.as(HashMap.class);
     }
+
+    public static void postRequestUS044(){
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("id",423);
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+    }
+    public static void verifyInformationsOfResponseContentUS044(){
+        HomeworkByIdListsPOJ homeworkByIdLists = new HomeworkByIdListsPOJ("423","4","3","18","93","47","4",
+                "2023-07-25","2023-07-28",null,"<p>verilen testler yapilsin</p>",
+                "2023-07-24","2023-08-04",null,"93","117","2023-07-24 15:35:20",
+                "Mathematics","7","Class 4th Subject Group","1");
+
+        HomeworkByIdPOJ homeworkByIdPOJ = new HomeworkByIdPOJ(200,"Success",homeworkByIdLists);
+        HomeworkByIdPOJ respPojo = response.as(HomeworkByIdPOJ.class);
+        Assert.assertEquals(homeworkByIdPOJ.getStatus(),respPojo.getStatus());
+        Assert.assertEquals(homeworkByIdPOJ.getMessage(),respPojo.getMessage());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getId(),respPojo.getLists().getId());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getClass_id(),respPojo.getLists().getClass_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSection_id(),respPojo.getLists().getSection_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSession_id(),respPojo.getLists().getSession_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getStaff_id(),respPojo.getLists().getStaff_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSubject_group_subject_id(),respPojo.getLists().getSubject_group_subject_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSubject_id(),respPojo.getLists().getSubject_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getHomework_date(),respPojo.getLists().getHomework_date());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSubmit_date(),respPojo.getLists().getSubmit_date());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getMarks(),respPojo.getLists().getMarks());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getDescription(),respPojo.getLists().getDescription());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getCreate_date(),respPojo.getLists().getCreate_date());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getEvaluation_date(),respPojo.getLists().getEvaluation_date());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getDocument(),respPojo.getLists().getDocument());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getCreated_by(),respPojo.getLists().getCreated_by());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSubject_name(),respPojo.getLists().getSubject_name());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getSubject_groups_id(),respPojo.getLists().getSubject_groups_id());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getName(),respPojo.getLists().getName());
+        Assert.assertEquals(homeworkByIdPOJ.getLists().getAssignments(),respPojo.getLists().getAssignments());
+
+    }
+
+        public static void verifyContentOfResponseUS059(){
+
+            GetStudentClassListsPOJO getStudentClassListsPOJO = new GetStudentClassListsPOJO("15998","1014","18",
+                    "1","2","108","79","B","ogun.erdogan",
+                    "","","2014-03-11","Charles Rodriguez");
+            GetStudentClassPOJO expDataPoj = new GetStudentClassPOJO(200,"Success",getStudentClassListsPOJO);
+            GetStudentClassPOJO respPOJO = response.as(GetStudentClassPOJO.class);
+
+            Assert.assertEquals(expDataPoj.getStatus(),respPOJO.getStatus());
+            Assert.assertEquals(expDataPoj.getMessage(),respPOJO.getMessage());
+            Assert.assertEquals(expDataPoj.getLists().getAdmission_no(),respPOJO.getLists().getAdmission_no());
+            Assert.assertEquals(expDataPoj.getLists().getRoll_no(),respPOJO.getLists().getRoll_no());
+            Assert.assertEquals(expDataPoj.getLists().getSession_id(),respPOJO.getLists().getSession_id());
+            Assert.assertEquals(expDataPoj.getLists().getClass_id(),respPOJO.getLists().getClass_id());
+            Assert.assertEquals(expDataPoj.getLists().getSection_id(),respPOJO.getLists().getSection_id());
+            Assert.assertEquals(expDataPoj.getLists().getId(),respPOJO.getLists().getId());
+            Assert.assertEquals(expDataPoj.getLists().getStudent_id(),respPOJO.getLists().getStudent_id());
+            Assert.assertEquals(expDataPoj.getLists().getSection(),respPOJO.getLists().getSection());
+            Assert.assertEquals(expDataPoj.getLists().getFirstname(),respPOJO.getLists().getFirstname());
+            Assert.assertEquals(expDataPoj.getLists().getMiddlename(),respPOJO.getLists().getMiddlename());
+            Assert.assertEquals(expDataPoj.getLists().getLastname(),respPOJO.getLists().getLastname());
+            Assert.assertEquals(expDataPoj.getLists().getDob(),respPOJO.getLists().getDob());
+            Assert.assertEquals(expDataPoj.getLists().getGuardian_name(),respPOJO.getLists().getGuardian_name());
+
+        }
+
 
 }
 
