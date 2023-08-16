@@ -2,7 +2,12 @@
 <project version="4">
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
-  </component>
+  <component/>
+
+  <component name="ChangeListManager">
+    <list default="true" id="28fc8515-290e-482a-bc20-e8fa0a4fa5a4" name="Changes" comment=""/>
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
 
   <component name="ChangeListManager"/>
     <list default="true" id="04a31c52-0f37-4222-8d64-1e1a9790f391" name="Changes" comment=""/>
@@ -105,39 +110,25 @@
 
 
 
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  <component/>
-  <component name="CodeStyleSettingsInfer"/>
-    <option name="done" value="true" />
-  <component/>
-  <component name="FileTemplateManagerImpl"/>
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  <component>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
-  </component>
-  <component name="ProjectId" id="2TstZcaAiagulNON49QKX9sozlE" />
+  <component name="ProjectId" id="2U4CbUIkXWqg6UxT21fNb9tQ4Wp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -148,17 +139,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/gulte/IdeaProjects/Team1_BackendProject/src/test/resources/features/API"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-
 }]]></component>
+
+
 
 }</component>
 
 
 
   <component name="RunManager" selected="JUnit.RunnerAPI"/>
+
 
 
 
@@ -173,12 +165,17 @@
     </key>
   </component>
 
+  <component name="RunManager" selected="Cucumber Java.Scenario: TC01 When valid authorization and correct data (class_id, section_id, session_id, subject_group_subject_id, subject_id,"/>
+    <configuration name="Scenario: TC01 When valid authorization and correct data (class_id, section_id, session_id, subject_group_subject_id, subject_id," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+
+
   <component name="RunManager" selected="Cucumber Java.Scenario: api/visitorsDelete endpoint'ine gecerli authorization bilgileri ve dogru data (id)"/>
     <configuration name="Scenario: Delete akm" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
 
 
   <component name="RunManager" selected="Cucumber Java.Scenario: TC02 When invalid authorization or incorrect/missing data (class_id, section_id, session_id, subject_group_subject_id, subject_id, homework_date, submit_date, marks, description, create_date, evaluation_date, document, created_by, evaluated_by) are sent in a POST body to the &quot;apiteacher/homeworkAdd&quot; endpoint,"/>
     <configuration name="Scenario: TC01 When valid authorization and correct data (class_id, section_id, session_id, subject_group_subject_id, subject_id," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US045].feature" />
       <option name="GLUE" value="stepDefinitions hooks.api" />
@@ -187,6 +184,8 @@
       <option name="NAME_FILTER" value="^TC01 When valid authorization and correct data \(class_id\, section_id\, session_id\, subject_group_subject_id\, subject_id\,$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC01 When valid authorization and correct data \(class_id\, section_id\, session_id\, subject_group_subject_id\, subject_id\,$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: TC01 When valid authorization and correct data (class_id, section_id, session_id, subject_group_subject_id, subject_id," />
+
+
 
   <component name="RunManager" selected="JUnit.RunnerAPI (1)"/>
     <configuration default="true" type="JetRunConfigurationType"/>
@@ -270,6 +269,7 @@
       <option name="NAME_FILTER" value="^TC02 When invalid authorization information or missing\/wrong data \(id\) are sent in the PATCH body \(with title\, event_for\,$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC02 When invalid authorization information or missing\/wrong data \(id\) are sent in the PATCH body \(with title\, event_for\,$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: TC02 When invalid authorization information or missing/wrong data (id) are sent in the PATCH body (with title, event_for," />
+
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -301,6 +301,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="Scenario: TC03 The content of the list in the response body should be validated. Specifically, the data in the response body should include the following attributes: id, vehicle_no, vehicle_model, vehicle_photo, manufacture_year, registration_number," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US014].feature" />
@@ -321,8 +322,13 @@
 
 
 
+
     <configuration name="Scenario: TC_003 The updateId  in the response body should be the same as the updateId in the request body." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: TC_003 Validates information of data with id=250 in response body content" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -334,13 +340,9 @@
     </configuration>
 
 
-    <configuration name="Scenario: TC_003 Validates information of data with id=250 in response body content" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
 
     <configuration name="Scenario: [TC002] When invalid authorization or invalid data (id) is sent in a POST body to the &quot;apiteacher/homeworkbyId&quot;" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+
 
 
     <configuration name="Scenario: TC_004  When valid authorization information and the correct data (id) are sent in a" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -364,6 +366,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+    <configuration name="RunnerAPI (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true"/>
+      <option name="TEST_OBJECT" value="class" />
+
 
     <configuration name="Scenario: [TC003] The content of the &quot;list&quot; data in the response body should be verified to match the specified data." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
@@ -473,6 +479,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -492,7 +499,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-
     <configuration name="RunnerAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Team1_BackendProject" />
       <extension name="coverage">
@@ -540,6 +546,8 @@
     <recent_temporary>
       <list>
 
+
+
         <item itemvalue="Cucumber Java.Scenario: api/visitorsDelete endpoint'ine gecerli authorization bilgileri ve dogru data (id)" />
         <item itemvalue="JUnit.RunnerAPI" />
         <item itemvalue="Cucumber Java.Scenario: Delete akm" />
@@ -548,41 +556,18 @@
 
 
         <item itemvalue="Cucumber Java.Scenario: TC02 When invalid authorization or incorrect/missing data (class_id, section_id, session_id, subject_group_subject_id, subject_id, homework_date, submit_date, marks, description, create_date, evaluation_date, document, created_by, evaluated_by) are sent in a POST body to the &quot;apiteacher/homeworkAdd&quot; endpoint," />
+
         <item itemvalue="Cucumber Java.Scenario: TC01 When valid authorization and correct data (class_id, section_id, session_id, subject_group_subject_id, subject_id," />
-        <item itemvalue="Cucumber Java.Scenario: TC02 When invalid authorization information or missing/wrong data (id) are sent in the PATCH body (with title, event_for," />
-        <item itemvalue="Cucumber Java.Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section," />
-        <item itemvalue="Cucumber Java.Scenario: TC03 The content of the list in the response body should be validated. Specifically, the data in the response body should include the following attributes: id, vehicle_no, vehicle_model, vehicle_photo, manufacture_year, registration_number," />
-
-
-
-
-        <item itemvalue="JUnit.RunnerAPI" />
-        <item itemvalue="Cucumber Java.Scenario: api/visitorsDelete endpoint'ine gecersiz authorization bilgileri veya yanlis data (id) iceren" />
-        <item itemvalue="Cucumber Java.Scenario: api/visitorsDelete endpoint'ine gecerli authorization bilgileri ve dogru data (id)" />
-        <item itemvalue="Cucumber Java.Feature: [API_US037]" />
-        <item itemvalue="Cucumber Java.Scenario: [TC003] Response body icindeki updateId bilgisinin api/visitorsUpdate endpoint'ine gönderilen" />
-
-
+        <item itemvalue="Cucumber Java.Scenario: TC02 When invalid authorization or incorrect/missing data (class_id, section_id, session_id, subject_group_subject_id, subject_id, homework_date, submit_date, marks, description, create_date, evaluation_date, document, created_by, evaluated_by) are sent in a POST body to the &quot;apiteacher/homeworkAdd&quot; endpoint," />
         <item itemvalue="JUnit.RunnerAPI (1)" />
-
-
-        <item itemvalue="Cucumber Java.Scenario: [TC003] The content of the lists in the response body should be validated to contain data with ID &quot;11,&quot;" />
-        <item itemvalue="Cucumber Java.Scenario: TC_003 Validates information of data with id=250 in response body content (1)" />
-
-        <item itemvalue="Cucumber Java.Feature: [API_US018]" />
-
         <item itemvalue="JUnit.RunnerAPI" />
-        <item itemvalue="Cucumber Java.Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint, (1)" />
-        <item itemvalue="Cucumber Java.Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint," />
-        <item itemvalue="Cucumber Java.Scenario: [TC_001] GET Request Success Response for the Visitor Purpose List" />
-        <item itemvalue="JUnit.RunnerAPI" />
-
-        <item itemvalue="Cucumber Java.Scenario: [TC_003] The First Item of the Visitor Purpose List is validated" />
-
         <item itemvalue="Cucumber Java.Scenario: TC_004  When valid authorization information and the correct data (id) are sent in a" />
+
+
         <item itemvalue="Cucumber Java.Scenario: TC_002 GET request failed response with invalid information for api booksList" />
         <item itemvalue="Cucumber Java.Scenario: TC_002 PATCH request failed response with invalid information for alumniUpdate" />
         <item itemvalue="Cucumber Java.Scenario: TC_003 The updateId  in the response body should be the same as the updateId in the request body." />
+
 
 
 
@@ -596,7 +581,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c422d995-8826-4c7b-a337-a4a5d2f71fb4" name="Changes" comment="" />
+      <changelist id="2e7e99c7-141b-41b8-a75c-ad77e3be282a" name="Changes" comment="" />
       <created>1691946236374</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
