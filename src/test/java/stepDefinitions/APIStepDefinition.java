@@ -1,11 +1,13 @@
 package stepDefinitions;
 
 
-import emreTestData.TestData_US001;
 
 
-import com.beust.ah.A;
+import com.google.protobuf.Api;
+
+
 import emreTestData.TestData_US001;
+
 
 import hooks.api.HooksAPI;
 import io.cucumber.java.en.And;
@@ -14,8 +16,6 @@ import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 import org.hamcrest.Matchers;
 import org.json.JSONArray;
@@ -23,8 +23,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
 import testData.TestDataUS_033;
-import pojos.SessionListListsPOJO;
-import pojos.SessionListPOJO;
 
 import utilities.ApiUtils;
 import utilities.Authentication;
@@ -41,13 +39,10 @@ import static io.restassured.RestAssured.given;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
-import static utilities.ApiUtils.fullPath;
-import static utilities.ApiUtils.response;
 
-
-import static utilities.ApiUtils.fullPath;
 
 import static utilities.ApiUtils.respHP;
+import static utilities.ApiUtils.verifyInformationsOfResponseContentUS044;
 
 
 public class APIStepDefinition {
@@ -62,7 +57,7 @@ public class APIStepDefinition {
     public static String fullPath;
 
 
-    //public static String fullPath;
+    public static String silmeyin = "class";
 
 
     //************************** Emre ****************************************
@@ -348,7 +343,7 @@ public class APIStepDefinition {
 
         ApiUtils.gultenGetUS13();
 
-        response.then().assertThat()
+        ApiUtils.response.then().assertThat()
                 .body("lists.id", Matchers.equalTo("1"))
                 .body("lists.vehicle_no", equalTo("VH1001"))
                 .body("lists.vehicle_model", equalTo("Volvo Bus"))
@@ -390,7 +385,7 @@ public class APIStepDefinition {
         "created_at": "2023-08-06 10:31:17"
          */
 
-        response.then().assertThat()
+        ApiUtils.response.then().assertThat()
                 .body("lists", anything("id"))
                 .body("lists", anything("vehicle_no"))
                 .body("lists", anything("vehicle_model"))
@@ -549,7 +544,28 @@ public class APIStepDefinition {
 
     @Then("User sends a POST request to check the latest created visitor")
     public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {
+
+        ApiUtils.postVisitorIDUS0037();
     }
+
+    @Then("User sends a POST request to homeworkById page")
+    public void userSendsAPOSTRequestToHomeworkByIdPage() {
+        ApiUtils.postRequestUS044();
+    }
+
+    @Then("Validate the informations in response body")
+    public void validateTheInformationsInResponseBody() {
+        verifyInformationsOfResponseContentUS044();
+    }
+
+    @Then("Validate the content of the getStudentClass Response Body")
+    public void validateTheContentOfTheGetStudentClassResponseBody() {
+        ApiUtils.verifyContentOfResponseUS059();
+    }
+
+
+
+
 
     @Then("User sends a get POST request to bookIssueId")
     public void userSendsAGetPOSTRequestToBookIssueId() {
@@ -589,6 +605,7 @@ public class APIStepDefinition {
     public void userSendAPostRequestToHomeworkbyId() {
         ApiUtils.postRequestus46();
     }
+
 }
 
 
