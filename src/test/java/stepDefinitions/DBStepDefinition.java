@@ -25,6 +25,15 @@ public class DBStepDefinition {
     ResultSet rs18;
     Statement st;
 
+    String query19;
+    String query20;
+    String query21;
+
+    ResultSet rs19;
+    ResultSet rs20;
+    int rs21;
+
+
     List<Object> UserEmailList= new ArrayList<>();
     Manage manage=new Manage();
 
@@ -108,6 +117,71 @@ public class DBStepDefinition {
 
         System.out.println(actualRS18);
         }
+
+    //---------------------------------------------------------------------------------------------------
+
+    @Given("Query19  is prepared")
+    public void query19_is_prepared() {
+
+        query19 = "SELECT email FROM wonderworld_qa.students ORDER BY LENGTH(email) DESC LIMIT 5;";
+
+    }
+    @Given("The query is sent to the Student table and the results are validated")
+    public void the_query_is_sent_to_the_student_table_and_the_results_are_validated() throws SQLException {
+
+        rs19 = DB_Utils.getStatement().executeQuery(manage.getQuery19());
+
+        while (rs19.next()) {
+
+            String email = rs19.getNString("email");
+            System.out.println(email);
+        }
+
+    }
+
+    //---------------------------------------------------------------------------------------------------
+
+    @Given("Query20  is prepared")
+    public void query20_is_prepared() {
+
+        query20 = "SELECT name FROM wonderworld_qa.expenses ORDER BY amount DESC LIMIT 1;";
+
+    }
+    @Given("The query is sent to the Expenses table and the results are validated")
+    public void the_query_is_sent_to_the_expenses_table_and_the_results_are_validated() throws SQLException {
+
+        rs20 = DB_Utils.getStatement().executeQuery(manage.getQuery20());
+
+        String expectedName = "Jio-Network";
+        rs20.next();
+
+        String actualName= rs20.getNString("name");
+        System.out.println(actualName);
+
+        assertEquals(expectedName,actualName);
+
+    }
+
+    //---------------------------------------------------------------------------------------------------
+
+    @Given("Query21  is prepared")
+    public void query21_is_prepared() {
+
+        query21 = "INSERT INTO wonderworld_qa.general_calls VALUES (150,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
+
+    }
+    @Given("The query is sent to the general_calls table and the results are validated")
+    public void the_query_is_sent_to_the_general_calls_table_and_the_results_are_validated() throws SQLException {
+
+        rs21 = DB_Utils.getStatement().executeUpdate(manage.getQuery21());
+
+        int verify=0;
+        if (rs21>0){
+            verify++;
+        }
+        assertEquals(verify,1);
+
+    }
 
 
 

@@ -220,7 +220,6 @@ public class ApiUtils {
 
             reqBody.put("id", 250);
 
-
             response = given()
                     .spec(spec)
                     .contentType(ContentType.JSON)
@@ -237,42 +236,7 @@ public class ApiUtils {
         }
 
 
-
-
-    public static void invalidPostRequestVisitorId() {
-
-        JSONObject reqBody = new JSONObject();
-
-        reqBody.put("id", 3250);
-
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .header("Accept", "application/json")
-                .headers("Authorization", "Bearer " + HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .post(fullPath);
-
-        response.prettyPrint();
-        respHP = response.as(HashMap.class);
-
-
-    }
-
-
     public static void postRequestVisitorAdd(){
-        /*
-         "purpose": "Principal Meeting",
-        "name": "Sumeyra",
-        "contact": "1237894560",
-        "id_proof": "312121",
-        "no_of_people": "40",
-        "date": "2023-03-30",
-        "in_time": "06:00 PM",
-        "out_time": "06:30 PM",
-        "note": "DBM meeting"
-         */
 
         JSONObject reqBody=new JSONObject();
 
@@ -303,7 +267,7 @@ public class ApiUtils {
     public static void postRequestQuestionDetailsById(){
 
         JSONObject reqBody = new JSONObject();
-        reqBody.put("id","3");
+        reqBody.put("id","107");
 
         response = given()
                 .spec(spec)
@@ -316,6 +280,26 @@ public class ApiUtils {
 
         response.prettyPrint();
         respHP=response.as(HashMap.class);
+
+
+    }
+
+    public static void getRequestWithBody(String id){
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id",id);
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+
 
 
     }
