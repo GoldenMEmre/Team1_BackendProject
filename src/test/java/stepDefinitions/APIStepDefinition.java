@@ -45,8 +45,11 @@ import java.util.ArrayList;
 
 import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.anything;
+
 
 import static org.hamcrest.CoreMatchers.equalTo;
+
 import static org.hamcrest.CoreMatchers.hasItem;
 
 
@@ -54,9 +57,13 @@ import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 
+import static utilities.ApiUtils.*;
+
+
 
 import static utilities.ApiUtils.respHP;
 import static utilities.ApiUtils.verifyInformationsOfResponseContentUS044;
+
 
 
 public class APIStepDefinition {
@@ -65,12 +72,6 @@ public class APIStepDefinition {
 
     Response response1;
 
-
-
-    //public static String fullPath;
-
-
-    public static String fullPath;
 
 
     public static String silmeyin = "class";
@@ -537,6 +538,33 @@ public class APIStepDefinition {
         ApiUtils.postRequestQuestionDetailsById();
 
     }
+
+    @Given("Response body content test for Apply Leave List")
+    public void response_body_content_test_for_apply_leave_list() {
+
+        response.then().assertThat().body("lists",anything("id"))
+                                    .body("lists",anything("student_session_id"))
+                                    .body("lists",anything("from_date"))
+                                    .body("lists",anything("to_date"))
+                                    .body("lists",anything("apply_date"))
+                                    .body("lists",anything("status"))
+                                    .body("lists",anything("docs"))
+                                    .body("lists",anything("reason"))
+                                    .body("lists",anything("approve_by"))
+                                    .body("lists",anything("approve_date"))
+                                    .body("lists",anything("request_type"))
+                                    .body("lists",anything("created_at"))
+                                    .body("lists",anything("firstname"))
+                                    .body("lists",anything("middlename"))
+                                    .body("lists",anything("lastname"))
+                                    .body("lists",anything("staff_name"))
+                                    .body("lists",anything("surname"))
+                                    .body("lists",anything("class_id"))
+                                    .body("lists",anything("section_id"))
+                                    .body("lists",anything("class"))
+                                    .body("lists",anything("section"));
+    }
+
 
 
     // *********************** GUlten ***********************Baslangic//
