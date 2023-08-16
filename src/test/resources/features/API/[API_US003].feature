@@ -1,4 +1,4 @@
-@sg
+
 Feature: [API_US003] As an administrator, I want to create a new visitor purpose record through API connection.
 
   Scenario: [TC_001] POST Request Success Response for the Visitor Purpose Add
@@ -17,4 +17,4 @@ Feature: [API_US003] As an administrator, I want to create a new visitor purpose
 
     Given "ADMIN" Page User sets "api/visitorsPurposeAdd" parameters
     Then "Veli Ziyareti", "Veli Ziyareti İçin Gelindi" icin Post request gonderilir.
-    And Validate the First Item of the Visitor Purpose List
+    And Validate the new visitors purposeId

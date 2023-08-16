@@ -2,7 +2,7 @@
 
   Feature: As an administrator (teacher), I want to access the Questions information of a question with a given ID through API connection.
 
-    @sg
+
     Scenario: TC_001 POST request success response with valid information for question Details By Id
 
       * "TEACHER" Page User sets "apiteacher/questionDetailsById" parameters
