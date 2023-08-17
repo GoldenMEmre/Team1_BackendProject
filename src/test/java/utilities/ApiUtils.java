@@ -664,6 +664,8 @@ public class ApiUtils {
 
         response.prettyPrint();
         respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
     }
 
     public static void pageRequestus046(int id_number) {
@@ -1016,8 +1018,84 @@ public class ApiUtils {
 
     }
 
+    public static void postRequestUS021(){
+
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("book_id","11");
+        reqBody.put("member_id","7");
+        reqBody.put("duereturn_date","2021-08-04");
+        reqBody.put("return_date","2021-09-06");
+        reqBody.put("issue_date","2021-08-04");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
+    }
+
+    public static void postRequestUS047(){
+
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("class_id","1");
+        reqBody.put("section_id","1");
+        reqBody.put("session_id","18");
+        reqBody.put("subject_group_subject_id","21");
+        reqBody.put("subject_id","1");
+        reqBody.put("homework_date","2022-07-05");
+        reqBody.put("submit_date","2022-07-08");
+        reqBody.put("marks",1);
+        reqBody.put("description","<p>\r\n\r\nRead carefully\r\n\r\n<br></p>");
+        reqBody.put("create_date","2022-07-01");
+        reqBody.put("evaluation_date","0000-00-00");
+        reqBody.put("document","");
+        reqBody.put("created_by","5");
+        reqBody.put("evaluated_by","5");
 
 
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
+    }
+
+    public static void postrequestUS062(){
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("subject_group_subject_id","27");
+        reqBody.put("title","deneme");
+        reqBody.put("description","deneme");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("remark","");
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
+    }
 
     }
 

@@ -1,5 +1,5 @@
 Feature: List the firstname and lastname of students in the students table with admission numbers between 18001 and 18010.
-
+@db
   Scenario:Feature: List the firstname and lastname of students in the students table with admission
   numbers between 18001 and 18010.
 
