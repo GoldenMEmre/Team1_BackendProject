@@ -57,7 +57,7 @@ public class APIStepDefinition {
     public static String fullPath;
 
 
-    public static String silmeyin = "class";
+
 
 
     //************************** Emre ****************************************
@@ -410,7 +410,7 @@ public class APIStepDefinition {
 
 
     @Then("Execute verification for given informations")
-    public void executeVerificationForGivenInformations() {
+    public void  executeVerificationForGivenInformations() {
 
         JsonPath resJP = ApiUtils.response.jsonPath();
         ArrayList listsArr = resJP.getJsonObject("lists");

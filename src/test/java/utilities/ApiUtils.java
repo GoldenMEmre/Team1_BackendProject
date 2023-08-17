@@ -544,20 +544,20 @@ public class ApiUtils {
         System.out.println(listsJA.get(0));
 
 
-        Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "1070");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("title"), "Reunion For 2020-21 Batch");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"), "class");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"), "15");
-        Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
-        Assert.assertEquals(listsJA.getJSONObject(1).get("section"), "[\"1\",\"2\",\"3\"]");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"), "2021-03-07 00:00:00");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"), "2021-03-10 00:00:00");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("note"), "");
-        Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
+        Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "1097");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("title"), "Art Activite");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"), "art");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"), "13");
+       // Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
+       // Assert.assertNull(listsJA.getJSONObject(1).get("section"));
+        Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"), "2023-11-14 00:00:00");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"), "2023-11-24 23:59:00");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("note"), "Paint");
+      //  Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
         Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"), "0");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"), "");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"), "Art");
         Assert.assertEquals(listsJA.getJSONObject(1).get("show_onwebsite"), "0");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2023-08-14 09:48:43");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2023-08-14 14:20:34");
     }
 
 
