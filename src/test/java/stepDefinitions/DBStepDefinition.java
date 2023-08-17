@@ -27,6 +27,18 @@ public class DBStepDefinition {
     String query11;
     String query12;
 
+
+    String query01;
+    String query02;
+    String query03;
+    ResultSet rs01;
+    ResultSet rs02;
+    ResultSet rs03;
+
+
+    List<Object> UserEmailList = new ArrayList<>();
+    Manage manage = new Manage();
+
     ResultSet rs16;
     ResultSet rs04;
     ResultSet rs17;
@@ -58,9 +70,6 @@ public class DBStepDefinition {
     ResultSet rs20;
     int rs21;
 
-
-    List<Object> UserEmailList = new ArrayList<>();
-    Manage manage = new Manage();
 
     @Given("Database connection established")
     public void database_connection_established() {
@@ -145,8 +154,63 @@ public class DBStepDefinition {
         assertEquals(expeceted18, actualRS18);
 
         System.out.println(actualRS18);
+
     }
 
+    //***************************************************************************************************************
+    @Given("Query01 is being prepared")
+    public void query01_is_being_prepared() {
+        query01 = "SELECT COUNT(*) AS user_count FROM wonderworld_qa2.chat_users WHERE create_staff_id = 1;";
+    }
+
+
+    @Given("The query is sent to chat_users table and results are validated")
+    public void the_query_is_sent_to_chat_users_table_and_results_are_validated() throws SQLException {
+
+        rs01 = DB_Utils.getStatement().executeQuery(query01);
+        int expected01 = 11;
+        rs01.next();
+        int actualRS01 = rs01.getInt(1);
+        assertEquals(expected01, actualRS01);
+
+        System.out.println(actualRS01);
+    }
+
+    @Given("Query02 is being prepared")
+    public void query02_is_being_prepared() {
+
+        query02 = "SELECT id FROM wonderworld_qa2.class_sections WHERE class_id = section_id;";
+    }
+
+    @Given("The query is sent to class_sections table and results are validated")
+    public void the_query_is_sent_to_class_sections_table_and_results_are_validated() throws SQLException {
+
+        rs02 = DB_Utils.getStatement().executeQuery(query02);
+        while (rs02.next()) {
+            int id = rs02.getInt("id");
+            System.out.println("ID: " + id);
+        }
+    }
+
+    @Given("Query03 is being prepared")
+    public void query03_is_being_prepared() {
+
+        query03 = "SELECT email FROM wonderworld_qa2.students WHERE firstname = 'Brian' AND lastname = 'Kohlar';";
+    }
+
+    @Given("The query is sent to students table and results are validated")
+    public void the_query_is_sent_to_students_table_and_results_are_validated() throws SQLException {
+
+        rs03 = DB_Utils.getStatement().executeQuery(query03);
+        String expected03 = "brain@gmail.com";
+        rs03.next();
+        String actualRS03 = rs03.getString(1);
+        assertEquals(expected03, actualRS03);
+        System.out.println(actualRS03);
+
+
+    }
+//*******************************************************************************************************************
 
     @Given("Query07  is being prepared")
     public void query07_is_being_prepared() {
