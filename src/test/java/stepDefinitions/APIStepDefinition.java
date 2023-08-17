@@ -44,6 +44,7 @@ import static hooks.api.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
+import static org.hamcrest.Matchers.anything;
 import static org.junit.Assert.assertEquals;
 import static utilities.ApiUtils.fullPath;
 import static utilities.ApiUtils.response;
@@ -579,7 +580,44 @@ public class APIStepDefinition {
     public void userSendAPostRequestToHomeworkbyId() {
         ApiUtils.postRequestus46();
     }
+
+    @Then("User sends a post request")
+    public void userSendsAPostRequest() {
+        ApiUtils.postRequestus61();
     }
+
+    @And("Response body content test for dailyAssignmentListData")
+    public void responseBodyContentTestForDailyAssignmentListData() {
+
+        /*"id": "57",
+                "": "45",
+                "subject_group_subject_id": "27",
+                "title": "deneme",
+                "description": "deneme",
+                "attachment": null,
+                "evaluated_by": null,student_session_id
+                "date": "2023-06-15",
+                "evaluation_date": null,
+                "remark": "",
+                "created_at": "2023-06-15 16:31:12"
+
+         */
+
+        response.then().assertThat()
+                .body("lists", anything("id"))
+                .body("lists", anything(""))
+                .body("lists", anything("subject_group_subject_id"))
+                .body("lists", anything("title"))
+                .body("lists", anything("description"))
+                .body("lists", anything("attachment"))
+                .body("lists", anything("evaluated_by"))
+                .body("lists", anything("date"))
+                .body("lists", anything("evaluation_date"))
+                .body("lists", anything("remark"))
+                .body("lists", anything("created_at"));
+
+    }
+}
 
 
 

@@ -21,7 +21,10 @@ public class Manage {
         return query18;
     }
 
-
+    private String query12 = "SELECT * FROM wonderworld_qa2.staff ORDER BY work_exp ASC LIMIT 5;";
+public String getQuery12(){
+        return query12;
+}
 
 
 

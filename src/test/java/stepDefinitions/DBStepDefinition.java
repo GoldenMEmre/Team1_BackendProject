@@ -20,8 +20,15 @@ public class DBStepDefinition {
     String query16;
     String query17;
     String query18;
+    String query10;
+    String query11;
+    String query12;
+
     ResultSet rs16;
     ResultSet rs17;
+   int rs10;
+   int rs11;
+   ResultSet rs12;
     ResultSet rs18;
     Statement st;
 
@@ -110,8 +117,38 @@ public class DBStepDefinition {
         }
 
 
+    @Given("Query10  is being prepared")
+    public void query10_is_being_prepared() {
+        query10= "DELETE FROM wonderworld_qa2.visitors_book WHERE id=115;";
+    }
+    @Given("The query is sent to visitor books table and results are validated")
+    public void the_query_is_sent_to_visitor_books_table_and_results_are_validated() throws SQLException {
+
+        rs10 = DB_Utils.getStatement().executeUpdate(query10);
 
     }
+    @Given("Query11  is being prepared")
+    public void query11_is_being_prepared() {
+        query11= "UPDATE wonderworld_qa2.transport_feemaster SET fine_amount = '200.00' WHERE month = 'October';";
+
+    }
+    @Given("The query is sent to transport_feemaster table and results are validated")
+    public void the_query_is_sent_to_transport_feemaster_table_and_results_are_validated() throws SQLException {
+     rs11 = DB_Utils.getStatement().executeUpdate(query11);
+    }
+    @Given("Query12  is being prepared")
+    public void query12_is_being_prepared() {
+        query12 = "SELECT * FROM wonderworld_qa2.staff ORDER BY work_exp ASC LIMIT 5;";
+
+
+    }
+    @Given("The query is sent to staff work_exp table and results are validated")
+    public void the_query_is_sent_to_staff_work_exp_table_and_results_are_validated() throws SQLException {
+        rs12 = DB_Utils.getStatement().executeQuery(manage.getQuery12());
+
+    }
+
+}
 
 
 

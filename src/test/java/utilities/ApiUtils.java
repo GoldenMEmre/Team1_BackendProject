@@ -692,6 +692,24 @@ public class ApiUtils {
         respHP=response.as(HashMap.class);
     }
 
+    public static void postRequestus61(){
+        JSONObject reqBody=new JSONObject();
+
+        reqBody.put("id",57);
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
+        respHP=response.as(HashMap.class);
+    }
 }
 
 
