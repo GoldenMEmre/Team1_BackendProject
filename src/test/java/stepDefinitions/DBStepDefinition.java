@@ -30,7 +30,20 @@ public class DBStepDefinition {
    int rs11;
    ResultSet rs12;
     ResultSet rs18;
+    ResultSet rs13;
+    ResultSet rs14;
+    ResultSet rs15;
+    ResultSet rs;
     Statement st;
+
+    String query19;
+    String query20;
+    String query21;
+
+    ResultSet rs19;
+    ResultSet rs20;
+    int rs21;
+
 
     List<Object> UserEmailList= new ArrayList<>();
     Manage manage=new Manage();
@@ -65,7 +78,7 @@ public class DBStepDefinition {
     }
     @Given("Query16  is being prepared")
     public void query16_is_being_prepared() {
-        query16="SELECT * FROM wonderworld_qa.online_admissions ORDER BY admission_date DESC LIMIT 10";
+        query16="SELECT * FROM wonderworld_qa2.online_admissions ORDER BY admission_date DESC LIMIT 10;";
     }
     @Given("The query is sent to online_admissions table and results are validated")
     public void the_query_is_sent_to_online_admissions_table_and_results_are_validated() throws SQLException {
@@ -85,7 +98,7 @@ public class DBStepDefinition {
 
     @Given("Query17  is being prepared")
     public void query17_is_being_prepared() {
-       query17 ="SELECT AVG(passing_percentage) FROM wonderworld_qa.onlineexam";
+       query17 ="SELECT AVG(passing_percentage) FROM wonderworld_qa2.onlineexam;";
     }
     @Given("The query is sent to onlineexam and results are valıidated")
     public void the_query_is_sent_to_onlineexam_and_results_are_valıidated() throws SQLException {
@@ -102,7 +115,7 @@ public class DBStepDefinition {
 
     @Given("Query18 is being prepared")
     public void query18_is_being_prepared() {
-         query18 ="SELECT DISTINCT student_session_id  FROM wonderworld_qa.onlineexam_students;";
+         query18 ="SELECT COUNT(DISTINCT student_session_id) FROM wonderworld_qa2.onlineexam_students;";
     }
     @Given("The query is sent to onlineexam_students and results are validated.")
     public void the_query_is_sent_to_onlineexam_students_and_results_are_validated() throws SQLException {
@@ -115,6 +128,8 @@ public class DBStepDefinition {
 
         System.out.println(actualRS18);
         }
+
+    //---------------------------------------------------------------------------------------------------
 
 
     @Given("Query10  is being prepared")
@@ -144,9 +159,140 @@ public class DBStepDefinition {
     }
     @Given("The query is sent to staff work_exp table and results are validated")
     public void the_query_is_sent_to_staff_work_exp_table_and_results_are_validated() throws SQLException {
-        rs12 = DB_Utils.getStatement().executeQuery(manage.getQuery12());
+        rs12 = DB_Utils.getStatement().executeQuery(manage.getQuery12());}
+    @Given("Query19  is prepared")
+    public void query19_is_prepared() {
+
+        query19 = "SELECT email FROM wonderworld_qa.students ORDER BY LENGTH(email) DESC LIMIT 5;";
 
     }
+    @Given("The query is sent to the Student table and the results are validated")
+    public void the_query_is_sent_to_the_student_table_and_the_results_are_validated() throws SQLException {
+
+        rs19 = DB_Utils.getStatement().executeQuery(manage.getQuery19());
+
+        while (rs19.next()) {
+
+            String email = rs19.getNString("email");
+            System.out.println(email);
+        }
+
+    }
+
+    //---------------------------------------------------------------------------------------------------
+
+    @Given("Query20  is prepared")
+    public void query20_is_prepared() {
+
+        query20 = "SELECT name FROM wonderworld_qa.expenses ORDER BY amount DESC LIMIT 1;";
+
+    }
+    @Given("The query is sent to the Expenses table and the results are validated")
+    public void the_query_is_sent_to_the_expenses_table_and_the_results_are_validated() throws SQLException {
+
+        rs20 = DB_Utils.getStatement().executeQuery(manage.getQuery20());
+
+        String expectedName = "Jio-Network";
+        rs20.next();
+
+        String actualName= rs20.getNString("name");
+        System.out.println(actualName);
+
+        assertEquals(expectedName,actualName);
+
+    }
+
+    //---------------------------------------------------------------------------------------------------
+
+    @Given("Query21  is prepared")
+    public void query21_is_prepared() {
+
+        query21 = "INSERT INTO wonderworld_qa.general_calls VALUES (150,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
+
+    }
+    @Given("The query is sent to the general_calls table and the results are validated")
+    public void the_query_is_sent_to_the_general_calls_table_and_the_results_are_validated() throws SQLException {
+
+        rs21 = DB_Utils.getStatement().executeUpdate(manage.getQuery21());
+
+        int verify=0;
+        if (rs21>0){
+            verify++;
+        }
+        assertEquals(verify,1);
+
+
+    }
+
+
+
+
+
+    //13
+    @Given("Online admission table query is prepared")
+    public void online_admission_table_query_is_prepared() {
+        manage.getEmailFirstNameQuery();
+    }
+    @Given("A query is sent to the admission table table and  tehe results are validated.")
+    public void a_query_is_sent_to_the_admission_table_table_and_tehe_results_are_validated() throws SQLException {
+       rs13=DB_Utils.getStatement().executeQuery(manage.getEmailFirstNameQuery());
+       while (rs13.next()){
+           System.out.println(rs13.getString("email"));
+       }
+    }
+
+
+    ////////////////////////////////////////////14
+
+    @Given("Author data query is prepared")
+    public void author_data_query_is_prepared() {
+
+        manage.getBookTitleQuery();
+    }
+    @Given("A query  is sent from  the  book table  to the  author data and the result are validated")
+    public void a_query_is_sent_from_the_book_table_to_the_author_data_and_the_result_are_validated() throws SQLException {
+        rs14=DB_Utils.getStatement().executeQuery(manage.getBookTitleQuery());
+        while (rs14.next()){
+            System.out.println(rs14.getString("book_title"));
+        }
+
+
+
+
+
+    }
+              /////////////////////
+
+    @Given("{string} being prepared.")
+    public void being_prepared(String string) {
+
+    }
+    @Given("Query is executed and results are obtained.")
+    public void query_is_executed_and_results_are_obtained() {
+
+
+    }
+        /////////////////////
+
+
+
+
+
+       //15
+    @Given("qty value query is prepared")
+    public void qty_value_query_is_prepared() {
+
+        manage.getQtyQuery();
+    }
+    @Given("A query is sent to the author data from the book table and the qty results are validated.")
+    public void a_query_is_sent_to_the_author_data_from_the_book_table_and_the_qty_results_are_validated() throws SQLException {
+       rs15 =DB_Utils.getStatement().executeQuery(manage.getQtyQuery());
+       while (rs15.next()){
+           System.out.println(rs15.getInt("id"));
+       }
+    }
+
+
 
 }
 

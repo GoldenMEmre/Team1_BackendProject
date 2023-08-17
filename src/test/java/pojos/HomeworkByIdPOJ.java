@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor   //Parametresiz Constructor olusturur
 @AllArgsConstructor  //Tüm parametreleri iceren Constructor olusturur
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SessionListPOJO {
-
+public class HomeworkByIdPOJ {
     private int status;
     private String message;
-    private SessionListListsPOJO lists;
+    private HomeworkByIdListsPOJ lists;
 }
