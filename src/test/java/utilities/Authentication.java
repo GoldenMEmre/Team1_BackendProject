@@ -31,7 +31,8 @@ public class Authentication {
                 reqBody.put("email",enumToken.TOKEN.getTeacherEmail());
                 break;
             case "STUDENT" :
-                reqBody.put("email",enumToken.TOKEN.getStudentUserName());
+                spec.pathParams("pp1","apistudent","pp2","getToken");
+                reqBody.put("username",enumToken.TOKEN.getStudentUserName());
                 break;
             default:
                 System.err.println("Please enter a valid Page direction!!");
