@@ -35,11 +35,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 
 import static org.junit.Assert.assertEquals;
-
-
-import static utilities.ApiUtils.fullPath;
-
-import static utilities.ApiUtils.respHP;
+import static utilities.ApiUtils.*;
 
 
 public class APIStepDefinition {
@@ -351,7 +347,7 @@ public class APIStepDefinition {
     @Then("Execute verification for given informations")
     public void executeVerificationForGivenInformations() {
 
-        JsonPath resJP = ApiUtils.response.jsonPath();
+        JsonPath resJP = response.jsonPath();
         ArrayList listsArr = resJP.getJsonObject("lists");
         JSONArray listsJA = new JSONArray(listsArr);
         System.out.println(listsJA.get(0));
@@ -363,13 +359,6 @@ public class APIStepDefinition {
         Assert.assertEquals(listsJA.getJSONObject(1).get("updated_at"),"0000-00-00");
 
     }
-
-
-
-
-
-
-
 
 
 
@@ -428,18 +417,117 @@ public class APIStepDefinition {
 
     }
 
+    @Then("Then Execute verification for given informations response body lıst")
+    public void then_execute_verification_for_given_informations_response_body_lıst() {
+
+        JsonPath resJP = response.jsonPath();
+        ArrayList listsArr = resJP.getJsonObject("lists");
+        JSONArray listsJA = new JSONArray(listsArr);
+        System.out.println(listsJA.get(0));
+
+        Assert.assertEquals(listsJA.getJSONObject(0).get("id"),"1");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("book_title"),"nnnnnnnnnnnnnnnnn");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("book_no"),"788789");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("isbn_no"),"");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("subject"),"");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("rack_no"),"110");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("publish"),"Barbara Bando");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("author"),"Barbara Bando");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("qty"),"100");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("perunitcost"),"12.00");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("postdate"),"2022-05-04");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("description")," The duo dump her in a nearby river after a failed attempt to hang her. Tonya survives, and the two men are arrested by Sheriff Ozzie Walls.");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("is_active"),"no");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("available"),"yes");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("created_at"),"2023-08-14 13:02:31");
+
+
+    }
+
+
+
+    @Then("Response body content test for api alumniUpdate")
+    public void response_body_content_test_for_api_alumni_update() {
+        Assert.assertTrue(respHP.containsKey("updateId"));
+    }
 
 
 
 
 
 
+    @Given("PATCH request is sent for apistudentdailyAssignmentUpdate")
+    public void patch_request_is_sent_for_apistudentdaily_assignment_update() {
+       ApiUtils.dgpostRequest();
+       ApiUtils.dgpatchRequest();
+    }
+
+
+    @Then("User sends a PATCH request to  apistudent dailyAssignmentUpdate endpoint")
+    public void user_sends_a_patch_request_to_apistudent_daily_assignment_update_endpoint() {
+        ApiUtils.dgpatchRequest();
+    }
+    @Then("Response body content test for api apistudent\\/dailyAssignmentUpdate")
+    public void response_body_content_test_for_api_apistudent_daily_assignment_update() {
+        Assert.assertTrue(respHP.containsKey("updateId"));
+    }
 
 
 
+    @Given("Response body content test for teacherquestionList")
+    public void response_body_content_test_for_teacherquestion_list() {
+        JsonPath resJP = response.jsonPath();
+        ArrayList listsArr = resJP.getJsonObject("lists");
+        JSONArray listsJA = new JSONArray(listsArr);
+        System.out.println(listsJA.get(0));
+
+        Assert.assertEquals(listsJA.getJSONObject(0).get("id"),"203");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("staff_id"),"93");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("subject_id"),"5");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("question_type"),"singlechoice");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("level"),"medium");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("class_id"),"3");
+        //Assert.assertNull(listsJA.getJSONObject(0).get("class_section_id"));
+        Assert.assertEquals(listsJA.getJSONObject(0).get("question"),"Which one of the following is biotic resource?");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("opt_a"),"Soil.");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("opt_b"),"Water.");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("opt_c"),"Plant.");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("opt_d"),"Land.");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("opt_e"),"Other .");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("correct"),"opt_c");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("descriptive_word_limit"),"0");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("created_at"),"2023-08-16 11:47:41");
+        //Assert.assertEquals(listsJA.getJSONObject(0).get("updated_at"),"null");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("name"),"Science");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("code"),"111");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("class_name"),"Class 3");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("section_name"),"A");
 
 
 
+    }
+
+
+    @Then("user send a post request alumni delete")
+    public void userSendAPostRequestAlumniDelete() {
+        ApiUtils.postRequestUS_27();
+    }
+
+    @Then("user send a delete request to alumni  delete")
+    public void userSendADeleteRequestToAlumniDelete() {
+        ApiUtils.deleteMethod1();
+    }
+
+    @Then("validate deleted id in requestbody and response body")
+    public void validateDeletedIdInRequestbodyAndResponseBody() {
+        Assert.assertEquals(respHP.get("deletedId"), addId);
+    }
+
+    @Then("user send a post request alumni id")
+    public void userSendAPostRequestAlumniId() {
+        ApiUtils.postRequestAlumniId();
+
+    }
 }
 
 

@@ -23,6 +23,10 @@ public class DBStepDefinition {
     ResultSet rs16;
     ResultSet rs17;
     ResultSet rs18;
+    ResultSet rs13;
+    ResultSet rs14;
+    ResultSet rs15;
+    ResultSet rs;
     Statement st;
 
     List<Object> UserEmailList= new ArrayList<>();
@@ -58,7 +62,7 @@ public class DBStepDefinition {
     }
     @Given("Query16  is being prepared")
     public void query16_is_being_prepared() {
-        query16="SELECT * FROM wonderworld_qa.online_admissions ORDER BY admission_date DESC LIMIT 10";
+        query16="SELECT * FROM wonderworld_qa2.online_admissions ORDER BY admission_date DESC LIMIT 10;";
     }
     @Given("The query is sent to online_admissions table and results are validated")
     public void the_query_is_sent_to_online_admissions_table_and_results_are_validated() throws SQLException {
@@ -78,7 +82,7 @@ public class DBStepDefinition {
 
     @Given("Query17  is being prepared")
     public void query17_is_being_prepared() {
-       query17 ="SELECT AVG(passing_percentage) FROM wonderworld_qa.onlineexam";
+       query17 ="SELECT AVG(passing_percentage) FROM wonderworld_qa2.onlineexam;";
     }
     @Given("The query is sent to onlineexam and results are valıidated")
     public void the_query_is_sent_to_onlineexam_and_results_are_valıidated() throws SQLException {
@@ -95,7 +99,7 @@ public class DBStepDefinition {
 
     @Given("Query18 is being prepared")
     public void query18_is_being_prepared() {
-         query18 ="SELECT DISTINCT student_session_id  FROM wonderworld_qa.onlineexam_students;";
+         query18 ="SELECT COUNT(DISTINCT student_session_id) FROM wonderworld_qa2.onlineexam_students;";
     }
     @Given("The query is sent to onlineexam_students and results are validated.")
     public void the_query_is_sent_to_onlineexam_students_and_results_are_validated() throws SQLException {
@@ -111,7 +115,73 @@ public class DBStepDefinition {
 
 
 
+    //13
+    @Given("Online admission table query is prepared")
+    public void online_admission_table_query_is_prepared() {
+        manage.getEmailFirstNameQuery();
     }
+    @Given("A query is sent to the admission table table and  tehe results are validated.")
+    public void a_query_is_sent_to_the_admission_table_table_and_tehe_results_are_validated() throws SQLException {
+       rs13=DB_Utils.getStatement().executeQuery(manage.getEmailFirstNameQuery());
+       while (rs13.next()){
+           System.out.println(rs13.getString("email"));
+       }
+    }
+
+
+    ////////////////////////////////////////////14
+
+    @Given("Author data query is prepared")
+    public void author_data_query_is_prepared() {
+
+        manage.getBookTitleQuery();
+    }
+    @Given("A query  is sent from  the  book table  to the  author data and the result are validated")
+    public void a_query_is_sent_from_the_book_table_to_the_author_data_and_the_result_are_validated() throws SQLException {
+        rs14=DB_Utils.getStatement().executeQuery(manage.getBookTitleQuery());
+        while (rs14.next()){
+            System.out.println(rs14.getString("book_title"));
+        }
+
+
+
+
+
+    }
+              /////////////////////
+
+    @Given("{string} being prepared.")
+    public void being_prepared(String string) {
+
+    }
+    @Given("Query is executed and results are obtained.")
+    public void query_is_executed_and_results_are_obtained() {
+
+
+    }
+        /////////////////////
+
+
+
+
+
+       //15
+    @Given("qty value query is prepared")
+    public void qty_value_query_is_prepared() {
+
+        manage.getQtyQuery();
+    }
+    @Given("A query is sent to the author data from the book table and the qty results are validated.")
+    public void a_query_is_sent_to_the_author_data_from_the_book_table_and_the_qty_results_are_validated() throws SQLException {
+       rs15 =DB_Utils.getStatement().executeQuery(manage.getQtyQuery());
+       while (rs15.next()){
+           System.out.println(rs15.getInt("id"));
+       }
+    }
+
+
+
+}
 
 
 

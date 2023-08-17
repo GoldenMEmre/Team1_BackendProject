@@ -1,6 +1,8 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import hooks.api.HooksAPI;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -18,6 +20,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 
+
 public class ApiUtils {
 
     public static Response response;
@@ -25,7 +28,7 @@ public class ApiUtils {
     public static String fullPath;
 
     public static HashMap<String, Object> respHP;
-     static int  addId;
+    public static int  addId;
     public static void getRequestMethod() {
 
         response = given()
@@ -340,10 +343,10 @@ public class ApiUtils {
         "current_email": "cuntahsin.com",
         "current_phone": "123456",
         "occupation": "police"
-=======
 
 
->>>>>>> main
+
+
 
 }
               */
@@ -455,11 +458,98 @@ public class ApiUtils {
 
      }
 
+    public static Response iinvalidpatchRequest (String fullPath, JSONObject reqBody){
+        Faker faker = new Faker();
+        response = given()
+                .spec(spec)
+                .headers("Authorization", "Bearer " + faker.internet().password(31, 32, true))
+                .contentType(ContentType.JSON)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        return response;
+    }
+
+
+    public static void dgpostRequest(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 12);
+        reqBody.put("subject_group_subject_id","27");
+        reqBody.put("title","deneme");
+        reqBody.put("description", "deneme");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("date", "2023-06-15");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+
 
 
 
 
     }
+
+
+
+
+    public static void dgpatchRequest(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 12);
+        reqBody.put("subject_group_subject_id","72");
+        reqBody.put("title","try");
+        reqBody.put("description", "try");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("date", "2023-06-15");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+    }
+
+    public static void postRequestAlumniId(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id",addId);
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+    }
+
+
+
+
+
+}
 
 
 
