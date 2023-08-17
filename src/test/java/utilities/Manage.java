@@ -21,6 +21,26 @@ public class Manage {
         return query18;
     }
 
+
+    private String query04 = "SELECT firstname AND lastname FROM wonderworld_qa3.students WHERE admission_no BETWEEN 18001 AND 18010;";
+    public String getQuery04(){
+        return query04;
+    }
+    private String query05="SELECT mother_name, mother_occupation\n" +
+            "FROM wonderworld_qa3.students\n" +
+            "WHERE lastname LIKE 'T%'";
+    public String getQuery05(){
+        return query05;
+    }
+
+    private String query06 = "SELECT roll_no\n" +
+            "FROM wonderworld_qa3.students\n" +
+            "WHERE father_occupation IN ('Doctor', 'Police')\n" +
+            "ORDER BY roll_no DESC;";
+    public  String getQuery06(){
+        return query06;
+    }
+
     private String query12 = "SELECT * FROM wonderworld_qa2.staff ORDER BY work_exp ASC LIMIT 5;";
 public String getQuery12(){
         return query12;
@@ -41,6 +61,7 @@ public String getQuery12(){
     private String query21= "INSERT INTO wonderworld_qa.general_calls VALUES (150,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
 
     public String getQuery21(){return query21;}
+
 
 
 

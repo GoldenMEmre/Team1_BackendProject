@@ -81,7 +81,7 @@ public class APIStepDefinition {
     Response response1;
 
 
-    public static String silmeyin = "class";
+
 
 
     //************************** Emre ****************************************
@@ -666,7 +666,7 @@ public class APIStepDefinition {
 
 
     @Then("Execute verification for given informations")
-    public void executeVerificationForGivenInformations() {
+    public void  executeVerificationForGivenInformations() {
 
         JsonPath resJP = response.jsonPath();
         ArrayList listsArr = resJP.getJsonObject("lists");

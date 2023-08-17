@@ -18,6 +18,9 @@ import static utilities.DB_Utils.*;
 public class DBStepDefinition {
     int flag;
     String query16;
+    String query04;
+    String query05;
+    String query06;
     String query17;
     String query18;
     String query10;
@@ -25,6 +28,7 @@ public class DBStepDefinition {
     String query12;
 
     ResultSet rs16;
+    ResultSet rs04;
     ResultSet rs17;
    int rs10;
    int rs11;
@@ -36,6 +40,10 @@ public class DBStepDefinition {
     ResultSet rs;
     Statement st;
 
+
+    ResultSet rs05;
+    ResultSet rs06;
+
     String query19;
     String query20;
     String query21;
@@ -43,6 +51,7 @@ public class DBStepDefinition {
     ResultSet rs19;
     ResultSet rs20;
     int rs21;
+
 
 
     List<Object> UserEmailList= new ArrayList<>();
@@ -127,6 +136,13 @@ public class DBStepDefinition {
         assertEquals(expeceted18,actualRS18);
 
         System.out.println(actualRS18);
+        }
+
+
+        //**************************** Ogün *****************************
+        @Given("Query04  is being prepared")
+        public void query04_is_being_prepared() {
+            query04 = "SELECT firstname AND lastname FROM wonderworld_qa3.students WHERE admission_no BETWEEN 18001 AND 18010;";
         }
 
     //---------------------------------------------------------------------------------------------------
@@ -215,14 +231,41 @@ public class DBStepDefinition {
 
         rs21 = DB_Utils.getStatement().executeUpdate(manage.getQuery21());
 
-        int verify=0;
-        if (rs21>0){
+        int verify = 0;
+        if (rs21 > 0) {
             verify++;
         }
-        assertEquals(verify,1);
+        assertEquals(verify, 1);
+    }
 
+    @Given("The query is sent to student table and results are validated")
+    public void the_query_is_sent_to_student_table_and_results_are_validated() throws SQLException {
+        rs04 = DB_Utils.getStatement().executeQuery(manage.getQuery04());
 
     }
+
+    @Given("Query05  is being prepared")
+    public void query05_is_being_prepared() {
+        query05 = "SELECT mother_name, mother_occupation\n" +
+                "FROM wonderworld_qa3.students\n" +
+                "WHERE lastname LIKE 'T%'";
+    }
+    @Given("The query is sent to students mother_name mother_occupation table and results are validated")
+    public void the_query_is_sent_to_students_mother_name_mother_occupation_table_and_results_are_validated() throws SQLException {
+        rs05 = DB_Utils.getStatement().executeQuery(manage.getQuery05());
+    }
+    @Given("Query06  is being prepared")
+    public void query06_is_being_prepared() {
+        query06 = "SELECT roll_no\n" +
+                "FROM wonderworld_qa3.students\n" +
+                "WHERE father_occupation IN ('Doctor', 'Police')\n" +
+                "ORDER BY roll_no DESC;";
+    }
+    @Given("The query is sent to father_occupation students table and results are validated")
+    public void the_query_is_sent_to_father_occupation_students_table_and_results_are_validated() throws SQLException {
+        rs06 = DB_Utils.getStatement().executeQuery(manage.getQuery06());
+    }
+
 
 
 
