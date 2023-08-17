@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/DBRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/DBRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ApiUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ApiUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US006].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US006].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US008].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US008].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US037].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US037].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US061].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US061].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US04].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US04].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US05].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US05].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US06].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US06].feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +37,6 @@
   </component>
   <component name="RunManager" selected="JUnit.DBRunner">
     <configuration name="Scenario: TC_003 Validates information of data with id=250 in response body content" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: " type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,6 +102,11 @@
       </method>
     </configuration>
     <configuration name="Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: " type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

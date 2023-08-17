@@ -1006,7 +1006,6 @@ public class APIStepDefinition {
         ApiUtils.postRequestUS021();
     }
 
-
     @Then("User sends a DELETE request for a Book Issue and compare the ids in request and response body")
     public void userSendsADELETERequestForABookIssueAndCompareTheIdsInRequestAndResponseBody() {
         ApiUtils.deleteVisitorUS0037();
