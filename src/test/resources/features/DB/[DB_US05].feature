@@ -1,6 +1,6 @@
 Feature: List the mother_name and mother_occupation values of the student in the
   students table whose lastname starts with 'T'.
-
+@db
   Scenario: List the mother_name and mother_occupation values of the student in the
   students table whose lastname starts with 'T'.
     * Dataabase connection established.
