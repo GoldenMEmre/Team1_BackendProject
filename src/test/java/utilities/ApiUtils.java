@@ -1,6 +1,8 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import hooks.api.HooksAPI;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -21,6 +23,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
+
 public class ApiUtils {
 
     public static Response response;
@@ -29,8 +32,12 @@ public class ApiUtils {
 
     public static HashMap<String, Object> respHP;
 
+    public static int  addId;
 
-    public static int addId;
+
+
+
+
 
     public static void getRequestMethod() {
 
@@ -339,6 +346,12 @@ public class ApiUtils {
         "occupation": "police"
 
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> main
 }
               */
 
@@ -756,13 +769,60 @@ public class ApiUtils {
                 .post(fullPath);
 
         response.prettyPrint();
-        respHP=response.as(HashMap.class);
+
+         respHP = response.as(HashMap.class);
+
+
+     }
+
+    public static Response iinvalidpatchRequest (String fullPath, JSONObject reqBody){
+        Faker faker = new Faker();
+        response = given()
+                .spec(spec)
+                .headers("Authorization", "Bearer " + faker.internet().password(31, 32, true))
+                .contentType(ContentType.JSON)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        return response;
+    }
+
+
+    public static void dgpostRequest(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 12);
+        reqBody.put("subject_group_subject_id","27");
+        reqBody.put("title","deneme");
+        reqBody.put("description", "deneme");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("date", "2023-06-15");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+
+
+
+
+
     }
     public static void verifyInformationsOfResponseContentUS044(){
         HomeworkByIdListsPOJ homeworkByIdLists = new HomeworkByIdListsPOJ("423","4","3","18","93","47","4",
                 "2023-07-25","2023-07-28",null,"<p>verilen testler yapilsin</p>",
                 "2023-07-24","2023-08-04",null,"93","117","2023-07-24 15:35:20",
                 "Mathematics","7","Class 4th Subject Group","1");
+
 
         HomeworkByIdPOJ homeworkByIdPOJ = new HomeworkByIdPOJ(200,"Success",homeworkByIdLists);
         HomeworkByIdPOJ respPojo = response.as(HomeworkByIdPOJ.class);
@@ -820,13 +880,63 @@ public class ApiUtils {
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+    public static void dgpatchRequest(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 12);
+        reqBody.put("subject_group_subject_id","72");
+        reqBody.put("title","try");
+        reqBody.put("description", "try");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("date", "2023-06-15");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+    }
+
+    public static void postRequestAlumniId(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id",addId);
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+    }
+
+
+
+
+
 }
-
-
-
-
-
-
 
 
 

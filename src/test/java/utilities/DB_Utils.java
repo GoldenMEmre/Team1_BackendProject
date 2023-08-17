@@ -1,5 +1,7 @@
 package utilities;
 
+import io.cucumber.java.en.Given;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +13,7 @@ public class DB_Utils {
     static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
-
+       Manage manage =new Manage();
 
     public static void createConnection()  {
         String url= ConfigReader.getProperty("db_credentials_url");
@@ -270,7 +272,7 @@ public class DB_Utils {
 
         Connection con=null;
         try {
-            con = DriverManager.getConnection("jdbc:mysql://194.140.198.209/wonderworld_qa",
+            con = DriverManager.getConnection("mysql://194.140.198.209/wonderworld_qa2",
                     "wonderworld_qawcollegeuser",
                     "1gvyfx6#Q");
         } catch (SQLException e) {
@@ -291,10 +293,6 @@ public class DB_Utils {
         }
         return st;
     }
-
-
-
-
 
 
 
