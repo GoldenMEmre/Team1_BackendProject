@@ -840,6 +840,7 @@ public class APIStepDefinition {
     public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {
 
         ApiUtils.postVisitorIDUS0037();
+
     }
 
     @Then("User sends a POST request to homeworkById page")
@@ -1004,7 +1005,33 @@ public class APIStepDefinition {
 
 
         }
+
+    @Then("User sends a POST request to create a book record")
+    public void userSendsAPOSTRequestToCreateABookRecord() {
+        ApiUtils.postRequestUS021();
     }
+
+    @Then("User sends a DELETE request for a Book Issue and compare the ids in request and response body")
+    public void userSendsADELETERequestForABookIssueAndCompareTheIdsInRequestAndResponseBody() {
+        ApiUtils.deleteVisitorUS0037();
+        Assert.assertEquals(ApiUtils.addId, respHP.get("DeletedId"));
+    }
+
+    @Then("User sends a POST request to create a homework record")
+    public void userSendsAPOSTRequestToCreateAHomeworkRecord() {
+        ApiUtils.postRequestUS047();
+    }
+
+    @Then("User sends a POST request for daily assignment add")
+    public void userSendsAPOSTRequestForDailyAssignmentAdd() {
+        ApiUtils.postrequestUS062();
+    }
+
+    @Then("User sends a POST request for daily assignment id")
+    public void userSendsAPOSTRequestForDailyAssignmentId() {
+        ApiUtils.postVisitorIDUS0037();
+    }
+}
 
 
 
