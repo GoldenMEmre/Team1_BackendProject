@@ -24,6 +24,13 @@ public class DBStepDefinition {
     ResultSet rs17;
     ResultSet rs18;
     Statement st;
+    String query7;
+    ResultSet rs7;
+    String query8;
+    int rs8;
+    String query9;
+    int rs9;
+
 
     List<Object> UserEmailList= new ArrayList<>();
     Manage manage=new Manage();
@@ -110,8 +117,44 @@ public class DBStepDefinition {
         }
 
 
+    @Given("Query07  is being prepared")
+    public void query07_is_being_prepared() {
+        query7 ="SELECT * FROM wonderworld_qa3.users WHERE role = 'parent' ORDER BY user_id ASC";
+
+
 
     }
+
+    @Given("The query is sent to parent validated")
+    public void the_query_is_sent_to_parent_validated() throws SQLException {
+        rs7=DB_Utils.getStatement().executeQuery(manage.getQuery7());
+
+    }
+    @Given("Query08  is being prepared")
+    public void query08_is_being_prepared() {
+        query8 ="UPDATE wonderworld_qa2.topic SET name ='Gulten' WHERE id = 25;";
+
+
+
+    }
+    @Given("Query09  is being prepared")
+    public void query09_is_being_prepared() {
+        query9 ="INSERT INTO wonderworld_qa2.transport_route VALUES (800,'Ankara','5','successed test','yes','2023-08-15','2023-08-17');";
+
+    }
+
+    @Given("The query is sent to the transport_route table.")
+    public void the_query_is_sent_to_the_transport_route_table() throws SQLException {
+        rs9=DB_Utils.getStatement().executeUpdate(query9);
+
+
+    }
+
+
+
+
+
+}
 
 
 

@@ -39,10 +39,7 @@ import static io.restassured.RestAssured.given;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
-
-
-import static utilities.ApiUtils.respHP;
-import static utilities.ApiUtils.verifyInformationsOfResponseContentUS044;
+import static utilities.ApiUtils.*;
 
 
 public class APIStepDefinition {
@@ -404,9 +401,48 @@ public class APIStepDefinition {
 
     @Given("User sends a POST request for homeworkAdd")
     public void user_sends_a_post_request_for_homework_add() {
+
         ApiUtils.gultenPostUS45();
     }
-    // *********************** GUlten ***********************Baslangic//
+
+
+
+    @Given("Response body content test for dailyAssignmentList")
+    public void response_body_content_test_for_daily_assignment_list() {
+        ApiUtils.getGultenUS60();
+
+
+        response.then().assertThat()
+                .body("lists", anything("id"))
+                .body("lists", anything("student_session_id"))
+                .body("lists", anything("subject_group_subject_id"))
+                .body("lists", anything("title"))
+                .body("lists", anything("description"))
+                .body("lists", anything("attachment"))
+                .body("lists", anything("evaluated_by"))
+                .body("lists", anything("date"))
+                .body("lists", anything("evaluation_date"))
+                .body("lists", anything("remark"))
+                .body("lists", anything("created_at"))
+                .body("lists", anything("subject_name"))
+                .body("lists", anything("subject_code"));
+    }
+
+
+
+    @Given("User sends a POST request for homeworkbyId")
+    public void user_sends_a_post_request_for_homeworkby_id(int Yorkville) {
+        ApiUtils.gultenPostIDUS045(Yorkville);
+
+
+    }
+
+    @Given("Validate ID {int} in request body and response body")
+    public void validate_id_in_request_body_and_response_body(int Yorkville) {
+        ApiUtils.gultenPostIDUS045(Yorkville);
+        Assert.assertEquals(respHP.get("id"), Yorkville);
+    }
+    // *********************** GUlten ***********************Sonu//
 
 
     @Then("Execute verification for given informations")

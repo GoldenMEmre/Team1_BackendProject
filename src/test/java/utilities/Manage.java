@@ -1,42 +1,32 @@
 package utilities;
 
 public class Manage {
-    private String query16="SELECT * FROM wonderworld_qa.online_admissions ORDER BY admission_date DESC LIMIT 10";
+    private String query16 = "SELECT * FROM wonderworld_qa.online_admissions ORDER BY admission_date DESC LIMIT 10";
 
-    public String getQuery16(){
+    public String getQuery16() {
         return query16;
     }
 
-    private String query17="SELECT AVG(passing_percentage) FROM wonderworld_qa.onlineexam";
+    private String query17 = "SELECT AVG(passing_percentage) FROM wonderworld_qa.onlineexam";
 
-    public String getQuery17(){
+    public String getQuery17() {
         return query17;
     }
 
 
+    private String query18 = "SELECT COUNT(DISTINCT student_session_id) FROM wonderworld_qa.onlineexam_students;";
 
-    private String query18="SELECT COUNT(DISTINCT student_session_id) FROM wonderworld_qa.onlineexam_students;";
+    public String getQuery18() {
 
-    public String getQuery18(){
         return query18;
     }
 
+    private String query7 = "SELECT * FROM wonderworld_qa2.users WHERE role = 'parent' ORDER BY user_id ASC";
 
+    public String getQuery7() {
+        return query7;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }
