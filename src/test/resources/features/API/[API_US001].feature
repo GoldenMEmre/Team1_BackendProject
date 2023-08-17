@@ -1,4 +1,4 @@
-@sg
+
 Feature:[API_US001] As an administrator, I want to access the Visitors Purpose List through an API connection.
 
   Scenario:[TC_001] GET Request Success Response for the Visitor Purpose List

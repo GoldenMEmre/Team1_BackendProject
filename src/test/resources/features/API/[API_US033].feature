@@ -9,7 +9,7 @@ Feature: API_US033 As an administrator, I want to access the Visitor List throug
     * User sends a get request
     * Execute a verification for a valid authorization
 
-
+@sg
   Scenario: TC_002 GET request failed response with invalid information for visitor list
 
     * "INVALID" Page User sets "api/visitorsList" parameters
@@ -20,7 +20,6 @@ Feature: API_US033 As an administrator, I want to access the Visitor List throug
   Scenario: TC_003 Verifies the information of the data with id=250 from the list data in the response body
 
     * "ADMIN" Page User sets "api/visitorsList" parameters
-    #* User sends a get request
     * Response body content test for visitor list
 
 

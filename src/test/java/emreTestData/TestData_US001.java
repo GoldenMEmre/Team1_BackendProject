@@ -8,9 +8,9 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class TestData_US001 {
 
-    public HashMap data_US001(){
+    public JSONObject data_US001(){
 
-        HashMap<String,Object> data = new HashMap<>();
+       JSONObject data = new JSONObject();
         data.put("id","1");
         data.put("visitors_purpose", "Marketing ");
         data.put("description", "");
