@@ -1,5 +1,5 @@
 Feature: US014 As an administrator, I want to access the Vehicle information of a vehicle with a given ID through API connection.
-@mg
+
 Scenario: TC01 When valid authorization information and correct data (id) are sent in the POST body to the api/vehicleId endpoint,
     the expected status code is 200, and the message in the response body should be "Success."
 
