@@ -1,5 +1,4 @@
 
-@sg
   Feature: API_US065 As a user (student), I want to access my Apply Leave information through API connection
 
     Scenario: TC_001 GET request success response with valid information for Apply Leave List

@@ -5,6 +5,19 @@
   </component>
   <component name="ChangeListManager">
 
+    <list default="true" id="233bd455-b33c-48e5-b094-c9ea7efacbbe" name="Changes" comment=""/>
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/Manage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US014].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US014].feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US035].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US035].feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US043].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US043].feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US065].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US065].feature" afterDir="false" />
+
+
     <list default="true" id="c422d995-8826-4c7b-a337-a4a5d2f71fb4" name="Changes" comment=""/>
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_16_2023_7_39_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_16_2023_7_39_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_16_2023_7_40_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_16_2023_7_40_AM__Changes_.xml" afterDir="false" />
@@ -23,6 +36,7 @@
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US03].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US03].feature" afterDir="false" />
 
 
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +46,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+
 
 
   <component name="MarkdownSettingsMigration">
@@ -55,6 +74,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
+
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gulte\IdeaProjects\Team1_BackendProject\src\test\resources\features\DB" />
@@ -64,6 +84,10 @@
       <recent name="C:\Users\hasba\IdeaProjects\Team1_BackendProject\src\test\resources\features\API" />
     </key>
   </component>
+
+  <component name="RunManager" selected="JUnit.RunnerAPI (1)"/>
+    <configuration name="Scenario: TC_001 A new call context should be added to the general_calls table" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+
 
   <component name="RunManager" selected="Cucumber Java.Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint,"/>
     <configuration name="Scenario:  (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
@@ -165,11 +189,17 @@
 
     <configuration name="Scenario: TC01 When valid authorization information and correct data (id, title, event_for, session_id, section," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
 
+
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US019].feature" />
       <option name="GLUE" value="stepDefinitions hooks.api" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="com.projectPreparation" />
+
+      <option name="NAME_FILTER" value="^TC_001 A new call context should be added to the general_calls table$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC_001 A new call context should be added to the general_calls table$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: TC_001 A new call context should be added to the general_calls table" />
+
 
       <option name="NAME_FILTER" value="^\[TC_001\] When a valid authorization information and correct data \(id\) are sent in a POST body to the api\/bookIssueId endpoint\,$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC_001\] When a valid authorization information and correct data \(id\) are sent in a POST body to the api\/bookIssueId endpoint\,$&quot;" />
@@ -178,6 +208,7 @@
       <option name="NAME_FILTER" value="^\[TC001\] api\/visitorsUpdate endpoint\'ine gecerli authorization bilgileri ve dogru datalar$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC001\] api\/visitorsUpdate endpoint\'ine gecerli authorization bilgileri ve dogru datalar$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: [TC001] api/visitorsUpdate endpoint'ine gecerli authorization bilgileri ve dogru datalar" />
+
 
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
@@ -191,6 +222,24 @@
       </method>
     </configuration>
 
+    <configuration name="Scenario: TC_001 List the 5 longest (text) data in the email column of the students table" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/DB/DB_US19.feature" />
+      <option name="GLUE" value="stepDefinitions hooks.api" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="com.projectPreparation" />
+      <option name="NAME_FILTER" value="^TC_001 List the 5 longest \(text\) data in the email column of the students table$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC_001 List the 5 longest \(text\) data in the email column of the students table$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: TC_001 List the 5 longest (text) data in the email column of the students table" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+
+
     <configuration name="Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
 
     <configuration name="Scenario: TC_001 GET request success response with valid information for Apply Leave List" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
@@ -199,10 +248,22 @@
       </method>
     </configuration>
     <configuration name="Scenario: TC_001 GET request success response with valid information for a api teacher/questionList" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+    <configuration name="Scenario: TC_001 Prints the name of the highest expense in the expenses table" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/DB/DB_US20.feature" />
+      <option name="GLUE" value="stepDefinitions hooks.api" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="com.projectPreparation" />
+      <option name="NAME_FILTER" value="^TC_001 Prints the name of the highest expense in the expenses table$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC_001 Prints the name of the highest expense in the expenses table$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: TC_001 Prints the name of the highest expense in the expenses table" />
+
     <configuration name="Scenario: TC_001 POST request success response with valid information for question Details By Id" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US014].feature" />
@@ -267,6 +328,7 @@
       <option name="NAME_FILTER" value="^\[TC002\] When invalid authorization information or invalid data \(id\) are sent in the POST body$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC002\] When invalid authorization information or invalid data \(id\) are sent in the POST body$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: [TC002] When invalid authorization information or invalid data (id) are sent in the POST body" />
+
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -278,6 +340,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+    <configuration name="Scenario: TC_002 GET request failed response with invalid information for visitor list" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US033].feature" />
+      <option name="GLUE" value="stepDefinitions hooks.api" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="com.projectPreparation" />
+      <option name="NAME_FILTER" value="^TC_002 GET request failed response with invalid information for visitor list$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC_002 GET request failed response with invalid information for visitor list$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: TC_002 GET request failed response with invalid information for visitor list" />
+
     <configuration name="Scenario: [TC002] When invalid authorization information or missing data (subject_group_subject_id," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -414,6 +487,7 @@
       <option name="NAME_FILTER" value="^\[TC003\] The content of the \&quot;list\&quot; data in the response body should be verified to match the specified data\.$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^\[TC003\] The content of the \&quot;list\&quot; data in the response body should be verified to match the specified data\.$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: [TC003] The content of the &quot;list&quot; data in the response body should be verified to match the specified data." />
+
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -425,6 +499,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+    <configuration name="Scenario: TC_003 Validates information of data with id=250 in response body content" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
+
     <configuration name="Scenario: api/visitorsDelete endpoint'ine gecerli authorization bilgileri ve dogru data (id)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/API/[API_US037].feature" />
@@ -466,12 +543,13 @@
       <option name="PACKAGE_NAME" value="runners" />
       <option name="MAIN_CLASS_NAME" value="runners.DBRunner" />
       <option name="TEST_OBJECT" value="class" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RunnerAPI (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Team1_BackendProject" />
+      <module name="com.projectPreparation" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="runners.*" />
@@ -485,8 +563,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+    <configuration name="RunnerAPI (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true"/>
+      <module name="Team1_BackendProject" />
+
     <configuration name="RunnerAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.projectPreparation" />
+
 
       <extension name="coverage">
         <pattern>
@@ -533,6 +616,13 @@
     <recent_temporary>
       <list>
 
+        <item itemvalue="JUnit.RunnerAPI (1)" />
+        <item itemvalue="Cucumber Java.Scenario: TC_002 GET request failed response with invalid information for visitor list" />
+        <item itemvalue="Cucumber Java.Scenario: TC_001 A new call context should be added to the general_calls table" />
+        <item itemvalue="Cucumber Java.Scenario: TC_001 Prints the name of the highest expense in the expenses table" />
+        <item itemvalue="Cucumber Java.Scenario: TC_001 List the 5 longest (text) data in the email column of the students table" />
+
+
         <item itemvalue="Cucumber Java.Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint," />
         <item itemvalue="Cucumber Java.Scenario: " />
         <item itemvalue="Cucumber Java.Scenario: [TC_001] When a valid authorization information and correct data (id) are sent in a POST body to the api/bookIssueId endpoint, (1)" />
@@ -545,6 +635,7 @@
         <item itemvalue="Cucumber Java.Scenario: [TC_001] Verify that the email of the student in the students table with firstname Brian and lastname Kohlar is brain@gmail.com." />
         <item itemvalue="JUnit.RunnerAPI" />
 
+
       </list>
     </recent_temporary>
   </component>
@@ -552,9 +643,14 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
 
+      <changelist id="e606194d-c471-4fdc-92e2-dd4e6f0639f9" name="Changes" comment="" />
+      <changelist id="2e7e99c7-141b-41b8-a75c-ad77e3be282a" name="Changes" comment="" />
+
+
       <changelist id="59460f7e-d321-43f1-896d-92802844233f" name="Changes" comment="" />
 
       <changelist id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="" />
+
 
       <created>1691946236374</created>
       <option name="number" value="Default" />
