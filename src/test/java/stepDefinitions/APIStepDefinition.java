@@ -304,7 +304,7 @@ public class APIStepDefinition {
         Assert.assertEquals(listsJA.getJSONObject(0).get("name"), "Class 4th Subject Group");
         Assert.assertEquals(listsJA.getJSONObject(0).get("assignments"), "1");
 
-/*
+
 
     }
 
@@ -1002,7 +1002,6 @@ public class APIStepDefinition {
         @Then("user send a post request alumni id")
         public void userSendAPostRequestAlumniId () {
             ApiUtils.postRequestAlumniId();
-
 
         }
 
