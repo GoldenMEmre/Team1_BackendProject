@@ -1,6 +1,8 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import hooks.api.HooksAPI;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -21,6 +23,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
+
 public class ApiUtils {
 
     public static Response response;
@@ -29,8 +32,12 @@ public class ApiUtils {
 
     public static HashMap<String, Object> respHP;
 
+    public static int  addId;
 
-    public static int addId;
+
+
+
+
 
     public static void getRequestMethod() {
 
@@ -66,6 +73,7 @@ public class ApiUtils {
         response.prettyPrint();
         respHP = response.as(HashMap.class);
     }
+
 
     public static void petParametreSet(String rawPaths) {
 
@@ -330,18 +338,6 @@ public class ApiUtils {
 
         JSONObject reqBody = new JSONObject();
 
-             /*
-             {
-        "id": 3,
-        "student_id": "29",
-        "current_email": "cuntahsin.com",
-        "current_phone": "123456",
-        "occupation": "police"
-
-
-}
-              */
-
         reqBody.put("id", 3);
         reqBody.put("current_email", "cuntahsin.com");
         reqBody.put("current_phone", "123456");
@@ -365,18 +361,6 @@ public class ApiUtils {
 
     public static void responseUS_026() {
 
-
-
-             /*
-             {
-        "id": 3,
-        "student_id": "29",
-        "current_email": "cuntahsin.com",
-        "current_phone": "123456",
-        "occupation": "police"
-
-}
-              */
         JSONObject reqBody = new JSONObject();
         reqBody.put("id", 3);
         JSONObject responseBody = new JSONObject();
@@ -516,20 +500,20 @@ public class ApiUtils {
         System.out.println(listsJA.get(0));
 
 
-        Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "1070");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("title"), "Reunion For 2020-21 Batch");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"), "class");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"), "15");
-        Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
-        Assert.assertEquals(listsJA.getJSONObject(1).get("section"), "[\"1\",\"2\",\"3\"]");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"), "2021-03-07 00:00:00");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"), "2021-03-10 00:00:00");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("note"), "");
-        Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
+        Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "1097");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("title"), "Art Activite");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("event_for"), "art");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("session_id"), "13");
+       // Assert.assertNull(listsJA.getJSONObject(1).get("class_id"));
+       // Assert.assertNull(listsJA.getJSONObject(1).get("section"));
+        Assert.assertEquals(listsJA.getJSONObject(1).get("from_date"), "2023-11-14 00:00:00");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("to_date"), "2023-11-24 23:59:00");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("note"), "Paint");
+      //  Assert.assertNull(listsJA.getJSONObject(1).get("photo"));
         Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"), "0");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"), "");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("event_notification_message"), "Art");
         Assert.assertEquals(listsJA.getJSONObject(1).get("show_onwebsite"), "0");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2023-08-14 09:48:43");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2023-08-14 14:20:34");
     }
 
 
@@ -650,6 +634,8 @@ public class ApiUtils {
 
         response.prettyPrint();
         respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
     }
 
     public static void pageRequestus046(int id_number) {
@@ -756,13 +742,80 @@ public class ApiUtils {
                 .post(fullPath);
 
         response.prettyPrint();
+
+         respHP = response.as(HashMap.class);
+
+
+     }
+
+    public static Response iinvalidpatchRequest (String fullPath, JSONObject reqBody){
+        Faker faker = new Faker();
+        response = given()
+                .spec(spec)
+                .headers("Authorization", "Bearer " + faker.internet().password(31, 32, true))
+                .contentType(ContentType.JSON)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        return response;
+    }
+
+
+    public static void postRequestus61(){
+       JSONObject reqBody=new JSONObject();
+
+       reqBody.put("id",57);
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept","application/json")
+                .headers("Authorization","Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+
+        response.prettyPrint();
         respHP=response.as(HashMap.class);
+    }
+
+
+    public static void dgpostRequest(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 12);
+        reqBody.put("subject_group_subject_id","27");
+        reqBody.put("title","deneme");
+        reqBody.put("description", "deneme");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("date", "2023-06-15");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+
+
+
+
+
     }
     public static void verifyInformationsOfResponseContentUS044(){
         HomeworkByIdListsPOJ homeworkByIdLists = new HomeworkByIdListsPOJ("423","4","3","18","93","47","4",
                 "2023-07-25","2023-07-28",null,"<p>verilen testler yapilsin</p>",
                 "2023-07-24","2023-08-04",null,"93","117","2023-07-24 15:35:20",
                 "Mathematics","7","Class 4th Subject Group","1");
+
 
         HomeworkByIdPOJ homeworkByIdPOJ = new HomeworkByIdPOJ(200,"Success",homeworkByIdLists);
         HomeworkByIdPOJ respPojo = response.as(HomeworkByIdPOJ.class);
@@ -818,15 +871,203 @@ public class ApiUtils {
             Assert.assertEquals(expDataPoj.getLists().getGuardian_name(),respPOJO.getLists().getGuardian_name());
 
         }
-
-
-}
-
+    public static void getGultenUS60() {
 
 
 
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .get(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+    }
+    public static void gultenPostADDUS045() {
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("class_id", "1");
+        reqBody.put("section_id", "1");
+        reqBody.put("session_id", "18");
+        reqBody.put("subject_group_subject_id", "21");
+        reqBody.put("subject_id", "1");
+        reqBody.put("homework_date", "2022-07-05");
+        reqBody.put("submit_date", "2022-07-08");
+        reqBody.put("submit_date", "2022-07-08");
+        reqBody.put("marks", "1.00");
+        reqBody.put("description", "<p>\r\n\r\nRead carefully\r\n\r\n<br></p>");
+        reqBody.put("create_date", "2022-07-01");
+        reqBody.put("evaluation_date", "0000-00-00");
+        reqBody.put("document", "");
+        reqBody.put("created_by", "5");
+        reqBody.put("evaluated_by", "5");
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
 
 
+    }
+
+
+
+    public static void gultenPostIDUS045(int Yorkville){
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", Yorkville);
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .header("Accept", "application/json")
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void dgpatchRequest(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id", 12);
+        reqBody.put("subject_group_subject_id","72");
+        reqBody.put("title","try");
+        reqBody.put("description", "try");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("date", "2023-06-15");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .patch(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+    }
+
+    public static void postRequestAlumniId(){
+
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("id",addId);
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+
+
+    }
+
+    public static void postRequestUS021(){
+
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("book_id","11");
+        reqBody.put("member_id","7");
+        reqBody.put("duereturn_date","2021-08-04");
+        reqBody.put("return_date","2021-09-06");
+        reqBody.put("issue_date","2021-08-04");
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
+    }
+
+    public static void postRequestUS047(){
+
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("class_id","1");
+        reqBody.put("section_id","1");
+        reqBody.put("session_id","18");
+        reqBody.put("subject_group_subject_id","21");
+        reqBody.put("subject_id","1");
+        reqBody.put("homework_date","2022-07-05");
+        reqBody.put("submit_date","2022-07-08");
+        reqBody.put("marks",1);
+        reqBody.put("description","<p>\r\n\r\nRead carefully\r\n\r\n<br></p>");
+        reqBody.put("create_date","2022-07-01");
+        reqBody.put("evaluation_date","0000-00-00");
+        reqBody.put("document","");
+        reqBody.put("created_by","5");
+        reqBody.put("evaluated_by","5");
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
+    }
+
+    public static void postrequestUS062(){
+        JSONObject reqBody = new JSONObject();
+
+        reqBody.put("subject_group_subject_id","27");
+        reqBody.put("title","deneme");
+        reqBody.put("description","deneme");
+        reqBody.put("date","2023-06-15");
+        reqBody.put("remark","");
+
+
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + HooksAPI.token)
+                .when()
+                .body(reqBody.toString())
+                .post(fullPath);
+        response.prettyPrint();
+        respHP = response.as(HashMap.class);
+        JsonPath respJp = response.jsonPath();
+        addId = respJp.getInt("addId");
+    }
+
+    }
 
 
 

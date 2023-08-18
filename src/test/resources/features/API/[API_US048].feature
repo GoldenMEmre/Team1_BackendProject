@@ -1,13 +1,12 @@
 
   Feature: As an administrator (teacher), I want to access the Questions List through API connection.
-
+         @DN
     Scenario: TC_001 GET request success response with valid information for a api teacher/questionList
 
-    * "TEACHER" Page User sets "apiteacher/questionList" parameters
-    * User sends a get request
-    *  Execute a verification for a valid authorization
 
-
+           * "TEACHER" Page User sets "apiteacher/questionList" parameters
+           * User sends a get request
+           * Execute a verification for a valid authorization
 
     Scenario: TC_002 GET request failed response with invalid information for api teacher/questionList
 
@@ -20,7 +19,7 @@
 
       * "TEACHER" Page User sets "apiteacher/questionList" parameters
       * User sends a get request
-      * Response body content test for teacher/questionList
+      * Response body content test for teacherquestionList
 
 
 
