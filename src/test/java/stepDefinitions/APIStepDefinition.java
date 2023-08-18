@@ -20,6 +20,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -67,9 +68,13 @@ import static utilities.ApiUtils.*;
 import static utilities.ApiUtils.*;
 
 
+import static utilities.ApiUtils.*;
+
+
 
 import static utilities.ApiUtils.respHP;
 import static utilities.ApiUtils.verifyInformationsOfResponseContentUS044;
+
 
 
 
@@ -81,7 +86,7 @@ public class APIStepDefinition {
     Response response1;
 
 
-    public static String silmeyin = "class";
+
 
 
     //************************** Emre ****************************************
@@ -299,46 +304,7 @@ public class APIStepDefinition {
         Assert.assertEquals(listsJA.getJSONObject(0).get("name"), "Class 4th Subject Group");
         Assert.assertEquals(listsJA.getJSONObject(0).get("assignments"), "1");
 
-/*
-        JSONObject reqBody = new JSONObject();
 
-        reqBody.put("id", 798);
-
-        response1 = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .header("Accept", "application/json")
-                .headers("Authorization", "Bearer " + HooksAPI.token)
-                .when()
-                .body(reqBody.toString())
-                .post(fullPath);
-
-        response1.prettyPrint();
-        response1.then().assertThat().body("lists.id",equalTo("798"))
-                                    .body("lists.class_id",equalTo("1"))
-                                    .body("lists.section_id",equalTo("1"))
-                                    .body("lists.session_id",equalTo("18"))
-                                    .body("lists.staff_id",equalTo("5"))
-                                    .body("lists.subject_group_subject_id",equalTo("21"))
-                                    .body("lists.subject_id",equalTo("1"))
-                                    .body("lists.homework_date",equalTo("2022-07-05"))
-                                    .body("lists.submit_date",equalTo("2022-07-08"))
-                                    .body("lists.marks",equalTo(null))
-                                    .body("lists.description",equalTo("<p>\\r\\n\\r\\nRead carefully\\r\\n\\r\\n<br></p>"))
-                                    .body("lists.create_date",equalTo("2022-07-01"))
-                                    .body("lists.evaluation_date",equalTo("0000-00-00"))
-                                    .body("lists.document",equalTo(""))
-                                    .body("lists.created_by",equalTo("95"))
-                                    .body("lists.evaluated_by",equalTo("95"))
-                                    .body("lists.created_at",equalTo("2023-08-16 05:35:57"))
-                                    .body("lists.class",equalTo("Class 1"))
-                                    .body("lists.section",equalTo("A"))
-                                    .body("lists.subject_name",equalTo("English"))
-                                    .body("lists.subject_groups_id",equalTo("4"))
-                                    .body("lists.name",equalTo("Class 1st Subject Group"))
-                                    .body("lists.assignments",equalTo("0"));
-
-*/
 
     }
 
@@ -660,13 +626,52 @@ public class APIStepDefinition {
 
     @Given("User sends a POST request for homeworkAdd")
     public void user_sends_a_post_request_for_homework_add() {
+
         ApiUtils.gultenPostUS45();
     }
-    // *********************** GUlten ***********************Baslangic//
+
+
+
+    @Given("Response body content test for dailyAssignmentList")
+    public void response_body_content_test_for_daily_assignment_list() {
+        ApiUtils.getGultenUS60();
+
+
+        response.then().assertThat()
+                .body("lists", Matchers.anything("id"))
+                .body("lists", Matchers.anything("student_session_id"))
+                .body("lists",Matchers. anything("subject_group_subject_id"))
+                .body("lists", Matchers.anything("title"))
+                .body("lists", Matchers.anything("description"))
+                .body("lists",Matchers.anything("attachment"))
+                .body("lists",Matchers.anything("evaluated_by"))
+                .body("lists",Matchers.anything("date"))
+                .body("lists",Matchers.anything("evaluation_date"))
+                .body("lists",Matchers.anything("remark"))
+                .body("lists",Matchers.anything("created_at"))
+                .body("lists",Matchers.anything("subject_name"))
+                .body("lists",Matchers.anything("subject_code"));
+    }
+
+
+
+    @Given("User sends a POST request for homeworkbyId")
+    public void user_sends_a_post_request_for_homeworkby_id(int Yorkville) {
+        ApiUtils.gultenPostIDUS045(Yorkville);
+
+
+    }
+
+    @Given("Validate ID {int} in request body and response body")
+    public void validate_id_in_request_body_and_response_body(int Yorkville) {
+        ApiUtils.gultenPostIDUS045(Yorkville);
+        Assert.assertEquals(respHP.get("id"), Yorkville);
+    }
+    // *********************** GUlten ***********************Sonu//
 
 
     @Then("Execute verification for given informations")
-    public void executeVerificationForGivenInformations() {
+    public void  executeVerificationForGivenInformations() {
 
         JsonPath resJP = response.jsonPath();
         ArrayList listsArr = resJP.getJsonObject("lists");
@@ -835,6 +840,7 @@ public class APIStepDefinition {
     public void userSendsAPOSTRequestToCheckTheLatestCreatedVisitor() {
 
         ApiUtils.postVisitorIDUS0037();
+
     }
 
     @Then("User sends a POST request to homeworkById page")
@@ -997,9 +1003,34 @@ public class APIStepDefinition {
         public void userSendAPostRequestAlumniId () {
             ApiUtils.postRequestAlumniId();
 
-
         }
+
+    @Then("User sends a POST request to create a book record")
+    public void userSendsAPOSTRequestToCreateABookRecord() {
+        ApiUtils.postRequestUS021();
     }
+
+    @Then("User sends a DELETE request for a Book Issue and compare the ids in request and response body")
+    public void userSendsADELETERequestForABookIssueAndCompareTheIdsInRequestAndResponseBody() {
+        ApiUtils.deleteVisitorUS0037();
+        Assert.assertEquals(ApiUtils.addId, respHP.get("DeletedId"));
+    }
+
+    @Then("User sends a POST request to create a homework record")
+    public void userSendsAPOSTRequestToCreateAHomeworkRecord() {
+        ApiUtils.postRequestUS047();
+    }
+
+    @Then("User sends a POST request for daily assignment add")
+    public void userSendsAPOSTRequestForDailyAssignmentAdd() {
+        ApiUtils.postrequestUS062();
+    }
+
+    @Then("User sends a POST request for daily assignment id")
+    public void userSendsAPOSTRequestForDailyAssignmentId() {
+        ApiUtils.postVisitorIDUS0037();
+    }
+}
 
 
 
