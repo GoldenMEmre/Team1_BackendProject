@@ -1003,7 +1003,6 @@ public class APIStepDefinition {
         public void userSendAPostRequestAlumniId () {
             ApiUtils.postRequestAlumniId();
 
-
         }
 
     @Then("User sends a POST request to create a book record")
