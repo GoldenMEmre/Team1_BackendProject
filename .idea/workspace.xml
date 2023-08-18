@@ -4,6 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
+    <list default="true" id="59460f7e-d321-43f1-896d-92802844233f" name="Changes" comment=""/>
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     <list default="true" id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" afterDir="false" />
@@ -11,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US01].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US01].feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US02].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US02].feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US03].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US03].feature" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +28,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+
+  <component name="ProjectId" id="2U7mT9BkzxIZxiYMi40x8ffLCxh" />
+
   <component name="ProjectId" id="2U61WVXyLpJMtmS76dfSPkUrH09" />
+
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -463,7 +472,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+
+      <changelist id="59460f7e-d321-43f1-896d-92802844233f" name="Changes" comment="" />
+
       <changelist id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="" />
+
       <created>1691946236374</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -476,7 +489,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
