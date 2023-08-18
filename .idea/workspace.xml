@@ -5,42 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59460f7e-d321-43f1-896d-92802844233f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/emreTestData/TestData_US057.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/API/{API_US063].feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US10.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US11.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US12.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US19.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US20.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US21.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US_13.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US_14.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US_15.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US04].feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US05].feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US06].feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/emreTestData/TestData_US001.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/emreTestData/TestData_US001.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/ApiUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/ApiUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/DB_Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/DB_Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/Manage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US001].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US002].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US002].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US003].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US003].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US026].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US026].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US027].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US027].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US028].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US028].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US033].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US033].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US043].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US043].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US048].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US048].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US049].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US049].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US057].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US057].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US061].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US061].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US065].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US065].feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +15,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2U7mT9BkzxIZxiYMi40x8ffLCxh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -499,11 +468,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a6d77fcd-593f-4b36-a150-6cbc67ec04db" name="Changes" comment="" />
-      <changelist id="59426e10-be02-47c1-abdb-129a25c6ca0d" name="Changes" comment="" />
-      <changelist id="81b6554b-3ac0-4733-801a-2227054c4cdc" name="Changes" comment="" />
-      <changelist id="e606194d-c471-4fdc-92e2-dd4e6f0639f9" name="Changes" comment="" />
-      <changelist id="2e7e99c7-141b-41b8-a75c-ad77e3be282a" name="Changes" comment="" />
+      <changelist id="59460f7e-d321-43f1-896d-92802844233f" name="Changes" comment="" />
       <created>1691946236374</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -516,7 +481,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
