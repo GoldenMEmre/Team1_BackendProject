@@ -1,5 +1,5 @@
 Feature: [DB_US02] List the IDs of contents from the class_sections table where the class_id and section_id values are equal.
-
+  @db
   Scenario: [TC_001] List the IDs of contents from the class_sections table where the class_id and section_id values are equal.
 
     * Dataabase connection established.

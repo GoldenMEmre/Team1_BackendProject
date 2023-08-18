@@ -338,24 +338,6 @@ public class ApiUtils {
 
         JSONObject reqBody = new JSONObject();
 
-             /*
-             {
-        "id": 3,
-        "student_id": "29",
-        "current_email": "cuntahsin.com",
-        "current_phone": "123456",
-        "occupation": "police"
-
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> main
-}
-              */
-
         reqBody.put("id", 3);
         reqBody.put("current_email", "cuntahsin.com");
         reqBody.put("current_phone", "123456");
@@ -379,18 +361,6 @@ public class ApiUtils {
 
     public static void responseUS_026() {
 
-
-
-             /*
-             {
-        "id": 3,
-        "student_id": "29",
-        "current_email": "cuntahsin.com",
-        "current_phone": "123456",
-        "occupation": "police"
-
-}
-              */
         JSONObject reqBody = new JSONObject();
         reqBody.put("id", 3);
         JSONObject responseBody = new JSONObject();

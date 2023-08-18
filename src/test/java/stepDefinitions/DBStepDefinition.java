@@ -292,7 +292,11 @@ public class DBStepDefinition {
     @Given("Query19  is prepared")
     public void query19_is_prepared() {
 
+
         query19 = "SELECT email FROM u168183796_qawonder.students ORDER BY LENGTH(email) DESC LIMIT 5;";
+
+        query19 = "SELECT email FROM wonderworld_qa2.students ORDER BY LENGTH(email) DESC LIMIT 5;";
+
 
     }
 
@@ -314,7 +318,11 @@ public class DBStepDefinition {
     @Given("Query20  is prepared")
     public void query20_is_prepared() {
 
+
         query20 = "SELECT name FROM u168183796_qawonder.expenses ORDER BY amount DESC LIMIT 1;";
+
+        query20 = "SELECT name FROM wonderworld2_qa.expenses ORDER BY amount DESC LIMIT 1;";
+
 
     }
 
@@ -338,7 +346,11 @@ public class DBStepDefinition {
     @Given("Query21  is prepared")
     public void query21_is_prepared() {
 
+
         query21 = "INSERT INTO u168183796_qawonder.general_calls VALUES (150,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
+
+        query21 = "INSERT INTO wonderworld_qa2.general_calls VALUES (151,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
+
 
     }
 

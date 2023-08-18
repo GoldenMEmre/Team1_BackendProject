@@ -1,4 +1,4 @@
-@mg
+
 Feature:[API_US043] As an administrator (teacher), I want to access the Homework List through API connection.ction.
 
   Scenario:[TC_001] GET Request Success Response for the Visitor Purpose List
