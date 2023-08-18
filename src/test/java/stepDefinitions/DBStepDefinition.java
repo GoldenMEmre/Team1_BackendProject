@@ -103,7 +103,7 @@ public class DBStepDefinition {
 
     @Given("Query16  is being prepared")
     public void query16_is_being_prepared() {
-        query16 = "SELECT * FROM wonderworld_qa2.online_admissions ORDER BY admission_date DESC LIMIT 10;";
+        query16 = "SELECT * FROM u168183796_qawonder.online_admissions ORDER BY admission_date DESC LIMIT 10;";
     }
 
     @Given("The query is sent to online_admissions table and results are validated")
@@ -123,7 +123,7 @@ public class DBStepDefinition {
 
     @Given("Query17  is being prepared")
     public void query17_is_being_prepared() {
-        query17 = "SELECT AVG(passing_percentage) FROM wonderworld_qa2.onlineexam;";
+        query17 = "SELECT AVG(passing_percentage) FROM u168183796_qawonder.onlineexam;";
     }
 
     @Given("The query is sent to onlineexam and results are valıidated")
@@ -141,7 +141,7 @@ public class DBStepDefinition {
 
     @Given("Query18 is being prepared")
     public void query18_is_being_prepared() {
-        query18 = "SELECT COUNT(DISTINCT student_session_id) FROM wonderworld_qa2.onlineexam_students;";
+        query18 = "SELECT COUNT(DISTINCT student_session_id) FROM u168183796_qawonder.onlineexam_students;";
     }
 
     @Given("The query is sent to onlineexam_students and results are validated.")
@@ -160,7 +160,7 @@ public class DBStepDefinition {
     //***************************************************************************************************************
     @Given("Query01 is being prepared")
     public void query01_is_being_prepared() {
-        query01 = "SELECT COUNT(*) AS user_count FROM wonderworld_qa2.chat_users WHERE create_staff_id = 1;";
+        query01 = "SELECT COUNT(*) AS user_count FROM u168183796_qawonder.chat_users WHERE create_staff_id = 1;";
     }
 
 
@@ -179,7 +179,7 @@ public class DBStepDefinition {
     @Given("Query02 is being prepared")
     public void query02_is_being_prepared() {
 
-        query02 = "SELECT id FROM wonderworld_qa2.class_sections WHERE class_id = section_id;";
+        query02 = "SELECT id FROM u168183796_qawonder.class_sections WHERE class_id = section_id;";
     }
 
     @Given("The query is sent to class_sections table and results are validated")
@@ -195,7 +195,7 @@ public class DBStepDefinition {
     @Given("Query03 is being prepared")
     public void query03_is_being_prepared() {
 
-        query03 = "SELECT email FROM wonderworld_qa2.students WHERE firstname = 'Brian' AND lastname = 'Kohlar';";
+        query03 = "SELECT email FROM u168183796_qawonder.students WHERE firstname = 'Brian' AND lastname = 'Kohlar';";
     }
 
     @Given("The query is sent to students table and results are validated")
@@ -214,7 +214,7 @@ public class DBStepDefinition {
 
     @Given("Query07  is being prepared")
     public void query07_is_being_prepared() {
-        query7 = "SELECT * FROM wonderworld_qa3.users WHERE role = 'parent' ORDER BY user_id ASC";
+        query7 = "SELECT * FROM u168183796_qawonder.users WHERE role = 'parent' ORDER BY user_id ASC";
 
 
     }
@@ -227,14 +227,14 @@ public class DBStepDefinition {
 
     @Given("Query08  is being prepared")
     public void query08_is_being_prepared() {
-        query8 = "UPDATE wonderworld_qa2.topic SET name ='Gulten' WHERE id = 25;";
+        query8 = "UPDATE u168183796_qawonder.topic SET name ='Gulten' WHERE id = 25;";
 
 
     }
 
     @Given("Query09  is being prepared")
     public void query09_is_being_prepared() {
-        query9 = "INSERT INTO wonderworld_qa2.transport_route VALUES (800,'Ankara','5','successed test','yes','2023-08-15','2023-08-17');";
+        query9 = "INSERT INTO u168183796_qawonder.transport_route VALUES (800,'Ankara','5','successed test','yes','2023-08-15','2023-08-17');";
 
     }
 
@@ -247,7 +247,7 @@ public class DBStepDefinition {
     //**************************** Ogün *****************************
     @Given("Query04  is being prepared")
     public void query04_is_being_prepared() {
-        query04 = "SELECT firstname AND lastname FROM wonderworld_qa3.students WHERE admission_no BETWEEN 18001 AND 18010;";
+        query04 = "SELECT firstname AND lastname FROM u168183796_qawonder.students WHERE admission_no BETWEEN 18001 AND 18010;";
     }
 
 
@@ -256,7 +256,7 @@ public class DBStepDefinition {
 
     @Given("Query10  is being prepared")
     public void query10_is_being_prepared() {
-        query10 = "DELETE FROM wonderworld_qa2.visitors_book WHERE id=115;";
+        query10 = "DELETE FROM u168183796_qawonder.visitors_book WHERE id=115;";
     }
 
     @Given("The query is sent to visitor books table and results are validated")
@@ -268,7 +268,7 @@ public class DBStepDefinition {
 
     @Given("Query11  is being prepared")
     public void query11_is_being_prepared() {
-        query11 = "UPDATE wonderworld_qa2.transport_feemaster SET fine_amount = '200.00' WHERE month = 'October';";
+        query11 = "UPDATE u168183796_qawonder.transport_feemaster SET fine_amount = '200.00' WHERE month = 'October';";
 
     }
 
@@ -279,7 +279,7 @@ public class DBStepDefinition {
 
     @Given("Query12  is being prepared")
     public void query12_is_being_prepared() {
-        query12 = "SELECT * FROM wonderworld_qa2.staff ORDER BY work_exp ASC LIMIT 5;";
+        query12 = "SELECT * FROM u168183796_qawonder.staff ORDER BY work_exp ASC LIMIT 5;";
 
 
     }
@@ -292,7 +292,11 @@ public class DBStepDefinition {
     @Given("Query19  is prepared")
     public void query19_is_prepared() {
 
+
+        query19 = "SELECT email FROM u168183796_qawonder.students ORDER BY LENGTH(email) DESC LIMIT 5;";
+
         query19 = "SELECT email FROM wonderworld_qa2.students ORDER BY LENGTH(email) DESC LIMIT 5;";
+
 
     }
 
@@ -314,7 +318,11 @@ public class DBStepDefinition {
     @Given("Query20  is prepared")
     public void query20_is_prepared() {
 
+
+        query20 = "SELECT name FROM u168183796_qawonder.expenses ORDER BY amount DESC LIMIT 1;";
+
         query20 = "SELECT name FROM wonderworld2_qa.expenses ORDER BY amount DESC LIMIT 1;";
+
 
     }
 
@@ -338,7 +346,11 @@ public class DBStepDefinition {
     @Given("Query21  is prepared")
     public void query21_is_prepared() {
 
+
+        query21 = "INSERT INTO u168183796_qawonder.general_calls VALUES (150,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
+
         query21 = "INSERT INTO wonderworld_qa2.general_calls VALUES (151,'team1sumeyra','21234512','2023-08-16','successed test','2023-08-15','50','olsun artik','the coming','2023-08-15');";
+
 
     }
 
@@ -363,7 +375,7 @@ public class DBStepDefinition {
     @Given("Query05  is being prepared")
     public void query05_is_being_prepared() {
         query05 = "SELECT mother_name, mother_occupation\n" +
-                "FROM wonderworld_qa3.students\n" +
+                "FROM u168183796_qawonder.students\n" +
                 "WHERE lastname LIKE 'T%'";
     }
 
@@ -375,7 +387,7 @@ public class DBStepDefinition {
     @Given("Query06  is being prepared")
     public void query06_is_being_prepared() {
         query06 = "SELECT roll_no\n" +
-                "FROM wonderworld_qa3.students\n" +
+                "FROM u168183796_qawonder.students\n" +
                 "WHERE father_occupation IN ('Doctor', 'Police')\n" +
                 "ORDER BY roll_no DESC;";
     }

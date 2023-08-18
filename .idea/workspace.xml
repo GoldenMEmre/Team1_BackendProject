@@ -5,6 +5,13 @@
   </component>
   <component name="ChangeListManager">
 
+    <list default="true" id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment=""/>
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/DBStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilities/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilities/Manage.java" afterDir="false" />
+
+
     <list default="true" id="233bd455-b33c-48e5-b094-c9ea7efacbbe" name="Changes" comment=""/>
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -34,6 +41,7 @@
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US01].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US01].feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US02].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US02].feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US03].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US03].feature" afterDir="false" />
+
 
 
 
@@ -85,6 +93,9 @@
     </key>
   </component>
 
+  <component name="RunManager" selected="JUnit.DBRunner"/>
+
+
   <component name="RunManager" selected="JUnit.RunnerAPI (1)"/>
     <configuration name="Scenario: TC_001 A new call context should be added to the general_calls table" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true"/>
 
@@ -108,6 +119,7 @@
       </extension>
 
   <component name="RunManager" selected="JUnit.RunnerAPI (1)">
+
     <configuration name="Feature: DB_US_15" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
 
       <method v="2">
@@ -616,6 +628,13 @@
     <recent_temporary>
       <list>
 
+        <item itemvalue="JUnit.DBRunner" />
+        <item itemvalue="JUnit.RunnerAPI" />
+        <item itemvalue="Cucumber Java.Scenario: [TC003] The API should be verified to ensure that the new daily assignment record is created." />
+        <item itemvalue="Cucumber Java.Scenario: [TC002] When invalid authorization information or missing data (subject_group_subject_id," />
+        <item itemvalue="Cucumber Java.Scenario: [TC001] When valid authorization information and correct data (subject_group_subject_id," />
+
+
         <item itemvalue="JUnit.RunnerAPI (1)" />
         <item itemvalue="Cucumber Java.Scenario: TC_002 GET request failed response with invalid information for visitor list" />
         <item itemvalue="Cucumber Java.Scenario: TC_001 A new call context should be added to the general_calls table" />
@@ -636,12 +655,16 @@
         <item itemvalue="JUnit.RunnerAPI" />
 
 
+
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+
+      <changelist id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="" />
+
 
       <changelist id="e606194d-c471-4fdc-92e2-dd4e6f0639f9" name="Changes" comment="" />
       <changelist id="2e7e99c7-141b-41b8-a75c-ad77e3be282a" name="Changes" comment="" />
@@ -650,6 +673,7 @@
       <changelist id="59460f7e-d321-43f1-896d-92802844233f" name="Changes" comment="" />
 
       <changelist id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="" />
+
 
 
       <created>1691946236374</created>
