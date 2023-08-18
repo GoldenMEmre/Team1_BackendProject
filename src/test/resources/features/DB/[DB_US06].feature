@@ -1,6 +1,6 @@
 Feature: List the roll_no values of students in the students table whose father_occupation is either
   Doctor or Police, ordered from highest to lowest.
-
+@db
   Scenario: List the roll_no values of students in the students table whose father_occupation is either
   Doctor or Police, ordered from highest to lowest.
     * Dataabase connection established.

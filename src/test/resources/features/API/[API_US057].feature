@@ -1,4 +1,4 @@
-
+@mg
 Feature:[API_US057] As a user (student), I want to access my Student Information Details through API connection.
 
   Scenario:[TC_001] GET Request Success Response for the getStudent Class
