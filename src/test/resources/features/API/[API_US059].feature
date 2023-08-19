@@ -11,7 +11,7 @@ Feature: As a user (student), I want to access my Student Class information thro
       Given "OGUN" Page User sets "apistudent/getStudentClass" parameters
       Then User sends a get request
       Then Execute a verification for an invalid authorization
-  @og
+  @api
       Scenario: [TC003] The response body should contain required fields
         Given "STUDENT" Page User sets "apistudent/getStudentClass" parameters
         Then User sends a get request

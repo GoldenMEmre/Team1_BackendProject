@@ -1,4 +1,5 @@
 Feature: List the last 10 records from the online_admission table.
+  @db
   Scenario: List the last 10 records from the online_admissions table.
 
     * Dataabase connection established.

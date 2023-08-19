@@ -14,7 +14,7 @@
       * Execute a verification for an invalid authorization
 
 
-
+    @api
     Scenario: TC_003 It is verified that a new visitor has been added
 
       * "ADMIN" Page User sets "api/visitorsAdd" parameters

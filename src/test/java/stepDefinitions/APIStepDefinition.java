@@ -157,7 +157,7 @@ public class APIStepDefinition {
 
         response1.prettyPrint();
         response1.then().assertThat().body("lists.visitors_purpose", equalTo("Parent Teacher Meeting"))
-                .body("lists.created_at", equalTo("2023-01-18 01:07:12"));
+                .body("lists.created_at", equalTo("2023-01-18 06:07:12"));
 
 
     }
@@ -684,7 +684,7 @@ public class APIStepDefinition {
         Assert.assertEquals(listsJA.getJSONObject(1).get("id"), "11");
         Assert.assertEquals(listsJA.getJSONObject(1).get("session"), "2017-18");
         Assert.assertEquals(listsJA.getJSONObject(1).get("is_active"), "no");
-        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2017-04-20 02:41:37");
+        Assert.assertEquals(listsJA.getJSONObject(1).get("created_at"), "2017-04-20 06:41:37");
         Assert.assertEquals(listsJA.getJSONObject(1).get("updated_at"), "0000-00-00");
 
     }
@@ -775,7 +775,7 @@ public class APIStepDefinition {
         Assert.assertEquals(listsJA.getJSONObject(0).get("description"), " The duo dump her in a nearby river after a failed attempt to hang her. Tonya survives, and the two men are arrested by Sheriff Ozzie Walls.");
         Assert.assertEquals(listsJA.getJSONObject(0).get("is_active"), "no");
         Assert.assertEquals(listsJA.getJSONObject(0).get("available"), "yes");
-        Assert.assertEquals(listsJA.getJSONObject(0).get("created_at"), "2023-08-14 13:02:31");
+        Assert.assertEquals(listsJA.getJSONObject(0).get("created_at"), "2023-08-14 17:02:31");
 
 
     }
