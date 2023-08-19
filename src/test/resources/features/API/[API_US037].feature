@@ -1,5 +1,5 @@
 Feature: As an administrator, I want to be able to delete a Visitors' record from the system through API connection.
-@api
+@oerd
   Scenario: [TC001]api/visitorsDelete endpoint'ine gecerli authorization bilgileri ve dogru data (id)
   iceren bir DELETE body gönderildiginde dönen status code'in 200 oldugu ve response body'deki message
   bilgisinin "Success" oldugu dogrulanmali

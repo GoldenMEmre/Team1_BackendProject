@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c56ec7bd-5b62-48e0-9cb4-a395ff275e43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/RunnerAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/APIStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US006].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US006].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US028].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US028].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US035].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US035].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US059].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US059].feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US16.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US16.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US17.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/DB_US17.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US07].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/DB/[DB_US07].feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/[API_US037].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/[API_US037].feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/API/{API_US063].feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/API/{API_US063].feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +42,12 @@
       <recent name="C:\Users\hasba\IdeaProjects\Team1_BackendProject\src\test\resources\features\API" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DBRunner">
-    <configuration name="Feature: [DB_US03]" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true" />
+  <component name="RunManager" selected="JUnit.RunnerAPI (1)">
+    <configuration name="Feature: [DB_US03]" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Scenario: List the books from the books table where the quantity (qty) value is between 100 and 500." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/DB/DB_US_15.feature" />
@@ -143,11 +139,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: " type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Scenario: [TC_001] Verify that the email of the student in the students table with firstname Brian and lastname Kohlar is brain@gmail.com." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,6 +150,11 @@
       </method>
     </configuration>
     <configuration name="Scenario: [TC_001] When a valid authorization information is used and a GET request is sent to the api/bookIssueList endpoint," type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: " type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -225,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RunnerAPI (1)" />
         <item itemvalue="JUnit.DBRunner" />
         <item itemvalue="Cucumber Java.Scenario: List the books from the books table where the quantity (qty) value is between 100 and 500." />
         <item itemvalue="Cucumber Java.Scenario: TC_001 List the 5 longest (text) data in the email column of the students table" />
         <item itemvalue="Cucumber Java.Scenario: List the number of students in the onlineexam_students table based on unique student_session_id values" />
-        <item itemvalue="Cucumber Java.Scenario: TC_001 Prints the name of the highest expense in the expenses table" />
       </list>
     </recent_temporary>
   </component>
