@@ -1,4 +1,4 @@
-Feature: As an administrator, I want to access the Session List through API connection.
+Feature: [API_US006]As an administrator, I want to access the Session List through API connection.
 @api
   Scenario: [TC001] When a valid authorization information is sent with a GET request to the api/sessionList endpoint,
   the expected status code is 200, and the message in the response body should be "Success."

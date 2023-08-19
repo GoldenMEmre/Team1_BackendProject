@@ -1,4 +1,5 @@
 Feature: Calculate and List the average passing_percentage values from the onlineexam table.
+  @db
   Scenario: Calculate and list the average passing_percentage values from the onlineexam table.
 
     * Dataabase connection established.

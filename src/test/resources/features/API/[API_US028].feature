@@ -1,5 +1,6 @@
 Feature: As an administrator, I want to access the Books List through API connection.
 
+  @api
   Scenario: TC_001 PATCH request success response with valid information for alumniUpdate
 
     Given "ADMIN" Page User sets "api/booksList" parameters
@@ -15,7 +16,7 @@ Feature: As an administrator, I want to access the Books List through API connec
     Then Execute a verification for an invalid authorization
 
 
-
+  @api
   Scenario:Response body (id "1", book_title: "Multiplication and Division Grades 3-4",
   book_no: "78878", isbn_no: "", subject: "", rack_no: "110", publish: "Barbara Bando", author: "Barbara Bando",
   qty: "100", perunitcost: "12.00", postdate: "2022-05-04",
